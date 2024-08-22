@@ -105,7 +105,7 @@
     	</div>
     </section>
 
-		<section class="ftco-section bg-light">
+<section class="ftco-section bg-light">
   <div class="container">
     <div class="row justify-content-center mb-5 pb-2">
       <div class="col-md-12 text-center heading-section ftco-animate">
@@ -116,10 +116,10 @@
     <div class="row">
       <c:forEach var="facility" items="${facilityList}">
         <div class="col-md-4 d-flex align-self-stretch ftco-animate text-center">
-          <div class="media block-6 services d-block">
+          <div class="media block-6 services d-block" style="transition: transform 0.3s ease;">
             <div class="icon d-flex justify-content-center align-items-center">
               <!-- Increase the image size to 150px by 150px -->
-              <img src="${pageContext.request.contextPath}/${facility.facilityImagePath}" alt="${facility.name}" class="img-fluid facility-image">
+              <img src="${pageContext.request.contextPath}/${facility.facilityImagePath}" alt="${facility.name}" style="width: 150px; height: 150px; object-fit: cover;">
             </div>
             <div class="media-body p-2 mt-3">
               <h3 class="heading">${facility.name}</h3>
