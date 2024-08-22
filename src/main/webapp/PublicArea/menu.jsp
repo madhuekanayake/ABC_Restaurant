@@ -24,152 +24,35 @@
         </div>
       </div>
     </section>
-
-
-		<section class="ftco-section">
-    	<div class="container">
-        <div class="ftco-search">
-					<div class="row">
-            <div class="col-md-12 nav-link-wrap">
-	            <div class="nav nav-pills d-flex text-center" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-	              <a class="nav-link ftco-animate active" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1" role="tab" aria-controls="v-pills-1" aria-selected="true">Breakfast</a>
-
-
-
-	            </div>
-	          </div>
-	          <div class="col-md-12 tab-wrap">
-	            
-	            <div class="tab-content" id="v-pills-tabContent">
-
-	              <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel" aria-labelledby="day-1-tab">
-	              	<div class="row no-gutters d-flex align-items-stretch">
-					        	<div class="col-md-12 col-lg-6 d-flex align-self-stretch">
-					        		<div class="menus d-sm-flex ftco-animate align-items-stretch">
-					              <div class="menu-img img" style="background-image: url(images/breakfast-1.jpg);"></div>
-					              <div class="text d-flex align-items-center">
-													<div>
-						              	<div class="d-flex">
-							                <div class="one-half">
-							                  <h3>Grilled Beef with potatoes</h3>
-							                </div>
-							                <div class="one-forth">
-							                  <span class="price">$29</span>
-							                </div>
-							              </div>
-							              <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
-							              <p><a href="#" class="btn btn-primary">Order now</a></p>
-						              </div>
-					              </div>
-					            </div>
-					        	</div>
-					        	<div class="col-md-12 col-lg-6 d-flex align-self-stretch">
-					        		<div class="menus d-sm-flex ftco-animate align-items-stretch">
-					              <div class="menu-img img" style="background-image: url(images/breakfast-2.jpg);"></div>
-					              <div class="text d-flex align-items-center">
-													<div>
-						              	<div class="d-flex">
-							                <div class="one-half">
-							                  <h3>Grilled Beef with potatoes</h3>
-							                </div>
-							                <div class="one-forth">
-							                  <span class="price">$29</span>
-							                </div>
-							              </div>
-							              <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
-							              <p><a href="#" class="btn btn-primary">Order now</a></p>
-						              </div>
-					              </div>
-					            </div>
-					        	</div>
-
-					        	<div class="col-md-12 col-lg-6 d-flex align-self-stretch">
-					        		<div class="menus d-sm-flex ftco-animate align-items-stretch">
-					              <div class="menu-img img order-md-last" style="background-image: url(images/breakfast-3.jpg);"></div>
-					              <div class="text d-flex align-items-center">
-													<div>
-						              	<div class="d-flex">
-							                <div class="one-half">
-							                  <h3>Grilled Beef with potatoes</h3>
-							                </div>
-							                <div class="one-forth">
-							                  <span class="price">$29</span>
-							                </div>
-							              </div>
-							              <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
-							              <p><a href="#" class="btn btn-primary">Order now</a></p>
-						              </div>
-					              </div>
-					            </div>
-					        	</div>
-					        	<div class="col-md-12 col-lg-6 d-flex align-self-stretch">
-					        		<div class="menus d-sm-flex ftco-animate align-items-stretch">
-					              <div class="menu-img img order-md-last" style="background-image: url(images/breakfast-4.jpg);"></div>
-					              <div class="text d-flex align-items-center">
-													<div>
-						              	<div class="d-flex">
-							                <div class="one-half">
-							                  <h3>Grilled Beef with potatoes</h3>
-							                </div>
-							                <div class="one-forth">
-							                  <span class="price">$29</span>
-							                </div>
-							              </div>
-							              <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
-							              <p><a href="#" class="btn btn-primary">Order now</a></p>
-						              </div>
-					              </div>
-					            </div>
-					        	</div>
-
-					        	<div class="col-md-12 col-lg-6 d-flex align-self-stretch">
-					        		<div class="menus d-sm-flex ftco-animate align-items-stretch">
-					              <div class="menu-img img" style="background-image: url(images/breakfast-5.jpg);"></div>
-					              <div class="text d-flex align-items-center">
-													<div>
-						              	<div class="d-flex">
-							                <div class="one-half">
-							                  <h3>Grilled Beef with potatoes</h3>
-							                </div>
-							                <div class="one-forth">
-							                  <span class="price">$29</span>
-							                </div>
-							              </div>
-							              <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
-							              <p><a href="#" class="btn btn-primary">Order now</a></p>
-						              </div>
-					              </div>
-					            </div>
-					        	</div>
-					        	<div class="col-md-12 col-lg-6 d-flex align-self-stretch">
-					        		<div class="menus d-sm-flex ftco-animate align-items-stretch">
-					              <div class="menu-img img" style="background-image: url(images/breakfast-6.jpg);"></div>
-					              <div class="text d-flex align-items-center">
-													<div>
-						              	<div class="d-flex">
-							                <div class="one-half">
-							                  <h3>Grilled Beef with potatoes</h3>
-							                </div>
-							                <div class="one-forth">
-							                  <span class="price">$29</span>
-							                </div>
-							              </div>
-							              <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
-							              <p><a href="#" class="btn btn-primary">Order now</a></p>
-						              </div>
-					              </div>
-					            </div>
-					        	</div>
-
-
-					        </div>
-	              </div>
-	            </div>
-	          </div>
-	        </div>
+<section class="ftco-section">
+    <div class="container">
+        <div class="container">
+            <div class="row justify-content-center mb-5 pb-2">
+                <div class="col-md-12 text-center heading-section ftco-animate">
+                    <span class="subheading">Products</span>
+                    <h2 class="mb-4">Our Featured Products</h2>
+                </div>
+            </div>
+            <div class="row">
+                <c:forEach var="product" items="${productList}">
+                    <div class="col-md-6 col-lg-3 ftco-animate">
+                        <div class="staff text-center" style="margin-bottom: 40px;"> <!-- Added margin-bottom -->
+                            <img src="${pageContext.request.contextPath}/${product.productImagePath}" alt="${product.name}" class="img-fluid" style="width: 200px; height: 200px;"> <!-- Increased image size -->
+                            <div class="text pt-4">
+                                <h3>${product.name}</h3>
+                                <span class="position mb-2">Category: ${product.category}</span>
+                                <p class="price">${product.price}</p>
+                                <button class="btn btn-primary mt-3">Add to Cart</button> <!-- Add to Cart button -->
+                            </div>
+                        </div>
+                    </div>
+                </c:forEach>
+            </div>
         </div>
-    	</div>
-    </section>
+    </div>
+</section>
+
+
 		
 <jsp:include page="./footer.jsp" />
   

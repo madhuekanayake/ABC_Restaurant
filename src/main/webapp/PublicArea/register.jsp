@@ -1,3 +1,5 @@
+ <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
   <jsp:include page="./navBar.jsp" />
     <!-- END nav -->
     
@@ -17,24 +19,20 @@
     <div class="row d-flex align-items-stretch no-gutters">
     <div class="col-md-6 pt-5 px-2 pb-2 p-md-5 order-md-last" style="margin-top: 40px;">
   <h2 class="h4 mb-2 mb-md-5 font-weight-bold">Register</h2>
-  <form action="register-process.jsp" method="post">
+<form action="${pageContext.request.contextPath}/register" method="post">
     <div class="form-group">
-      <input type="text" class="form-control" name="username" placeholder="Your Name" required>
-    </div>
-    <div class="form-group">
-      <input type="email" class="form-control" name="email" placeholder="Your Email" required>
+        <input type="text" class="form-control" name="username" placeholder="Your Name" required>
     </div>
     <div class="form-group">
-      <input type="password" class="form-control" name="password" placeholder="Password" required>
+        <input type="email" class="form-control" name="email" placeholder="Your Email" required>
     </div>
     <div class="form-group">
-      <input type="submit" value="Register" class="btn btn-primary py-3 px-5">
+        <input type="password" class="form-control" name="password" placeholder="Password" required>
     </div>
-    <!-- Already have an account Link -->
-    <div class="form-group text-center mt-3">
-      <p>Already have an account? <a href="login.jsp" class="btn btn-link">Login</a></p>
+    <div class="form-group">
+        <input type="submit" value="Register" class="btn btn-primary py-3 px-5">
     </div>
-  </form>
+</form>
 </div>
     
       <div class="col-md-6 d-flex align-items-stretch pb-5 pb-md-0" style="margin-top: 40px;">

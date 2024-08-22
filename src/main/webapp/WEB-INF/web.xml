@@ -82,6 +82,18 @@
   	<description></description>
   	<servlet-class>com.res.controller.CustomerGalleryServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>RegisterServlet</servlet-name>
+  	<display-name>RegisterServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.res.controller.RegisterServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>LoginServlet</servlet-name>
+  	<display-name>LoginServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.res.controller.LoginServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>AdminLoginServlet</servlet-name>
   	<url-pattern>/AdminLoginServlet</url-pattern>
@@ -133,5 +145,13 @@
   <servlet-mapping>
   	<servlet-name>CustomerGalleryServlet</servlet-name>
   	<url-pattern>/CustomerGalleryServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>RegisterServlet</servlet-name>
+  	<url-pattern>/RegisterServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>LoginServlet</servlet-name>
+  	<url-pattern>/LoginServlet</url-pattern>
   </servlet-mapping>
 </web-app>

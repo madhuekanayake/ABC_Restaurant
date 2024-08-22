@@ -1,3 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.res.model.Customer" %>
+<%@ page import="com.res.dao.CustomerDAO" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -49,23 +54,32 @@
 		    </div>
 		  </div>
     </div>
-	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-	    <div class="container">
-	      <a class="navbar-brand" href="index.html">Feliciano</a>
-	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="oi oi-menu"></span> Menu
-	      </button>
+	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+        <a class="navbar-brand" href="index.jsp">Feliciano</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="oi oi-menu"></span> Menu
+        </button>
 
-	      <div class="collapse navbar-collapse" id="ftco-nav">
-	        <ul class="navbar-nav ml-auto">
-	        	<li class="nav-item "><a href="index.jsp" class="nav-link">Home</a></li>
-	        	<li class="nav-item"><a href="about.jsp" class="nav-link">About</a></li>
-	        	<li class="nav-item"><a href="menu.jsp" class="nav-link">Menu</a></li>
-	        	<li class="nav-item"><a href="blog.jsp" class="nav-link">Stories</a></li>
-	            <li class="nav-item"><a href="contact.jsp" class="nav-link">Contact</a></li>
-	                <li class="nav-item"><a href="login.jsp" class="nav-link">Login</a></li>
-	          <li class="nav-item cta"><a href="reservation.jsp" class="nav-link">Book a table</a></li>
-	        </ul>
-	      </div>
-	    </div>
-	  </nav>
+        <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a href="index.jsp" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="about.jsp" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="menu.jsp" class="nav-link">Menu</a></li>
+                <li class="nav-item"><a href="blog.jsp" class="nav-link">Stories</a></li>
+                <li class="nav-item"><a href="contact.jsp" class="nav-link">Contact</a></li>
+                  <li class="nav-item"><a href="contact.jsp" class="nav-link">cart</a></li>
+                <% if (session.getAttribute("customer") == null) { %>
+                    <li class="nav-item"><a href="login.jsp" class="nav-link">Login</a></li>
+                    <li class="nav-item"><a href="register.jsp" class="nav-link">Register</a></li>
+                <% } else { %>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Welcome, <%= ((Customer)session.getAttribute("customer")).getUsername() %></a>
+                    </li>
+                <% } %>
+                <li class="nav-item cta"><a href="reservation.jsp" class="nav-link">Book a table</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+	

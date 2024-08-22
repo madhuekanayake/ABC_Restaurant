@@ -1,3 +1,5 @@
+  <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
   <jsp:include page="./navBar.jsp" />
     <!-- END nav -->
     
@@ -18,21 +20,17 @@
     <div class="row d-flex align-items-stretch no-gutters" >
       <div class="col-md-6 pt-5 px-2 pb-2 p-md-5 order-md-last"  style="margin-top: 40px;">
         <h2 class="h4 mb-2 mb-md-5 font-weight-bold">Contact Us</h2>
-        <form action="#">
-          <div class="form-group">
-            <input type="email" class="form-control" placeholder="Your Email" required>
-          </div>
-          <div class="form-group">
-            <input type="password" class="form-control" placeholder="Subject" required>
-          </div>
-          <div class="form-group">
-            <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
-          </div>
-          <!-- Create Account Link -->
-          <div class="form-group text-center mt-3">
-            <p>Don't have an account? <a href="register.jsp" class="btn btn-link">Create Account</a></p>
-          </div>
-        </form>
+       <form action="${pageContext.request.contextPath}/login" method="post">
+    <div class="form-group">
+        <input type="text" class="form-control" name="username" placeholder="Username" required>
+    </div>
+    <div class="form-group">
+        <input type="password" class="form-control" name="password" placeholder="Password" required>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Login" class="btn btn-primary py-3 px-5">
+    </div>
+</form>
       </div>
       <div class="col-md-6 d-flex align-items-stretch pb-5 pb-md-0" style="margin-top: 40px;">
         <img src="./images/about.jpg" alt="About Us" class="img-fluid w-100 h-100" style="object-fit: cover;">

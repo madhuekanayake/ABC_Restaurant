@@ -119,7 +119,7 @@
           <div class="media block-6 services d-block" style="transition: transform 0.3s ease;">
             <div class="icon d-flex justify-content-center align-items-center">
               <!-- Increase the image size to 150px by 150px -->
-              <img src="${pageContext.request.contextPath}/${facility.facilityImagePath}" alt="${facility.name}" style="width: 150px; height: 150px; object-fit: cover;">
+              <img src="${pageContext.request.contextPath}/${facility.facilityImagePath}" alt="${facility.name}" style="width: 300px; height: 200px; object-fit: cover;">
             </div>
             <div class="media-body p-2 mt-3">
               <h3 class="heading">${facility.name}</h3>
