@@ -8,8 +8,8 @@
       <div class="container">
         <div class="row no-gutters slider-text align-items-end justify-content-center">
           <div class="col-md-9 ftco-animate text-center mb-4">
-            <h1 class="mb-2 bread">Contact</h1>
-            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Contact us <i class="ion-ios-arrow-forward"></i></span></p>
+            <h1 class="mb-2 bread">Login</h1>
+            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Login <i class="ion-ios-arrow-forward"></i></span></p>
           </div>
         </div>
       </div>
@@ -19,7 +19,7 @@
   <div class="container">
     <div class="row d-flex align-items-stretch no-gutters" >
       <div class="col-md-6 pt-5 px-2 pb-2 p-md-5 order-md-last"  style="margin-top: 40px;">
-        <h2 class="h4 mb-2 mb-md-5 font-weight-bold">Contact Us</h2>
+        <h2 class="h4 mb-2 mb-md-5 font-weight-bold">Login</h2>
        <form action="${pageContext.request.contextPath}/login" method="post">
     <div class="form-group">
         <input type="text" class="form-control" name="username" placeholder="Username" required>

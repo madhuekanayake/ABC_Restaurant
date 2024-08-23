@@ -46,12 +46,12 @@
 					<div class="col-md-5 wrap-about pt-5 pt-md-5 pb-md-3 ftco-animate">
 	          <div class="heading-section mb-4 my-5 my-md-0">
 	          	<span class="subheading">About</span>
-	            <h2 class="mb-4">Feliciano Restaurant</h2>
+	            <h2 class="mb-4">ABC Restaurant</h2>
 	          </div>
-	          <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+	          <p>Nestled by the Mahaweli River, ABC Restaurant offers a tranquil dining experience where every dish is a crafted delight, surrounded by natural beauty.</p>
 						<pc class="time">
-							<span>Mon - Fri <strong>8 AM - 11 PM</strong></span>
-							<span><a href="#">+ 1-978-123-4567</a></span>
+							<span>Mon - Sun <strong>8 AM - 11 PM</strong></span>
+							<span><a href="#">+94 11 234 5678</a></span>
 						</p>
 					</div>
 				</div>
@@ -99,7 +99,7 @@
 	          </div>
           </div>
           <div class="col-md-3 text-center text-md-left">
-          	<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+          	<p>Nestled by the Mahaweli River, ABC Restaurant offers a tranquil dining experience where every dish is a crafted delight, surrounded by natural beauty.</p>
           </div>
         </div>
     	</div>
@@ -150,7 +150,7 @@
 						<div class="staff">
 							<div class="img" style="background-image: url(images/chef-4.jpg);"></div>
 							<div class="text pt-4">
-								<h3>John Smooth</h3>
+								<h3>Rohan Silva</h3>
 								<span class="position mb-2">Restaurant Owner</span>
 								<!-- <p>A small river named Duden flows by their place and supplies</p> -->
 								<div class="faded">
@@ -169,7 +169,7 @@
 						<div class="staff">
 							<div class="img" style="background-image: url(images/chef-2.jpg);"></div>
 							<div class="text pt-4">
-								<h3>Rebeca Welson</h3>
+								<h3>Nadeesha Welson</h3>
 								<span class="position mb-2">Head Chef</span>
 								<!-- <p>A small river named Duden flows by their place and supplies</p> -->
 								<div class="faded">
@@ -188,7 +188,7 @@
 						<div class="staff">
 							<div class="img" style="background-image: url(images/chef-3.jpg);"></div>
 							<div class="text pt-4">
-								<h3>Kharl Branyt</h3>
+								<h3>Kamal Fernando</h3>
 								<span class="position mb-2">Chef</span>
 								<!-- <p>A small river named Duden flows by their place and supplies</p> -->
 								<div class="faded">
@@ -207,7 +207,7 @@
 						<div class="staff">
 							<div class="img" style="background-image: url(images/chef-1.jpg);"></div>
 							<div class="text pt-4">
-								<h3>Luke Simon</h3>
+								<h3>Uditha Perera</h3>
 								<span class="position mb-2">Chef</span>
 								<!-- <p>A small river named Duden flows by their place and supplies</p> -->
 								<div class="faded">
@@ -247,8 +247,8 @@
                     </span>
                   </div>
                   <div class="text p-3">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Jason McClean</p>
+                    <p class="mb-4">At ABC Restaurant, the Mahaweli River’s calm beauty perfectly complements their delicious, expertly crafted dishes, making every visit a delightful escape from the everyday.</p>
+                    <p class="name">Janaka Wickramasinghe</p>
                     <span class="position">Customer</span>
                   </div>
                 </div>
@@ -261,8 +261,8 @@
                     </span>
                   </div>
                   <div class="text p-3">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Mark Stevenson</p>
+                    <p class="mb-4">The serene riverside setting of ABC Restaurant complements their exquisite dishes perfectly. Every visit feels like a peaceful escape into culinary bliss.</p>
+                    <p class="name">Mahesh De Silva</p>
                     <span class="position">Customer</span>
                   </div>
                 </div>
@@ -275,8 +275,8 @@
                     </span>
                   </div>
                   <div class="text p-3">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Art Leonard</p>
+                    <p class="mb-4">ABC Restaurant offers more than just a meal; it's a riverside retreat where flavors and serenity blend harmoniously. Truly a place to savor and remember.</p>
+                    <p class="name">Lavan Perera</p>
                     <span class="position">Customer</span>
                   </div>
                 </div>
@@ -289,8 +289,8 @@
                     </span>
                   </div>
                   <div class="text p-3">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Rose Henderson</p>
+                    <p class="mb-4">Dining at ABC Restaurant by the Mahaweli River is a feast for the senses. The beautiful setting and delightful cuisine create a memorable experience every time.</p>
+                    <p class="name">Dinesh Gamage</p>
                     <span class="position">Customer</span>
                   </div>
                 </div>
@@ -303,8 +303,8 @@
                     </span>
                   </div>
                   <div class="text p-3">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Ian Boner</p>
+                    <p class="mb-4">At ABC Restaurant, each meal is a masterpiece, set against the tranquil backdrop of the Mahaweli River. It's a dining experience that always leaves me satisfied.</p>
+                    <p class="name">Sahan Priyasad</p>
                     <span class="position">Customer</span>
                   </div>
                 </div>

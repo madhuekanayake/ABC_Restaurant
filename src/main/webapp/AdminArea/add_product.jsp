@@ -131,10 +131,13 @@
 				<div class="form-group">
 					<label for="productCategory">Product Category:</label>
 					<select class="form-control" id="productCategory" name="category" required>
-						<option value="appetizers">Appetizers</option>
-						<option value="main_courses">Main Courses</option>
+						<option value="breakfast">Breakfast</option>
+						<option value="lunch">Lunch</option>
+						<option value="dinner">Dinner</option>
+						<option value="salads">Salads</option>
 						<option value="desserts">Desserts</option>
 						<option value="beverages">Beverages</option>
+						<option value="wine">Wine</option>
 					</select>
 				</div>
 				<div class="form-group">

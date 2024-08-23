@@ -8,7 +8,7 @@
           <div class="row slider-text js-fullheight justify-content-center align-items-center" data-scrollax-parent="true">
 
             <div class="col-md-12 col-sm-12 text-center ftco-animate">
-            	<span class="subheading">Feliciano</span>
+            	<span class="subheading">ABC Restaurant</span>
               <h1 class="mb-4">Best Restaurant</h1>
             </div>
 
@@ -22,7 +22,7 @@
           <div class="row slider-text js-fullheight justify-content-center align-items-center" data-scrollax-parent="true">
 
             <div class="col-md-12 col-sm-12 text-center ftco-animate">
-            	<span class="subheading">Feliciano</span>
+            	<span class="subheading">ABC Restaurant</span>
               <h1 class="mb-4">Nutritious &amp; Tasty</h1>
             </div>
 
@@ -36,7 +36,7 @@
           <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
 
             <div class="col-md-12 col-sm-12 text-center ftco-animate">
-            	<span class="subheading">Feliciano</span>
+            	<span class="subheading">ABC Restaurant</span>
               <h1 class="mb-4">Delicious Specialties</h1>
             </div>
 
@@ -55,8 +55,8 @@
     							<div class="featured-menus ftco-animate">
 			              <div class="menu-img img" style="background-image: url(images/breakfast-1.jpg);"></div>
 			              <div class="text text-center">
-		                  <h3>Grilled Beef with potatoes</h3>
-				              <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
+		                  <h3>Pad Thai</h3>
+				              <p><span>Rice noodles</span>, <span>Scallions</span>, <span>Eggs</span>, <span>Bean sprouts</span></p>
 			              </div>
 			            </div>
     						</div>
@@ -64,17 +64,17 @@
     							<div class="featured-menus ftco-animate">
 			              <div class="menu-img img" style="background-image: url(images/breakfast-2.jpg);"></div>
 			              <div class="text text-center">
-		                  <h3>Grilled Beef with potatoes</h3>
-				              <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
+		                  <h3>Grilled Halloumi Salad</h3>
+				              <p><span>Grilled halloumi cheese</span>, <span>Cherry tomatoes</span>, <span>Cucumber slices</span></p>
 			              </div>
 			            </div>
     						</div>
     						<div class="col-md-3">
     							<div class="featured-menus ftco-animate">
-			              <div class="menu-img img" style="background-image: url(images/breakfast-3.jpg);"></div>
+			              <div class="menu-img img" style="background-image: url(images/dessert-1.jpg);"></div>
 			              <div class="text text-center">
-		                  <h3>Grilled Beef with potatoes</h3>
-				              <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
+		                  <h3>Pancakes with Caramel</h3>
+				              <p><span>Pancakes</span>, <span>Caramel sauce</span>, <span>Fresh strawberries</span></p>
 			              </div>
 			            </div>
     						</div>
@@ -105,12 +105,12 @@
 					<div class="col-md-5 wrap-about pt-5 pt-md-5 pb-md-3 ftco-animate">
 	          <div class="heading-section mb-4 my-5 my-md-0">
 	          	<span class="subheading">About</span>
-	            <h2 class="mb-4">Feliciano Restaurant</h2>
+	            <h2 class="mb-4">ABC Restaurant</h2>
 	          </div>
 	          <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
 						<pc class="time">
-							<span>Mon - Fri <strong>8 AM - 11 PM</strong></span>
-							<span><a href="#">+ 1-978-123-4567</a></span>
+							<span>Mon - Sun <strong>8 AM - 11 PM</strong></span>
+							<span><a href="#">+94 11 234 5678</a></span>
 						</p>
 					</div>
 				</div>
@@ -158,7 +158,7 @@
 	          </div>
           </div>
           <div class="col-md-3 text-center text-md-left">
-          	<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+          	<p>Nestled by the Mahaweli River, ABC Restaurant offers a tranquil dining experience where every dish is a crafted delight, surrounded by natural beauty.</p>
           </div>
         </div>
     	</div>
@@ -180,7 +180,7 @@
               </div>
               <div class="media-body p-2 mt-3">
                 <h3 class="heading">Birthday Party</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                <p>ABC Restaurant is catering brings unforgettable flavors and seamless service to your birthday celebration, making every moment truly special.</p>
               </div>
             </div>      
           </div>
@@ -191,7 +191,7 @@
               </div>
               <div class="media-body p-2 mt-3">
                 <h3 class="heading">Business Meetings</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                <p>Elevate your business meetings with ABC Restaurant is catering, where impeccable taste meets professional service for a seamless experience.</p>
               </div>
             </div>    
           </div>
@@ -202,7 +202,7 @@
               </div>
               <div class="media-body p-2 mt-3">
                 <h3 class="heading">Wedding Party</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                <p>Make your wedding day unforgettable with ABC Restaurant is catering, offering exquisite dishes and flawless service to celebrate your special moment.</p>
               </div>
             </div>      
           </div>
@@ -226,13 +226,13 @@
 								<div>
 	              	<div class="d-flex">
 		                <div class="one-half">
-		                  <h3>Grilled Beef with potatoes</h3>
+		                  <h3>Pad Thai</h3>
 		                </div>
 		                <div class="one-forth">
-		                  <span class="price">$29</span>
+		                  <span class="price">Rs:750.00</span>
 		                </div>
 		              </div>
-		              <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
+		              <p><span>Rice noodles</span>, <span>Scallions</span>, <span>Eggs</span>, <span>Bean sprouts</span></p>
 		              <p><a href="#" class="btn btn-primary">Order now</a></p>
 	              </div>
               </div>
@@ -245,13 +245,13 @@
 								<div>
 	              	<div class="d-flex">
 		                <div class="one-half">
-		                  <h3>Grilled Beef with potatoes</h3>
+		                  <h3>Grilled Halloumi Salad</h3>
 		                </div>
 		                <div class="one-forth">
-		                  <span class="price">$29</span>
+		                  <span class="price">Rs:600.00</span>
 		                </div>
 		              </div>
-		              <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
+		              <p><span>Grilled halloumi cheese</span>, <span>Cherry tomatoes</span>, <span>Cucumber slices</span></p>
 		              <p><a href="#" class="btn btn-primary">Order now</a></p>
 	              </div>
               </div>
@@ -260,18 +260,18 @@
 
         	<div class="col-md-12 col-lg-6 d-flex align-self-stretch">
         		<div class="menus d-sm-flex ftco-animate align-items-stretch">
-              <div class="menu-img img order-md-last" style="background-image: url(images/breakfast-3.jpg);"></div>
+              <div class="menu-img img order-md-last" style="background-image: url(images/dessert-1.jpg);"></div>
               <div class="text d-flex align-items-center">
 								<div>
 	              	<div class="d-flex">
 		                <div class="one-half">
-		                  <h3>Grilled Beef with potatoes</h3>
+		                  <h3> Pancakes with Caramel</h3>
 		                </div>
 		                <div class="one-forth">
-		                  <span class="price">$29</span>
+		                  <span class="price">Rs:500.00</span>
 		                </div>
 		              </div>
-		              <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
+		              <p><span>Pancakes</span>, <span>Caramel sauce</span>, <span>Fresh strawberries</span></p>
 		              <p><a href="#" class="btn btn-primary">Order now</a></p>
 	              </div>
               </div>
@@ -279,18 +279,18 @@
         	</div>
         	<div class="col-md-12 col-lg-6 d-flex align-self-stretch">
         		<div class="menus d-sm-flex ftco-animate align-items-stretch">
-              <div class="menu-img img order-md-last" style="background-image: url(images/breakfast-5.jpg);"></div>
+              <div class="menu-img img order-md-last" style="background-image: url(images/dessert-2.jpg);"></div>
               <div class="text d-flex align-items-center">
 								<div>
 	              	<div class="d-flex">
 		                <div class="one-half">
-		                  <h3>Grilled Beef with potatoes</h3>
+		                  <h3>Strawberry Cheesecake Parfait</h3>
 		                </div>
 		                <div class="one-forth">
-		                  <span class="price">$29</span>
+		                  <span class="price">Rs:550.00</span>
 		                </div>
 		              </div>
-		              <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
+		              <p><span>Strawberries</span>, <span>Graham Cracker Crumbs</span></p>
 		              <p><a href="#" class="btn btn-primary">Order now</a></p>
 	              </div>
               </div>
@@ -299,18 +299,18 @@
 
         	<div class="col-md-12 col-lg-6 d-flex align-self-stretch">
         		<div class="menus d-sm-flex ftco-animate align-items-stretch">
-              <div class="menu-img img" style="background-image: url(images/breakfast-6.jpg);"></div>
+              <div class="menu-img img" style="background-image: url(images/lunch-2.jpg);"></div>
               <div class="text d-flex align-items-center">
 								<div>
 	              	<div class="d-flex">
 		                <div class="one-half">
-		                  <h3>Grilled Beef with potatoes</h3>
+		                  <h3>Chicken Drumette Lollipops</h3>
 		                </div>
 		                <div class="one-forth">
-		                  <span class="price">$29</span>
+		                  <span class="price">Rs:900.00</span>
 		                </div>
 		              </div>
-		              <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
+		              <p><span>Chicken Drumettes</span>, <span>Lettuce</span>, <span>Tomatoes</span></p>
 		              <p><a href="#" class="btn btn-primary">Order now</a></p>
 	              </div>
               </div>
@@ -318,18 +318,18 @@
         	</div>
         	<div class="col-md-12 col-lg-6 d-flex align-self-stretch">
         		<div class="menus d-sm-flex ftco-animate align-items-stretch">
-              <div class="menu-img img" style="background-image: url(images/breakfast-2.jpg);"></div>
+              <div class="menu-img img" style="background-image: url(images/wine-3.jpg);"></div>
               <div class="text d-flex align-items-center">
 								<div>
 	              	<div class="d-flex">
 		                <div class="one-half">
-		                  <h3>Grilled Beef with potatoes</h3>
+		                  <h3>Vintage Red Wine with Grapes</h3>
 		                </div>
 		                <div class="one-forth">
-		                  <span class="price">$29</span>
+		                  <span class="price">Rs:800.00</span>
 		                </div>
 		              </div>
-		              <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
+		              <p><span>Red Wine</span>, <span>Grapes</span></p>
 		              <p><a href="#" class="btn btn-primary">Order now</a></p>
 	              </div>
               </div>
@@ -352,9 +352,11 @@
 						<div class="staff">
 							<div class="img" style="background-image: url(images/chef-4.jpg);"></div>
 							<div class="text pt-4">
-								<h3>John Smooth</h3>
+								<h3>Rohan Silva</h3>
 								<span class="position mb-2">Restaurant Owner</span>
+								<!-- <p>A small river named Duden flows by their place and supplies</p> -->
 								<div class="faded">
+									<!-- <p>I am an ambitious workaholic, but apart from that, pretty simple person.</p> -->
 									<ul class="ftco-social d-flex">
 		                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
 		                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
@@ -369,9 +371,11 @@
 						<div class="staff">
 							<div class="img" style="background-image: url(images/chef-2.jpg);"></div>
 							<div class="text pt-4">
-								<h3>Rebeca Welson</h3>
+								<h3>Nadeesha Welson</h3>
 								<span class="position mb-2">Head Chef</span>
+								<!-- <p>A small river named Duden flows by their place and supplies</p> -->
 								<div class="faded">
+									<!-- <p>I am an ambitious workaholic, but apart from that, pretty simple person.</p> -->
 									<ul class="ftco-social d-flex">
 		                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
 		                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
@@ -386,9 +390,11 @@
 						<div class="staff">
 							<div class="img" style="background-image: url(images/chef-3.jpg);"></div>
 							<div class="text pt-4">
-								<h3>Kharl Branyt</h3>
+								<h3>Kamal Fernando</h3>
 								<span class="position mb-2">Chef</span>
+								<!-- <p>A small river named Duden flows by their place and supplies</p> -->
 								<div class="faded">
+									<!-- <p>I am an ambitious workaholic, but apart from that, pretty simple person.</p> -->
 									<ul class="ftco-social d-flex">
 		                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
 		                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
@@ -403,9 +409,11 @@
 						<div class="staff">
 							<div class="img" style="background-image: url(images/chef-1.jpg);"></div>
 							<div class="text pt-4">
-								<h3>Luke Simon</h3>
+								<h3>Uditha Perera</h3>
 								<span class="position mb-2">Chef</span>
+								<!-- <p>A small river named Duden flows by their place and supplies</p> -->
 								<div class="faded">
+									<!-- <p>I am an ambitious workaholic, but apart from that, pretty simple person.</p> -->
 									<ul class="ftco-social d-flex">
 		                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
 		                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
@@ -419,7 +427,6 @@
 				</div>
 			</div>
 		</section>
-
 		
 		<section class="ftco-section testimony-section img">
 			<div class="overlay"></div>
@@ -441,8 +448,8 @@
                     </span>
                   </div>
                   <div class="text p-3">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Jason McClean</p>
+                    <p class="mb-4">At ABC Restaurant, the Mahaweli River is calm beauty perfectly complements their delicious, expertly crafted dishes, making every visit a delightful escape from the everyday.</p>
+                    <p class="name">Janaka Wickramasinghe</p>
                     <span class="position">Customer</span>
                   </div>
                 </div>
@@ -455,8 +462,8 @@
                     </span>
                   </div>
                   <div class="text p-3">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Mark Stevenson</p>
+                    <p class="mb-4">The serene riverside setting of ABC Restaurant complements their exquisite dishes perfectly. Every visit feels like a peaceful escape into culinary bliss.</p>
+                    <p class="name">Mahesh De Silva</p>
                     <span class="position">Customer</span>
                   </div>
                 </div>
@@ -469,8 +476,8 @@
                     </span>
                   </div>
                   <div class="text p-3">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Art Leonard</p>
+                    <p class="mb-4">ABC Restaurant offers more than just a meal it is a riverside retreat where flavors and serenity blend harmoniously. Truly a place to savor and remember.</p>
+                    <p class="name">Lavan Perera</p>
                     <span class="position">Customer</span>
                   </div>
                 </div>
@@ -483,8 +490,8 @@
                     </span>
                   </div>
                   <div class="text p-3">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Rose Henderson</p>
+                    <p class="mb-4">Dining at ABC Restaurant by the Mahaweli River is a feast for the senses. The beautiful setting and delightful cuisine create a memorable experience every time.</p>
+                    <p class="name">Dinesh Gamage</p>
                     <span class="position">Customer</span>
                   </div>
                 </div>
@@ -497,8 +504,8 @@
                     </span>
                   </div>
                   <div class="text p-3">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Ian Boner</p>
+                    <p class="mb-4">At ABC Restaurant, each meal is a masterpiece, set against the tranquil backdrop of the Mahaweli River. It's a dining experience that always leaves me satisfied.</p>
+                    <p class="name">Sahan Priyasad</p>
                     <span class="position">Customer</span>
                   </div>
                 </div>
@@ -508,70 +515,6 @@
         </div>
       </div>
     </section>
-		
-		<section class="ftco-section bg-light">
-			<div class="container">
-				<div class="row justify-content-center mb-5">
-          <div class="col-md-7 text-center heading-section ftco-animate">
-          	<span class="subheading">Blog</span>
-            <h2 class="mb-4">Recent Posts</h2>
-          </div>
-        </div>
-				<div class="row">
-          <div class="col-md-4 ftco-animate">
-            <div class="blog-entry">
-              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_1.jpg');">
-              </a>
-              <div class="text pt-3 pb-4 px-4">
-                <div class="meta">
-                  <div><a href="#">Sept. 06, 2019</a></div>
-                  <div><a href="#">Admin</a></div>
-                </div>
-                <h3 class="heading"><a href="#">Taste the delicious foods in Asia</a></h3>
-                <p class="clearfix">
-                  <a href="#" class="float-left read">Read more</a>
-                  <a href="#" class="float-right meta-chat"><span class="icon-chat"></span> 3</a>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 ftco-animate">
-            <div class="blog-entry">
-              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_2.jpg');">
-              </a>
-              <div class="text pt-3 pb-4 px-4">
-                <div class="meta">
-                  <div><a href="#">Sept. 06, 2019</a></div>
-                  <div><a href="#">Admin</a></div>
-                </div>
-                <h3 class="heading"><a href="#">Taste the delicious foods in Asia</a></h3>
-                <p class="clearfix">
-                  <a href="#" class="float-left read">Read more</a>
-                  <a href="#" class="float-right meta-chat"><span class="icon-chat"></span> 3</a>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 ftco-animate">
-            <div class="blog-entry">
-              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_3.jpg');">
-              </a>
-              <div class="text pt-3 pb-4 px-4">
-                <div class="meta">
-                  <div><a href="#">Sept. 06, 2019</a></div>
-                  <div><a href="#">Admin</a></div>
-                </div>
-                <h3 class="heading"><a href="#">Taste the delicious foods in Asia</a></h3>
-                <p class="clearfix">
-                  <a href="#" class="float-left read">Read more</a>
-                  <a href="#" class="float-right meta-chat"><span class="icon-chat"></span> 3</a>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-			</div>
-		</section>
 		
 <jsp:include page="./footer.jsp" />
   

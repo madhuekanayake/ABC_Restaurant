@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Feliciano - Free Bootstrap 4 Template by Colorlib</title>
+    <title>ABC Resraurant</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -82,22 +82,22 @@
           <div class="w-100"></div>
           <div class="col-md-3 d-flex">
           	<div class="dbox">
-	            <p><span>Address:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>
+	            <p><span>Address:</span> ABC Restaurant, Riverbank Road, Kandy, Sri Lanka</p>
             </div>
           </div>
           <div class="col-md-3 d-flex">
           	<div class="dbox">
-	            <p><span>Phone:</span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
+	            <p><span>Phone:</span> <a href="#">+94 11 234 5678</a></p>
             </div>
           </div>
           <div class="col-md-3 d-flex">
           	<div class="dbox">
-	            <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
+	            <p><span>Email:</span> <a href="#">abcrestaurant@gmail.com</a></p>
             </div>
           </div>
           <div class="col-md-3 d-flex">
           	<div class="dbox">
-	            <p><span>Website</span> <a href="#">yoursite.com</a></p>
+	            <p><span>Website</span> <a href="#">www.abcrestaurant.lk</a></p>
             </div>
           </div>
         </div>
