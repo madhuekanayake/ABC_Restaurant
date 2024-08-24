@@ -126,8 +126,8 @@
 		          <div class="col-md-6 col-lg-3 mb-4 mb-lg-0 d-flex justify-content-center counter-wrap ftco-animate">
 		            <div class="block-18">
 		              <div class="text">
-		                <strong class="number" data-number="18">0</strong>
-		                <span>Years of Experienced</span>
+		                <strong class="number" data-number="8">0</strong>
+		                <span>Branches</span>
 		              </div>
 		            </div>
 		          </div>
@@ -442,21 +442,21 @@
             <div class="carousel-testimony owl-carousel ftco-owl">
               <div class="item">
                 <div class="testimony-wrap text-center pb-5">
-                  <div class="user-img mb-4" style="background-image: url(images/person_1.jpg)">
+                  <div class="user-img mb-4" style="background-image: url(images/IMG_20240110_161208.jpg)">
                     <span class="quote d-flex align-items-center justify-content-center">
                       <i class="icon-quote-left"></i>
                     </span>
                   </div>
                   <div class="text p-3">
                     <p class="mb-4">At ABC Restaurant, the Mahaweli River is calm beauty perfectly complements their delicious, expertly crafted dishes, making every visit a delightful escape from the everyday.</p>
-                    <p class="name">Janaka Wickramasinghe</p>
+                    <p class="name">Nisansala Ekanayake</p>
                     <span class="position">Customer</span>
                   </div>
                 </div>
               </div>
               <div class="item">
                 <div class="testimony-wrap text-center pb-5">
-                  <div class="user-img mb-4" style="background-image: url(images/person_2.jpg)">
+                  <div class="user-img mb-4" style="background-image: url(images/p2.jpg)">
                     <span class="quote d-flex align-items-center justify-content-center">
                       <i class="icon-quote-left"></i>
                     </span>
@@ -470,7 +470,7 @@
               </div>
               <div class="item">
                 <div class="testimony-wrap text-center pb-5">
-                  <div class="user-img mb-4" style="background-image: url(images/person_3.jpg)">
+                  <div class="user-img mb-4" style="background-image: url(images/icbt.jpg)">
                     <span class="quote d-flex align-items-center justify-content-center">
                       <i class="icon-quote-left"></i>
                     </span>
@@ -484,7 +484,7 @@
               </div>
               <div class="item">
                 <div class="testimony-wrap text-center pb-5">
-                  <div class="user-img mb-4" style="background-image: url(images/person_4.jpg)">
+                  <div class="user-img mb-4" style="background-image: url(images/c.jpg)">
                     <span class="quote d-flex align-items-center justify-content-center">
                       <i class="icon-quote-left"></i>
                     </span>
@@ -498,7 +498,7 @@
               </div>
               <div class="item">
                 <div class="testimony-wrap text-center pb-5">
-                  <div class="user-img mb-4" style="background-image: url(images/person_3.jpg)">
+                  <div class="user-img mb-4" style="background-image: url(images/m.jpg)">
                     <span class="quote d-flex align-items-center justify-content-center">
                       <i class="icon-quote-left"></i>
                     </span>

@@ -22,16 +22,27 @@ public class AdminLoginServlet extends HttpServlet {
         String password = request.getParameter("password");
 
         try {
-            Admin admin = adminService.authenticateAdmin(username, password);
-            if (admin != null) {
-                // Authentication successful
-                HttpSession session = request.getSession();
-                session.setAttribute("admin", admin); // Store admin object in session
-                response.sendRedirect(request.getContextPath() + "/AdminArea/dashboard.jsp");
-            } else {
-                // Authentication failed
-                request.setAttribute("error", "Invalid username or password");
-                request.getRequestDispatcher("/admin_login.jsp").forward(request, response);
+            int authResult = adminService.authenticateAdmin(username, password);
+            HttpSession session = request.getSession();
+            
+            switch (authResult) {
+                case AdminService.AUTH_SUCCESS:
+                    // Authentication successful
+                    Admin admin = adminService.getAdminByUsername(username);
+                    session.setAttribute("admin", admin); // Store admin object in session
+                    response.sendRedirect(request.getContextPath() + "/AdminArea/dashboard.jsp");
+                    break;
+                case AdminService.INVALID_USERNAME:
+                    session.setAttribute("error", "Invalid username");
+                    response.sendRedirect(request.getContextPath() + "/AdminArea/admin_login.jsp");
+                    break;
+                case AdminService.INVALID_PASSWORD:
+                    session.setAttribute("error", "Invalid password");
+                    response.sendRedirect(request.getContextPath() + "/AdminArea/admin_login.jsp");
+                    break;
+                default:
+                    session.setAttribute("error", "An error occurred during authentication");
+                    response.sendRedirect(request.getContextPath() + "/AdminArea/admin_login.jsp");
             }
         } catch (SQLException e) {
             throw new ServletException("Database error occurred", e);

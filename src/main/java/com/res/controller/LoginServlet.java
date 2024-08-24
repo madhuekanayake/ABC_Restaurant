@@ -14,6 +14,7 @@ import com.res.model.Customer;
 
 import java.io.IOException;
 
+
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
     private CustomerService customerService = new CustomerService();
@@ -29,7 +30,10 @@ public class LoginServlet extends HttpServlet {
             session.setAttribute("customer", customer);
             response.sendRedirect("./PublicArea/index.jsp");
         } else {
-            response.sendRedirect("./PublicArea/login.jsp?error=true");
+            HttpSession session = request.getSession();
+            session.setAttribute("error", "Invalid username or password.");
+            response.sendRedirect("./PublicArea/login.jsp");
         }
     }
 }
+
