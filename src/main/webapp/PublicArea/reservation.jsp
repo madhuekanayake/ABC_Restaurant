@@ -44,7 +44,7 @@
 	                </div>
 	                <div class="col-md-6">
 	                  <div class="form-group">
-	                    <label for="">Phone</label>
+	                    <label for="">Date</label>
 	                    <input type="text" class="form-control" id="book_date" placeholder="Date">
 	                  </div>
 	                </div>
@@ -65,6 +65,24 @@
 	                        <option value="">2</option>
 	                        <option value="">3</option>
 	                        <option value="">4+</option>
+	                      </select>
+	                    </div>
+	                  </div>
+	                </div>
+	                <div class="col-md-6">
+	                  <div class="form-group">
+	                    <label for="">Branch</label>
+	                    <div class="select-wrap one-third">
+	                      <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+	                      <select name="" id="" class="form-control">
+	                        <option value="">Kandy</option>
+	                        <option value="">Colombo</option>
+	                        <option value="">Kurunagala</option>
+	                        <option value="">Anuradhapura</option>
+	                        <option value="">Jaffna</option>
+	                        <option value="">Galle</option>
+	                        <option value="">Kegalle</option>
+	                        <option value="">Badulla</option>
 	                      </select>
 	                    </div>
 	                  </div>
