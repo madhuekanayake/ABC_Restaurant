@@ -1,19 +1,17 @@
 <%@ page session="true" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.res.model.Admin" %>
-<%@ page import="com.res.dao.AdminDAO" %>
+<%@ page import="com.res.model.Staff" %>
+<%@ page import="com.res.dao.StaffDAO" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./css/admin_login.css" />
+    <link rel="stylesheet" href="./css/staff_login.css" />
     <title>Sign in</title>
-    <style>
-        
-    </style>
+    
 </head>
 <body>
     <div class="container">
@@ -43,7 +41,7 @@
         <div class="panels-container">
             <div class="panel left-panel">
                 <div class="content"></div>
-                <img src="./assets/img/log.svg" class="image" alt="" />
+                <img src="./image/log.svg" class="image" alt="" />
             </div>
         </div>
     </div>

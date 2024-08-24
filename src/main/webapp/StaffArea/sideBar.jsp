@@ -11,7 +11,7 @@
 				</a>
 			</li>
 			<li>
-				<a href="./product_index.jsp">
+				<a href="./customer_reservation.jsp">
 					<i class='bx bx-restaurant'></i>
 					
 					<span class="text">Reservation </span>

@@ -10,7 +10,7 @@
 	<!-- My CSS -->
 	<link rel="stylesheet" href="./css/style.css">
 
-	<title>AdminHub</title>
+	<title>StaffHub</title>
 </head>
 <body>
 <!-- NAVBAR -->
@@ -26,7 +26,7 @@
 			<input type="checkbox" id="switch-mode" hidden>
 			<a href="#" class="profile">
 	
-			Admin
+			Staff
 			</a>
 		</nav>
 		<!-- NAVBAR -->
