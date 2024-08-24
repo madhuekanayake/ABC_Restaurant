@@ -1,3 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.res.model.Offer" %>
+<%@ page import="com.res.dao.OfferDAO" %>
+
+<%
+    // Fetch the offer list from the database
+    OfferDAO offerDAO = new OfferDAO();
+    List<Offer> offerList = offerDAO.getAllOffers();
+    request.setAttribute("offerList", offerList);
+%>
 <jsp:include page="./navBar.jsp" />
     <!-- END nav -->
     
@@ -427,94 +439,34 @@
 				</div>
 			</div>
 		</section>
-		
 		<section class="ftco-section testimony-section img">
-			<div class="overlay"></div>
-      <div class="container">
-        <div class="row justify-content-center mb-5">
-          <div class="col-md-12 text-center heading-section ftco-animate">
-          	<span class="subheading">Testimony</span>
-            <h2 class="mb-4">Happy Customer</h2>
-          </div>
-        </div>
-        <div class="row ftco-animate justify-content-center">
-          <div class="col-md-12">
-            <div class="carousel-testimony owl-carousel ftco-owl">
-              <div class="item">
-                <div class="testimony-wrap text-center pb-5">
-                  <div class="user-img mb-4" style="background-image: url(images/IMG_20240110_161208.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text p-3">
-                    <p class="mb-4">At ABC Restaurant, the Mahaweli River is calm beauty perfectly complements their delicious, expertly crafted dishes, making every visit a delightful escape from the everyday.</p>
-                    <p class="name">Nisansala Ekanayake</p>
-                    <span class="position">Customer</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap text-center pb-5">
-                  <div class="user-img mb-4" style="background-image: url(images/p2.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text p-3">
-                    <p class="mb-4">The serene riverside setting of ABC Restaurant complements their exquisite dishes perfectly. Every visit feels like a peaceful escape into culinary bliss.</p>
-                    <p class="name">Mahesh De Silva</p>
-                    <span class="position">Customer</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap text-center pb-5">
-                  <div class="user-img mb-4" style="background-image: url(images/icbt.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text p-3">
-                    <p class="mb-4">ABC Restaurant offers more than just a meal it is a riverside retreat where flavors and serenity blend harmoniously. Truly a place to savor and remember.</p>
-                    <p class="name">Lavan Perera</p>
-                    <span class="position">Customer</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap text-center pb-5">
-                  <div class="user-img mb-4" style="background-image: url(images/c.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text p-3">
-                    <p class="mb-4">Dining at ABC Restaurant by the Mahaweli River is a feast for the senses. The beautiful setting and delightful cuisine create a memorable experience every time.</p>
-                    <p class="name">Dinesh Gamage</p>
-                    <span class="position">Customer</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap text-center pb-5">
-                  <div class="user-img mb-4" style="background-image: url(images/m.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text p-3">
-                    <p class="mb-4">At ABC Restaurant, each meal is a masterpiece, set against the tranquil backdrop of the Mahaweli River. It's a dining experience that always leaves me satisfied.</p>
-                    <p class="name">Sahan Priyasad</p>
-                    <span class="position">Customer</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+	<div class="overlay"></div>
+	<div class="container">
+		<div class="row justify-content-center mb-5">
+			<div class="col-md-12 text-center heading-section ftco-animate">
+				<span class="subheading">Offers</span>
+				<h2 class="mb-4">Special Offers</h2>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<c:forEach var="offer" items="${offerList}">
+					<div class="col-md-4 mb-4">
+						<div class="offer-item">
+							<img src="${pageContext.request.contextPath}/${offer.offerImagePath}" 
+								alt="Offer Image" 
+								class="img-fluid" 
+								style="width: 100%; height: 250px; object-fit: cover;">
+							<div class="description">${offer.description}</div>
+						</div>
+					</div>
+				</c:forEach>
+			</div>
+		</div>
+	</div>
+</section>
+    
+    
 		
 <jsp:include page="./footer.jsp" />
   
