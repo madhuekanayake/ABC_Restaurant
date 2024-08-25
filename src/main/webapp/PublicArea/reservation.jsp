@@ -92,6 +92,11 @@
                         <option value="Kandy">Kandy</option>
                         <option value="Colombo">Colombo</option>
                         <option value="Kurunagala">Kurunagala</option>
+                        <option value="Kegalle">Kegalle</option>
+                        <option value="Jaffna">Jaffna</option>
+                        <option value="Galle">Galle</option>
+                        <option value="Gampaha">Gampaha</option>
+                        <option value="Badulla">Badulla</option>
                     </select>
                 </div>
             </div>

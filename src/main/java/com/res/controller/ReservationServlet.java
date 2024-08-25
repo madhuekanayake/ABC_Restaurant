@@ -2,6 +2,7 @@ package com.res.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -38,6 +39,15 @@ public class ReservationServlet extends HttpServlet {
             session.setAttribute("successMessage", "Your reservation has been successfully submitted!");
 
             response.sendRedirect(request.getContextPath() + "/PublicArea/reservation.jsp");
+        } catch (SQLException e) {
+            throw new ServletException(e);
+        }
+    }
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try {
+            List<Reservation> reservationList = reservationService.getAllReservations();
+            request.setAttribute("reservationList", reservationList);
+            request.getRequestDispatcher("/WEB-INF/views/reservation_list.jsp").forward(request, response);
         } catch (SQLException e) {
             throw new ServletException(e);
         }

@@ -2,7 +2,10 @@ package com.res.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.res.model.Reservation;
 
@@ -23,5 +26,26 @@ public class ReservationDAO {
             pstmt.setString(7, reservation.getBranch());
             pstmt.executeUpdate();
         }
+    }
+    public List<Reservation> getAllReservations() throws SQLException {
+        List<Reservation> reservations = new ArrayList<>();
+        String sql = "SELECT * FROM reservations";
+        try (Connection conn = DatabaseUtil.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql);
+             ResultSet rs = pstmt.executeQuery()) {
+            while (rs.next()) {
+                Reservation reservation = new Reservation(
+                    rs.getString("name"),
+                    rs.getString("email"),
+                    rs.getString("phone"),
+                    rs.getString("date"),
+                    rs.getString("time"),
+                    rs.getString("person"),
+                    rs.getString("branch")
+                );
+                reservations.add(reservation);
+            }
+        }
+        return reservations;
     }
 }
