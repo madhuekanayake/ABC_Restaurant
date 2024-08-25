@@ -1,0 +1,45 @@
+package com.res.controller;
+
+import java.io.IOException;
+import java.sql.SQLException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.res.model.Reservation;
+
+import service.ReservationService;
+
+
+@WebServlet("/reservation")
+public class ReservationServlet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+    private ReservationService reservationService = new ReservationService();
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String name = request.getParameter("name");
+        String email = request.getParameter("email");
+        String phone = request.getParameter("phone");
+        String date = request.getParameter("date");
+        String time = request.getParameter("time");
+        String person = request.getParameter("person");
+        String branch = request.getParameter("branch");
+
+        Reservation reservation = new Reservation(name, email, phone, date, time, person, branch);
+        try {
+            reservationService.addReservation(reservation);
+            
+            // Set success message in session
+            HttpSession session = request.getSession();
+            session.setAttribute("successMessage", "Your reservation has been successfully submitted!");
+
+            response.sendRedirect(request.getContextPath() + "/PublicArea/reservation.jsp");
+        } catch (SQLException e) {
+            throw new ServletException(e);
+        }
+    }
+}

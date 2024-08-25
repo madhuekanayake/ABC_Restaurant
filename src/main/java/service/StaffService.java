@@ -20,4 +20,9 @@ public class StaffService {
     public void deleteStaff(int staffId) throws SQLException {
         staffDAO.deleteStaff(staffId);
     }
+    
+    public Staff authenticateStaff(String username, String password) throws SQLException {
+        return staffDAO.getStaffByUsernameAndPassword(username, password);
+    }
+
 }

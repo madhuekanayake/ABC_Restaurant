@@ -1,3 +1,5 @@
+	  <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 	  <jsp:include page="./navBar.jsp" />
     <!-- END nav -->
     
@@ -22,78 +24,86 @@
 		          	<span class="subheading">Book a table</span>
 		            <h2 class="mb-4">Make Reservation</h2>
 		          </div>
-	            <form action="#">
-	              <div class="row">
-	                <div class="col-md-6">
-	                  <div class="form-group">
-	                    <label for="">Name</label>
-	                    <input type="text" class="form-control" placeholder="Your Name">
-	                  </div>
-	                </div>
-	                <div class="col-md-6">
-	                  <div class="form-group">
-	                    <label for="">Email</label>
-	                    <input type="text" class="form-control" placeholder="Your Email">
-	                  </div>
-	                </div>
-	                <div class="col-md-6">
-	                  <div class="form-group">
-	                    <label for="">Phone</label>
-	                    <input type="text" class="form-control" placeholder="Phone">
-	                  </div>
-	                </div>
-	                <div class="col-md-6">
+		          
+		          <!-- Success message -->
+                        <c:if test="${not empty sessionScope.successMessage}">
+                            <div class="alert alert-success">
+                                ${sessionScope.successMessage}
+                            </div>
+                            <%
+                                // Clear the success message after displaying it
+                                session.removeAttribute("successMessage");
+                            %>
+                        </c:if>
+	            <form action="${pageContext.request.contextPath}/reservation" method="post">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone" required>
+            </div>
+        </div>
+        <div class="col-md-6">
 	                  <div class="form-group">
 	                    <label for="">Date</label>
-	                    <input type="text" class="form-control" id="book_date" placeholder="Date">
+	                    <input type="text" class="form-control" id="book_date" name="date"  placeholder="Date">
 	                  </div>
 	                </div>
 	                <div class="col-md-6">
 	                  <div class="form-group">
 	                    <label for="">Time</label>
-	                    <input type="text" class="form-control" id="book_time" placeholder="Time">
+	                    <input type="text" class="form-control" id="book_time" name="time" placeholder="Time">
 	                  </div>
 	                </div>
-	                <div class="col-md-6">
-	                  <div class="form-group">
-	                    <label for="">Person</label>
-	                    <div class="select-wrap one-third">
-	                      <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-	                      <select name="" id="" class="form-control">
-	                        <option value="">Person</option>
-	                        <option value="">1</option>
-	                        <option value="">2</option>
-	                        <option value="">3</option>
-	                        <option value="">4+</option>
-	                      </select>
-	                    </div>
-	                  </div>
-	                </div>
-	                <div class="col-md-6">
-	                  <div class="form-group">
-	                    <label for="">Branch</label>
-	                    <div class="select-wrap one-third">
-	                      <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-	                      <select name="" id="" class="form-control">
-	                        <option value="">Kandy</option>
-	                        <option value="">Colombo</option>
-	                        <option value="">Kurunagala</option>
-	                        <option value="">Anuradhapura</option>
-	                        <option value="">Jaffna</option>
-	                        <option value="">Galle</option>
-	                        <option value="">Kegalle</option>
-	                        <option value="">Badulla</option>
-	                      </select>
-	                    </div>
-	                  </div>
-	                </div>
-	                <div class="col-md-12 mt-3">
-	                  <div class="form-group">
-	                    <input type="submit" value="Make a Reservation" class="btn btn-primary py-3 px-5">
-	                  </div>
-	                </div>
-	              </div>
-	            </form>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="person">Person</label>
+                <div class="select-wrap one-third">
+                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                    <select name="person" id="person" class="form-control" required>
+                        <option value="" disabled selected>Person</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4+">4+</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="branch">Branch</label>
+                <div class="select-wrap one-third">
+                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                    <select name="branch" id="branch" class="form-control" required>
+                        <option value="" disabled selected>Select Branch</option>
+                        <option value="Kandy">Kandy</option>
+                        <option value="Colombo">Colombo</option>
+                        <option value="Kurunagala">Kurunagala</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <input type="submit" value="Reserve Now" class="btn btn-primary py-3 px-5">
+            </div>
+        </div>
+    </div>
+</form>
+	            
 	          </div>
           </div>
           <div class="col-md-6 d-flex align-items-stretch pb-5 pb-md-0">
@@ -108,7 +118,7 @@
 
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-
+<script src="js/script.js"></script>
 
   <script src="js/jquery.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>

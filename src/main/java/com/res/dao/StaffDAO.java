@@ -48,4 +48,24 @@ public class StaffDAO {
             pstmt.executeUpdate();
         }
     }
+    public Staff getStaffByUsernameAndPassword(String username, String password) throws SQLException {
+        String sql = "SELECT * FROM staff WHERE email = ? AND password = ?";
+        try (Connection conn = DatabaseUtil.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, username);
+            pstmt.setString(2, password);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    Staff staff = new Staff();
+                    staff.setId(rs.getInt("id"));
+                    staff.setName(rs.getString("name"));
+                    staff.setEmail(rs.getString("email"));
+                    staff.setPassword(rs.getString("password"));
+                    staff.setProfileImagePath(rs.getString("profile_image_path"));
+                    return staff;
+                }
+            }
+        }
+        return null;
+    }
 }

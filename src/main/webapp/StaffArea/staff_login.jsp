@@ -11,13 +11,15 @@
     <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/staff_login.css" />
     <title>Sign in</title>
-    
+    <style>
+        
+    </style>
 </head>
 <body>
     <div class="container">
         <div class="forms-container">
             <div class="signin-signup">
-                <form action="/ABC_Restaurant/admin-login" method="post" class="sign-in-form">
+                <form action="/ABC_Restaurant/staff-login" method="post" class="sign-in-form">
                     <h2 class="title">Sign in</h2>
                     <% if(session != null && session.getAttribute("error") != null) { %>
                         <div class="error-message">
@@ -28,7 +30,7 @@
                     
                     <div class="input-field">
                         <i class="fas fa-user"></i>
-                        <input type="text" name="username" placeholder="Username" required />
+                        <input type="email" name="username" placeholder="E_mail" required />
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
