@@ -1,45 +1,42 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.res.model.Customer" %>
+<%@ page import="com.res.dao.CustomerDAO" %>
+
+<%
+    // Fetch the offer list from the database
+    CustomerDAO customerDAO = new CustomerDAO();
+    List<Customer> customerList = customerDAO.getAllCustomers();
+    request.setAttribute("customerList", customerList);
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Boxicons -->
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-    <!-- My CSS -->
     <link rel="stylesheet" href="./css/style.css">
-
-    <title>Product List</title>
+    <title>Customer List</title>
 </head>
 <body>
 
-<!-- Include Sidebar -->
 <jsp:include page="./sideBar.jsp" />
 
-<!-- CONTENT -->
 <section id="content">
-    <!-- Include Navbar -->
     <jsp:include page="./navBar.jsp" />
 
-    <!-- MAIN -->
     <main>
         <div class="head-title">
             <div class="left">
                 <h1>Customer List</h1>
                 <ul class="breadcrumb">
-                    <li>
-                        <a href="#">Customer</a>
-                    </li>
+                    <li><a href="#">Customer</a></li>
                 </ul>
             </div>
-            
-            
-
-                
-            </a>
         </div>
 
-        <!-- Product Table -->
         <div class="table-data">
             <div class="order">
                 <div class="head">
@@ -50,34 +47,26 @@
                 <table>
                     <thead>
                         <tr>
+                            <th>ID</th>
                             <th>Customer Name</th>
-                            <th>Customer E mail</th>
-                            <th>Customer OTP</th>
-                            <th>Customer Verify Status</th>
-                            <th>Actions</th>
+                            <th>Email</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Product 1</td>
-                            
-                            <td>mmm@gmail.com.</td>
-                            <td>Product 1</td>
-                            <td>mmm@gmail.com.</td>
-                            
-                            <td>
-                                <button class="btn-edit">Edit</button>
-                                <button class="btn-delete">Delete</button>
-                            </td>
-                        </tr>
-                   
+                        <c:forEach var="customer" items="${customerList}">
+                            <tr>
+                                <td>${customer.id}</td>
+                                <td>${customer.username}</td>
+                                <td>${customer.email}</td>
+                                
+                            </tr>
+                        </c:forEach>
                     </tbody>
                 </table>
             </div>
         </div>
     </main>
-    <!-- CONTENT -->
-
 </section>
 
 <script src="./js/script.js"></script>

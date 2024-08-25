@@ -1,5 +1,7 @@
 package service;
 
+import java.util.List;
+
 import com.res.dao.CustomerDAO;
 import com.res.model.Customer;
 
@@ -21,5 +23,9 @@ public class CustomerService {
             return customer;
         }
         return null;
+    }
+    
+    public List<Customer> getAllCustomers() {
+        return customerDAO.getAllCustomers();
     }
 }

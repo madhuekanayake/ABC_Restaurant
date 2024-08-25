@@ -3,6 +3,8 @@ package com.res.dao;
 
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.res.model.Customer;
 
@@ -43,5 +45,26 @@ public class CustomerDAO {
             e.printStackTrace();
         }
         return null;
+    }
+    
+    public List<Customer> getAllCustomers() {
+        List<Customer> customers = new ArrayList<>();
+        String sql = "SELECT * FROM customer";
+        try (Connection conn = DatabaseUtil.getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+
+            while (rs.next()) {
+                Customer customer = new Customer();
+                customer.setId(rs.getInt("id"));
+                customer.setUsername(rs.getString("username"));
+                customer.setEmail(rs.getString("email"));
+                customer.setPassword(rs.getString("password")); // Optional: Only if you want to include the password.
+                customers.add(customer);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return customers;
     }
 }
