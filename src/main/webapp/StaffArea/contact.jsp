@@ -47,7 +47,7 @@
                 <table>
     <thead>
         <tr>
-        
+            <th>ID</th>
             <th>Name</th>
             <th>Email</th>
             <th>Subject</th>
@@ -57,6 +57,7 @@
     <tbody>
         <c:forEach var="contact" items="${contactList}">
             <tr>
+                <td>${product.id}</td>
                 <td>${contact.name}</td>
                 <td>${contact.email}</td>
                 <td>${contact.subject}</td>
