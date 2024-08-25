@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.res.model.Contact" %>
-<%@ page import="com.res.dao.ContactDAO" %>
+<%@ page import="com.res.model.Review" %>
+<%@ page import="com.res.dao.ReviewDAO" %>
 
 <%
-    // Fetch the contact list from the database
-    ContactDAO contactDAO = new ContactDAO();
-    List<Contact> contactList = contactDAO.getAllContacts();
-    request.setAttribute("contactList", contactList);
+    // Fetch the review list from the database
+    ReviewDAO reviewDAO = new ReviewDAO();
+    List<Review> reviewList = reviewDAO.getAllReviews();
+    request.setAttribute("reviewList", reviewList);
 %>
 
 <!DOCTYPE html>
@@ -18,7 +18,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="./css/style.css">
-    <title>Special Massages</title>
+    <title>Customer Reviews</title>
 </head>
 <body>
 
@@ -30,9 +30,9 @@
     <main>
         <div class="head-title">
             <div class="left">
-                <h1>Special Massages</h1>
+                <h1>Customer Reviews</h1>
                 <ul class="breadcrumb">
-                    <li><a href="#">Special Massages</a></li>
+                    <li><a href="#">Customer Reviews</a></li>
                 </ul>
             </div>
         </div>
@@ -40,28 +40,30 @@
         <div class="table-data">
             <div class="order">
                 <div class="head">
-                    <h3>Special Massages</h3>
+                    <h3>Customer Reviews</h3>
                     <i class='bx bx-search'></i>
                     <i class='bx bx-filter'></i>
                 </div>
                 <table>
                     <thead>
                         <tr>
-                           
+                            <th>ID</th>
                             <th>Name</th>
-                            <th>Email</th>
-                            <th>Subject</th>
-                            <th>Message</th>
+                            <th>Feedback</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <c:forEach var="contact" items="${contactList}">
+                        <c:forEach var="review" items="${reviewList}">
                             <tr>
+                                <td>${review.id}</td>
+                                <td>${review.username}</td>
+                                <td>${review.message}</td>
                                 
-                                <td>${contact.name}</td>
-                                <td>${contact.email}</td>
-                                <td>${contact.subject}</td>
-                                <td>${contact.message}</td>
+                                <td>
+                                    <a href="${pageContext.request.contextPath}/AdminArea/edit_product.jsp?id=${product.id}" class="btn-edit">Edit</a>
+                                    <a href="${pageContext.request.contextPath}/product_index?action=delete&id=${product.id}" class="btn-delete" onclick="return confirm('Are you sure you want to delete this product?')">Delete</a>
+                                </td>
                             </tr>
                         </c:forEach>
                     </tbody>

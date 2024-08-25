@@ -23,7 +23,7 @@
 				</a>
 			</li>
 			<li>
-				<a href="./facility_index.jsp">
+				<a href="./reviews.jsp">
 				<i class='bx bx-star'></i>
 				<span class="text">Customer Reviews</span>
 				</a>
