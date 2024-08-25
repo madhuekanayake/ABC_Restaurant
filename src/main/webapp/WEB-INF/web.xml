@@ -118,6 +118,12 @@
   	<description></description>
   	<servlet-class>com.res.controller.ReservationServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ContactServlet</servlet-name>
+  	<display-name>ContactServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.res.controller.ContactServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>AdminLoginServlet</servlet-name>
   	<url-pattern>/AdminLoginServlet</url-pattern>
@@ -193,5 +199,9 @@
   <servlet-mapping>
   	<servlet-name>ReservationServlet</servlet-name>
   	<url-pattern>/ReservationServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ContactServlet</servlet-name>
+  	<url-pattern>/ContactServlet</url-pattern>
   </servlet-mapping>
 </web-app>

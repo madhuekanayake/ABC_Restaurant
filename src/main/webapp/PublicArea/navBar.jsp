@@ -70,6 +70,7 @@
             <li class="nav-item"><a href="menu.jsp" class="nav-link">Menu</a></li>
             <li class="nav-item"><a href="gallery.jsp" class="nav-link">Gallery</a></li>
             <li class="nav-item"><a href="contact.jsp" class="nav-link">Contact</a></li>
+            <li class="nav-item"><a href="contact.jsp" class="nav-link">Customer Reviews</a></li>
             <li class="nav-item"><a href="contact.jsp" class="nav-link">Cart</a></li>
             <% if (session.getAttribute("customer") == null) { %>
               <li class="nav-item"><a href="login.jsp" class="nav-link">Login</a></li>

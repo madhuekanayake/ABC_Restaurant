@@ -12,53 +12,28 @@
 			</li>
 			<li>
 				<a href="./customer_reservation.jsp">
-					<i class='bx bx-restaurant'></i>
-					
-					<span class="text">Reservation </span>
+					<i class='bx bx-calendar-check'></i>
+					<span class="text">Reservations </span>
 				</a>
 			</li>
 			<li>
-				<a href="./gallery_index.jsp">
-					<i class='bx bx-images'></i>
-					
-					<span class="text">Manage Gallary</span>
+				<a href="./contact.jsp">
+					<i class='bx bx-envelope'></i>
+					<span class="text">Special Massages</span>
 				</a>
 			</li>
 			<li>
 				<a href="./facility_index.jsp">
-				<i class='bx bx-hotel'></i>
-				
-					<span class="text">Manage Facilities</span>
-				</a>
-			</li>
-			<li>
-				<a href="./offer_index.jsp">
-					<i class='bx bx-purchase-tag'></i>
-					
-					<span class="text">Manage Offers</span>
+				<i class='bx bx-star'></i>
+				<span class="text">Customer Reviews</span>
 				</a>
 			</li>
 			
-			<li>
-				<a href="./staff_index.jsp">
-					<i class='bx bx-user-plus'></i>
-					
-					<span class="text">Manage Staff</span>
-				</a>
-			</li>
-			
-			<li>
-				<a href="./customer_index.jsp">
-					<i class='bx bx-id-card'></i>
-					
-					<span class="text">View Customers</span>
-				</a>
-			</li> 
 			
 		</ul>
 		<ul class="side-menu">
 			<li>
-    <a href="./admin_login.jsp" class="logout" id="logout-link">
+    <a href="./staff_login.jsp" class="logout" id="logout-link">
         <i class='bx bxs-log-out-circle'></i>
         <span class="text">Logout</span>
     </a>
