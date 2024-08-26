@@ -1,7 +1,5 @@
 package com.res.model;
 
-
-
 public class Review {
     private int id;
     private String username;

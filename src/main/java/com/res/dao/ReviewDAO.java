@@ -1,7 +1,5 @@
 package com.res.dao;
 
-
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -42,5 +40,15 @@ public class ReviewDAO {
             }
         }
         return reviewList;
+    }
+
+    // Method to delete a review from the database
+    public void deleteReview(int id) throws SQLException {
+        String sql = "DELETE FROM reviews WHERE id = ?";
+        try (Connection conn = DatabaseUtil.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, id);
+            pstmt.executeUpdate();
+        }
     }
 }

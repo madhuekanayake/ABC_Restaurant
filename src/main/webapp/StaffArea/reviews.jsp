@@ -61,8 +61,8 @@
                                 <td>${review.message}</td>
                                 
                                 <td>
-                                    <a href="${pageContext.request.contextPath}/AdminArea/edit_product.jsp?id=${product.id}" class="btn-edit">Edit</a>
-                                    <a href="${pageContext.request.contextPath}/product_index?action=delete&id=${product.id}" class="btn-delete" onclick="return confirm('Are you sure you want to delete this product?')">Delete</a>
+                                    <a href="${pageContext.request.contextPath}/AdminArea/edit_product.jsp?id=${review.id}" class="btn-edit">Edit</a>
+                                    <a href="${pageContext.request.contextPath}/reviews?action=delete&id=${review.id}" class="btn-delete" onclick="return confirm('Are you sure you want to delete this review?')">Delete</a>
                                 </td>
                             </tr>
                         </c:forEach>

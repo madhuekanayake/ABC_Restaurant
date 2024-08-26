@@ -19,10 +19,20 @@ public class ReviewServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String action = request.getParameter("action");
+        
         try {
-            List<Review> reviewList = reviewService.getAllReviews();
-            request.setAttribute("reviewList", reviewList);
-            request.getRequestDispatcher("/WEB-INF/views/review_List.jsp").forward(request, response);
+            if (action != null && action.equals("delete")) {
+                int id = Integer.parseInt(request.getParameter("id"));
+                reviewService.deleteReview(id);
+                // Add success message to session
+                request.getSession().setAttribute("success", "Review deleted successfully.");
+                response.sendRedirect(request.getContextPath() + "/StaffArea/reviews.jsp");
+            } else {
+                List<Review> reviewList = reviewService.getAllReviews();
+                request.setAttribute("reviewList", reviewList);
+                request.getRequestDispatcher("/WEB-INF/views/review_List.jsp").forward(request, response);
+            }
         } catch (SQLException e) {
             throw new ServletException(e);
         }
@@ -47,4 +57,3 @@ public class ReviewServlet extends HttpServlet {
         }
     }
 }
-

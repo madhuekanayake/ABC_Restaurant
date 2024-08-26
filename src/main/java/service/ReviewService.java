@@ -1,6 +1,5 @@
 package service;
 
-
 import java.sql.SQLException;
 import java.util.List;
 
@@ -17,5 +16,8 @@ public class ReviewService {
     public List<Review> getAllReviews() throws SQLException {
         return reviewDAO.getAllReviews();
     }
-}
 
+    public void deleteReview(int id) throws SQLException {
+        reviewDAO.deleteReview(id);
+    }
+}
