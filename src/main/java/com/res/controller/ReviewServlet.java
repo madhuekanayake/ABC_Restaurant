@@ -22,7 +22,7 @@ public class ReviewServlet extends HttpServlet {
         try {
             List<Review> reviewList = reviewService.getAllReviews();
             request.setAttribute("reviewList", reviewList);
-            request.getRequestDispatcher("/path/to/customer_reviews.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/views/review_List.jsp").forward(request, response);
         } catch (SQLException e) {
             throw new ServletException(e);
         }
@@ -37,9 +37,14 @@ public class ReviewServlet extends HttpServlet {
 
         try {
             reviewService.addReview(review);
-            response.sendRedirect(request.getContextPath() + "./PublicArea/reviews");
+            // Add success message to session
+            request.getSession().setAttribute("success", "Your feedback has been successfully submitted.");
+            response.sendRedirect(request.getContextPath() + "/PublicArea/reviews.jsp");
         } catch (SQLException e) {
-            throw new ServletException(e);
+            // Add error message to session
+            request.getSession().setAttribute("error", "There was an error submitting your review. Please try again.");
+            response.sendRedirect(request.getContextPath() + "/PublicArea/reviews.jsp");
         }
     }
 }
+
