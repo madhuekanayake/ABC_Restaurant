@@ -13,6 +13,17 @@
     }
 %>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Out</title>
+    <!-- Add your CSS links here -->
+    <link rel="stylesheet" href="css/your-custom-styles.css">
+</head>
+<body>
+
 <jsp:include page="./navBar.jsp" />
 <!-- END nav -->
 
@@ -35,77 +46,77 @@
                 <!-- Checkout -->
                 <div class="card shadow-0 border">
                     <div class="p-4">
-                        <h5 class="card-title mb-3">Guest checkout</h5>
-                        <div class="row">
-                            <div class="col-6 mb-3">
-                                <p class="mb-0">First name</p>
-                                <div class="form-outline">
-                                    <input type="text" id="typeText" placeholder="Type here" class="form-control" />
+                        <h5 class="card-title mb-3">Checkout</h5>
+                        <form action="${pageContext.request.contextPath}/checkout" method="post">
+                            <div class="row">
+                                <div class="col-6 mb-3">
+                                    <p class="mb-0">First name</p>
+                                    <div class="form-outline">
+                                        <input type="text" id="firstName" name="firstName" placeholder="Type here" class="form-control" required />
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <p class="mb-0">Last name</p>
+                                    <div class="form-outline">
+                                        <input type="text" id="lastName" name="lastName" placeholder="Type here" class="form-control" required />
+                                    </div>
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <p class="mb-0">Phone</p>
+                                    <div class="form-outline">
+                                        <input type="tel" id="phone" name="phone" value="+94 " class="form-control" required />
+                                    </div>
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <p class="mb-0">Email</p>
+                                    <div class="form-outline">
+                                        <input type="email" id="email" name="email" placeholder="example@gmail.com" class="form-control" required />
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-6">
-                                <p class="mb-0">Last name</p>
-                                <div class="form-outline">
-                                    <input type="text" id="typeText" placeholder="Type here" class="form-control" />
+                            <div class="row">
+                                <div class="col-6 mb-3">
+                                    <p class="mb-0">Address</p>
+                                    <div class="form-outline">
+                                        <input type="text" id="address" name="address" placeholder="Type here" class="form-control" required />
+                                    </div>
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <p class="mb-0">City</p>
+                                    <div class="form-outline">
+                                        <input type="text" id="city" name="city" placeholder="Type here" class="form-control" required />
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 mb-3">
+                                    <p class="mb-0">House</p>
+                                    <div class="form-outline">
+                                        <input type="text" id="house" name="house" placeholder="Type here" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-6 mb-3">
+                                    <p class="mb-0">Postal code</p>
+                                    <div class="form-outline">
+                                        <input type="text" id="postalCode" name="postalCode" class="form-control" required />
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-6 mb-3">
+                                    <p class="mb-0">Zip</p>
+                                    <div class="form-outline">
+                                        <input type="text" id="zip" name="zip" class="form-control" />
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-6 mb-3">
-                                <p class="mb-0">Phone</p>
+                            <div class="mb-3">
+                                <p class="mb-0">Message to seller</p>
                                 <div class="form-outline">
-                                    <input type="tel" id="typePhone" value="+94 " class="form-control" />
+                                    <textarea class="form-control" id="message" name="message" rows="2"></textarea>
                                 </div>
                             </div>
-                            <div class="col-6 mb-3">
-                                <p class="mb-0">Email</p>
-                                <div class="form-outline">
-                                    <input type="email" id="typeEmail" placeholder="example@gmail.com" class="form-control" />
-                                </div>
+                            <div class="float-end">
+                                <button type="submit" class="btn btn-primary">Place Order</button>
+                                <a href="./menu.jsp" class="btn btn-secondary">Continue Shopping</a>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6 mb-3">
-                                <p class="mb-0">Address</p>
-                                <div class="form-outline">
-                                    <input type="text" id="typeText" placeholder="Type here" class="form-control" />
-                                </div>
-                            </div>
-                            
-                            <div class="col-6 mb-3">
-                                <p class="mb-0">City</p>
-                                <div class="form-outline">
-                                    <input type="text" id="typeText" placeholder="Type here" class="form-control" />
-                                </div>
-                            </div>
-                            
-                            <div class="col-sm-4 mb-3">
-                                <p class="mb-0">House</p>
-                                <div class="form-outline">
-                                    <input type="text" id="typeText" placeholder="Type here" class="form-control" />
-                                </div>
-                            </div>
-                            <div class="col-sm-4 col-6 mb-3">
-                                <p class="mb-0">Postal code</p>
-                                <div class="form-outline">
-                                    <input type="text" id="typeText" class="form-control" />
-                                </div>
-                            </div>
-                            <div class="col-sm-4 col-6 mb-3">
-                                <p class="mb-0">Zip</p>
-                                <div class="form-outline">
-                                    <input type="text" id="typeText" class="form-control" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <p class="mb-0">Message to seller</p>
-                            <div class="form-outline">
-                                <textarea class="form-control" id="textAreaExample1" rows="2"></textarea>
-                            </div>
-                        </div>
-                        <div class="float-end">
-                            <button class="btn btn-light border">Cancel</button>
-                            <button class="btn btn-success shadow-0 border">Continue</button>
-                        </div>
+                        </form>
                     </div>
                 </div>
                 <!-- Checkout -->
@@ -121,20 +132,17 @@
 
                     <table class="table">
                         <thead class="thead-dark">
-                           
+                            
                         </thead>
                         <tbody>
                             <c:forEach var="item" items="${cart.items}">
                                 <tr>
-                                    <td><img src="${pageContext.request.contextPath}/${item.product.productImagePath}" alt="${item.product.name}" style="width: 100px;"></td>
+                                    <td><img src="${pageContext.request.contextPath}/${item.product.productImagePath}" alt="${item.product.name}" style="width: 50px;"></td>
                                     <td>${item.product.name}</td>
                                     <td>Rs${item.subtotal}</td>
                                 </tr>
                             </c:forEach>
                         </tbody>
-                        <tfoot>
-                            
-                        </tfoot>
                     </table>
                 </div>
             </div>
@@ -142,13 +150,12 @@
     </div>
 </section>
 
-<section class="ftco-section contact-section"></section>
-
 <jsp:include page="./footer.jsp" />
 
 <!-- loader -->
 <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
+<!-- Add your JavaScript links here -->
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery-migrate-3.0.1.min.js"></script>
 <script src="js/popper.min.js"></script>
@@ -163,7 +170,7 @@
 <script src="js/bootstrap-datepicker.js"></script>
 <script src="js/jquery.timepicker.min.js"></script>
 <script src="js/scrollax.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&sensor=false"></script>
 <script src="js/google-map.js"></script>
 <script src="js/main.js"></script>
 

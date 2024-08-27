@@ -18,6 +18,7 @@
 
 <section class="ftco-section ftco-no-pt ftco-no-pb contact-section">
     <div class="container">
+    
         <div class="row d-flex align-items-stretch no-gutters">
             <div class="col-md-6 pt-5 px-2 pb-2 p-md-5 order-md-last" style="margin-top: 40px;">
                 <h2 class="h4 mb-2 mb-md-5 font-weight-bold">Customer Reviews</h2>

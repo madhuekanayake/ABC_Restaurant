@@ -136,6 +136,18 @@
   	<description></description>
   	<servlet-class>com.res.controller.CartServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>CheckoutServlet</servlet-name>
+  	<display-name>CheckoutServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.res.controller.CheckoutServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>OrderListServlet</servlet-name>
+  	<display-name>OrderListServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.res.controller.OrderListServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>AdminLoginServlet</servlet-name>
   	<url-pattern>/AdminLoginServlet</url-pattern>
@@ -223,5 +235,13 @@
   <servlet-mapping>
   	<servlet-name>CartServlet</servlet-name>
   	<url-pattern>/CartServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>CheckoutServlet</servlet-name>
+  	<url-pattern>/CheckoutServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>OrderListServlet</servlet-name>
+  	<url-pattern>/OrderListServlet</url-pattern>
   </servlet-mapping>
 </web-app>
