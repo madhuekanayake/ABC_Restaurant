@@ -52,6 +52,23 @@
     </div>
 </section>
 
+<c:forEach var="product" items="${productList}">
+    <div class="col-md-6 col-lg-3 ftco-animate">
+        <div class="staff text-center" style="margin-bottom: 40px;">
+            <img src="${pageContext.request.contextPath}/${product.productImagePath}" alt="${product.name}" class="img-fluid" style="width: 200px; height: 200px;">
+            <div class="text pt-4">
+                <h3>${product.name}</h3>
+                <span class="position mb-2">Category: ${product.category}</span>
+                <p class="price">$${product.price}</p>
+                <form action="${pageContext.request.contextPath}/cart" method="post">
+                    <input type="hidden" name="action" value="add">
+                    <input type="hidden" name="productId" value="${product.id}">
+                    <button type="submit" class="btn btn-primary mt-3">Add to Cart</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</c:forEach>
 
 		
 <jsp:include page="./footer.jsp" />
