@@ -46,7 +46,7 @@
                         <button type="submit" class="btn btn-outline-secondary btn-sm">Update</button>
                       </form>
                     </td>
-                    <td>$${item.subtotal}</td>
+                    <td>Rs${item.subtotal}</td>
                     <td>
                       <form action="${pageContext.request.contextPath}/cart" method="post">
                         <input type="hidden" name="action" value="remove">
@@ -60,7 +60,7 @@
               <tfoot>
                 <tr>
                   <th colspan="3" class="text-right">Total:</th>
-                  <th>$${cart.total}</th>
+                  <th>Rs${cart.total}</th>
                   <th></th>
                 </tr>
               </tfoot>
@@ -68,8 +68,8 @@
           </div>
 
           <div class="d-flex justify-content-between">
-            <a href="${pageContext.request.contextPath}/menu.jsp" class="btn btn-primary">Continue Shopping</a>
-            <a href="${pageContext.request.contextPath}/checkout.jsp" class="btn btn-success">Proceed to Checkout</a>
+            <a href="./menu.jsp" class="btn btn-primary">Continue Shopping</a>
+            <a href="./checkout.jsp" class="btn btn-success">Proceed to Checkout</a>
           </div>
         </div>
       </div>

@@ -25,15 +25,24 @@ public class LoginServlet extends HttpServlet {
 
         Customer customer = customerService.authenticateCustomer(username, password);
 
+        HttpSession session = request.getSession();
+
         if (customer != null) {
-            HttpSession session = request.getSession();
             session.setAttribute("customer", customer);
-            response.sendRedirect("./PublicArea/index.jsp");
+
+            // Check if the user was trying to access a specific page before logging in
+            String redirectAfterLogin = (String) session.getAttribute("redirectAfterLogin");
+            if (redirectAfterLogin != null) {
+                session.removeAttribute("redirectAfterLogin");
+                response.sendRedirect(redirectAfterLogin);
+            } else {
+                response.sendRedirect("./PublicArea/index.jsp");
+            }
         } else {
-            HttpSession session = request.getSession();
             session.setAttribute("error", "Invalid username or password.");
             response.sendRedirect("./PublicArea/login.jsp");
         }
     }
 }
+
 

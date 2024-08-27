@@ -97,6 +97,12 @@
 
    <section class="ftco-section">
       <div class="container">
+      <div class="row justify-content-center mb-5 pb-2">
+                <div class="col-md-12 text-center heading-section ftco-animate">
+                    <span class="subheading">Gallery</span>
+                    <h2 class="mb-4">Our Gallery</h2>
+                </div>
+            </div>
         <div class="row">
           <c:forEach var="gallery" items="${galleryList}">
             <div class="col-md-4 mb-4">
