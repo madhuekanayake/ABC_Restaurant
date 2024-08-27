@@ -2,23 +2,21 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
-
 <body>
   <jsp:include page="./navBar.jsp" />
   <!-- END nav -->
 
-  <section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+ <section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_3.jpg');" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="container">
-      <div class="row no-gutters slider-text align-items-end justify-content-center">
-        <div class="col-md-9 ftco-animate text-center mb-4">
-          <h1 class="mb-2 bread">Shopping Cart</h1>
-          <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Cart <i class="ion-ios-arrow-forward"></i></span></p>
+        <div class="row no-gutters slider-text align-items-end justify-content-center">
+            <div class="col-md-9 ftco-animate text-center mb-4">
+                <h1 class="mb-2 bread">Cart</h1>
+                <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Cart <i class="ion-ios-arrow-forward"></i></span></p>
+            </div>
         </div>
-      </div>
     </div>
-  </section>
-
+</section>
   <section class="ftco-section ftco-no-pt ftco-no-pb contact-section">
     <div class="container">
       <div class="row d-flex align-items-stretch no-gutters">
@@ -26,53 +24,52 @@
           <h2 class="h4 mb-2 mb-md-5 font-weight-bold">Your Cart</h2>
           <div class="table-responsive">
             <table class="table">
-    <thead class="thead-dark">
-        <tr>
-            <th scope="col">Product Image</th>
-            <th scope="col">Product Name</th>
-            <th scope="col">Quantity</th>
-            <th scope="col">Subtotal</th>
-            <th scope="col">Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        <c:forEach var="item" items="${sessionScope.cart}">
-            <tr>
-                <td><img src="${pageContext.request.contextPath}/${item.product.productImagePath}" alt="${item.product.name}" style="width: 100px;"></td>
-                <td>${item.product.name}</td>
-                <td>
-                    <form action="${pageContext.request.contextPath}/cart" method="post">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Product Image</th>
+                  <th scope="col">Product Name</th>
+                  <th scope="col">Quantity</th>
+                  <th scope="col">Subtotal</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <c:forEach var="item" items="${cart.items}">
+                  <tr>
+                    <td><img src="${pageContext.request.contextPath}/${item.product.productImagePath}" alt="${item.product.name}" style="width: 100px;"></td>
+                    <td>${item.product.name}</td>
+                    <td>
+                      <form action="${pageContext.request.contextPath}/cart" method="post">
                         <input type="hidden" name="action" value="update">
                         <input type="hidden" name="productId" value="${item.product.id}">
                         <input type="number" name="quantity" value="${item.quantity}" min="1" class="form-control form-control-sm" style="width: 60px; display: inline;">
                         <button type="submit" class="btn btn-outline-secondary btn-sm">Update</button>
-                    </form>
-                </td>
-                <td>$${item.subtotal}</td>
-                <td>
-                    <form action="${pageContext.request.contextPath}/cart" method="post">
+                      </form>
+                    </td>
+                    <td>$${item.subtotal}</td>
+                    <td>
+                      <form action="${pageContext.request.contextPath}/cart" method="post">
                         <input type="hidden" name="action" value="remove">
                         <input type="hidden" name="productId" value="${item.product.id}">
                         <button type="submit" class="btn btn-danger btn-sm">Remove</button>
-                    </form>
-                </td>
-            </tr>
-        </c:forEach>
-    </tbody>
-    <tfoot>
-        <tr>
-            <th colspan="3" class="text-right">Total:</th>
-            <th>$${sessionScope.cart.stream().mapToDouble(item -> item.subtotal).sum()}</th>
-            <th></th>
-        </tr>
-    </tfoot>
-</table>
-            
+                      </form>
+                    </td>
+                  </tr>
+                </c:forEach>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th colspan="3" class="text-right">Total:</th>
+                  <th>$${cart.total}</th>
+                  <th></th>
+                </tr>
+              </tfoot>
+            </table>
           </div>
 
           <div class="d-flex justify-content-between">
-            <a href="products.jsp" class="btn btn-primary">Continue Shopping</a>
-            <a href="checkout.jsp" class="btn btn-success">Proceed to Checkout</a>
+            <a href="${pageContext.request.contextPath}/menu.jsp" class="btn btn-primary">Continue Shopping</a>
+            <a href="${pageContext.request.contextPath}/checkout.jsp" class="btn btn-success">Proceed to Checkout</a>
           </div>
         </div>
       </div>
@@ -81,13 +78,10 @@
 
   <jsp:include page="./footer.jsp" />
 
+  <!-- ... (keep the existing scripts) ... -->
   <!-- loader -->
-  <div id="ftco-loader" class="show fullscreen">
-    <svg class="circular" width="48px" height="48px">
-      <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
-      <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" />
-    </svg>
-  </div>
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
 
   <script src="js/jquery.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
@@ -109,4 +103,3 @@
 
 </body>
 </html>
-

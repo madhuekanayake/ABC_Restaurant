@@ -58,4 +58,24 @@ public class ProductDAO {
             pstmt.executeUpdate();
         }
     }
+    public Product getProductById(int productId) throws SQLException {
+        String sql = "SELECT * FROM product WHERE id = ?";
+        try (Connection conn = DatabaseUtil.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, productId);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    Product product = new Product();
+                    product.setId(rs.getInt("id"));
+                    product.setName(rs.getString("name"));
+                    product.setPrice(rs.getDouble("price"));
+                    product.setDescription(rs.getString("description"));
+                    product.setCategory(rs.getString("category"));
+                    product.setProductImagePath(rs.getString("product_image_path"));
+                    return product;
+                }
+            }
+        }
+        return null;
+    }
 }

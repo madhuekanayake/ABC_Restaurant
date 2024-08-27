@@ -35,40 +35,29 @@
             </div>
             <div class="row">
                 <c:forEach var="product" items="${productList}">
-                    <div class="col-md-6 col-lg-3 ftco-animate">
-                        <div class="staff text-center" style="margin-bottom: 40px;"> <!-- Added margin-bottom -->
-                            <img src="${pageContext.request.contextPath}/${product.productImagePath}" alt="${product.name}" class="img-fluid" style="width: 200px; height: 200px;"> <!-- Increased image size -->
-                            <div class="text pt-4">
-                                <h3>${product.name}</h3>
-                                <span class="position mb-2">Category: ${product.category}</span>
-                                <p class="price">${product.price}</p>
-                                <button class="btn btn-primary mt-3">Add to Cart</button> <!-- Add to Cart button -->
-                            </div>
-                        </div>
-                    </div>
-                </c:forEach>
-            </div>
-        </div>
-    </div>
-</section>
-
-<c:forEach var="product" items="${productList}">
     <div class="col-md-6 col-lg-3 ftco-animate">
         <div class="staff text-center" style="margin-bottom: 40px;">
             <img src="${pageContext.request.contextPath}/${product.productImagePath}" alt="${product.name}" class="img-fluid" style="width: 200px; height: 200px;">
             <div class="text pt-4">
                 <h3>${product.name}</h3>
                 <span class="position mb-2">Category: ${product.category}</span>
-                <p class="price">$${product.price}</p>
+                <p class="price">${product.price}</p>
                 <form action="${pageContext.request.contextPath}/cart" method="post">
                     <input type="hidden" name="action" value="add">
                     <input type="hidden" name="productId" value="${product.id}">
+                    <input type="hidden" name="quantity" value="1">
                     <button type="submit" class="btn btn-primary mt-3">Add to Cart</button>
                 </form>
             </div>
         </div>
     </div>
 </c:forEach>
+            </div>
+        </div>
+    </div>
+</section>
+
+
 
 		
 <jsp:include page="./footer.jsp" />

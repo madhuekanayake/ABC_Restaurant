@@ -6,42 +6,50 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import com.res.model.Cart;
+import com.res.model.Product;
+import service.ProductService;
 
 @WebServlet("/cart")
 public class CartServlet extends HttpServlet {
-    
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Cart cart = (Cart) request.getSession().getAttribute("cart");
-        if (cart == null) {
-            cart = new Cart();
-            request.getSession().setAttribute("cart", cart);
-        }
-        request.getRequestDispatcher("/PublicArea/cart.jsp").forward(request, response);
-    }
+    private ProductService productService = new ProductService();
 
-    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
-        int productId = Integer.parseInt(request.getParameter("productId"));
-        Cart cart = (Cart) request.getSession().getAttribute("cart");
-
+        HttpSession session = request.getSession();
+        Cart cart = (Cart) session.getAttribute("cart");
         if (cart == null) {
-            response.sendRedirect(request.getContextPath() + "/PublicArea/cart.jsp");
-            return;
+            cart = new Cart();
+            session.setAttribute("cart", cart);
         }
 
-        switch (action) {
-            case "remove":
-                cart.removeItem(productId);
-                break;
-            case "update":
-                int quantity = Integer.parseInt(request.getParameter("quantity"));
-                cart.updateQuantity(productId, quantity);
-                break;
+        int productId = Integer.parseInt(request.getParameter("productId"));
+        
+        try {
+            switch (action) {
+                case "add":
+                    Product product = productService.getProductById(productId);
+                    int quantity = Integer.parseInt(request.getParameter("quantity"));
+                    cart.addItem(product, quantity);
+                    break;
+                case "remove":
+                    cart.removeItem(productId);
+                    break;
+                case "update":
+                    int newQuantity = Integer.parseInt(request.getParameter("quantity"));
+                    cart.updateQuantity(productId, newQuantity);
+                    break;
+            }
+        } catch (Exception e) {
+            throw new ServletException("Error processing cart action", e);
         }
 
         response.sendRedirect(request.getContextPath() + "/PublicArea/cart.jsp");
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("/PublicArea/cart.jsp").forward(request, response);
     }
 }
