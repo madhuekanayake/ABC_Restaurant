@@ -6,8 +6,8 @@
 
 <%
     ReservationDAO reservationDAO = new ReservationDAO();
-    List<Reservation> reservationList = reservationDAO.getAllReservations();
-    request.setAttribute("reservationList", reservationList);
+    List<Reservation> confirmedReservations = reservationDAO.getConfirmedReservations();
+    request.setAttribute("confirmedReservations", confirmedReservations);
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="./css/style.css">
-    <title>Reservation List</title>
+    <title>Confirmed Reservations</title>
 </head>
 <body>
 
@@ -28,23 +28,18 @@
     <main>
         <div class="head-title">
             <div class="left">
-                <h1>Reservation List</h1>
+                <h1>Confirmed Reservations</h1>
                 <ul class="breadcrumb">
                     <li><a href="#">Reservations</a></li>
+                    <li><a href="#" class="active">Confirmed</a></li>
                 </ul>
-                
-                
             </div>
-            <a href="${pageContext.request.contextPath}/StaffArea/confirmed_reservations.jsp" class="btn-download">
-                
-                <span class="text">Confirmed Reservations</span>
-            </a>
         </div>
 
         <div class="table-data">
             <div class="order">
                 <div class="head">
-                    <h3>Reservations</h3>
+                    <h3>Confirmed Reservations</h3>
                     <i class='bx bx-search'></i>
                     <i class='bx bx-filter'></i>
                 </div>
@@ -58,12 +53,10 @@
                             <th>Time</th>
                             <th>Person</th>
                             <th>Branch</th>
-                            <th>Status</th>
-                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <c:forEach var="reservation" items="${reservationList}">
+                        <c:forEach var="reservation" items="${confirmedReservations}">
                             <tr>
                                 <td>${reservation.name}</td>
                                 <td>${reservation.email}</td>
@@ -72,15 +65,6 @@
                                 <td>${reservation.time}</td>
                                 <td>${reservation.person}</td>
                                 <td>${reservation.branch}</td>
-                                <td>${reservation.status == 0 ? 'Pending' : 'Confirmed'}</td>
-                                <td>
-                                    <c:if test="${reservation.status == 0}">
-                                        <form action="${pageContext.request.contextPath}/confirmReservation" method="post">
-                                            <input type="hidden" name="id" value="${reservation.id}">
-                                            <button type="submit">Confirm</button>
-                                        </form>
-                                    </c:if>
-                                </td>
                             </tr>
                         </c:forEach>
                     </tbody>
@@ -92,3 +76,4 @@
 
 <script src="./js/script.js"></script>
 </body>
+</html>

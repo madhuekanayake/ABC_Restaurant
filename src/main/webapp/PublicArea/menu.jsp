@@ -36,26 +36,7 @@
       </div>
     </section>
 
-    <section class="ftco-section">
-        <div class="container">
-            <div class="row justify-content-center mb-5 pb-2">
-                <div class="col-md-12 text-center heading-section ftco-animate">
-                    <span class="subheading">Search</span>
-                    <h2 class="mb-4">Find Your Favorite Dish</h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-8 offset-md-2">
-                    <form action="${pageContext.request.contextPath}/search" method="get" class="search-form">
-                        <div class="form-group d-flex">
-                            <input type="text" class="form-control" name="query" placeholder="Search for dishes..." value="${searchQuery}">
-                            <input type="submit" value="Search" class="btn btn-primary">
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+    
 
     <section class="ftco-section">
         <div class="container">

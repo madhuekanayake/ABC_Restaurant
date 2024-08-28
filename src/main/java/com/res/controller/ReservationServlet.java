@@ -22,15 +22,17 @@ public class ReservationServlet extends HttpServlet {
     private ReservationService reservationService = new ReservationService();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String name = request.getParameter("name");
+    	String id = request.getParameter("id");
+    	String name = request.getParameter("name");
         String email = request.getParameter("email");
         String phone = request.getParameter("phone");
         String date = request.getParameter("date");
         String time = request.getParameter("time");
         String person = request.getParameter("person");
         String branch = request.getParameter("branch");
+        String status = request.getParameter("status");
 
-        Reservation reservation = new Reservation(name, email, phone, date, time, person, branch);
+        Reservation reservation = new Reservation(0,name, email, phone, date, time, person, branch, 0);
         try {
             reservationService.addReservation(reservation);
             

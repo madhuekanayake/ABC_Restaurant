@@ -30,7 +30,8 @@
 			</li>
 			<li>
 				<a href="./orderList.jsp">
-				<i class='bx bx-order'></i>
+				<i class='bx bx-cart'></i>
+				
 				<span class="text">Customer Orders</span>
 				</a>
 			</li>
