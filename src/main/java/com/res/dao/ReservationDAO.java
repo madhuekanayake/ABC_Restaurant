@@ -83,4 +83,12 @@ public class ReservationDAO {
         }
         return reservations;
     }
+    public void deleteReservation(int id) throws SQLException {
+        String sql = "DELETE FROM reservations WHERE id = ?";
+        try (Connection conn = DatabaseUtil.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, id);
+            pstmt.executeUpdate();
+        }
+    }
 }

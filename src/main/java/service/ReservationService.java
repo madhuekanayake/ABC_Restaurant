@@ -12,8 +12,12 @@ public class ReservationService {
     public void addReservation(Reservation reservation) throws SQLException {
         reservationDAO.addReservation(reservation);
     }
-    
+
     public List<Reservation> getAllReservations() throws SQLException {
         return reservationDAO.getAllReservations();
+    }
+
+    public void deleteReservation(int id) throws SQLException {
+        reservationDAO.deleteReservation(id);
     }
 }

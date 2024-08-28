@@ -31,6 +31,21 @@
         .btn-confirm:hover {
             background-color: #218838; /* Slightly darker green for hover effect */
         }
+
+        .btn-delete {
+            background-color: #dc3545; /* Bootstrap's red color */
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+            margin-left: 4px;
+        }
+
+        .btn-delete:hover {
+            background-color: #c82333; /* Slightly darker red for hover effect */
+        }
     </style>
 </head>
 <body>
@@ -60,44 +75,47 @@
                     <i class='bx bx-search'></i>
                     <i class='bx bx-filter'></i>
                 </div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Phone</th>
-                            <th>Date</th>
-                            <th>Time</th>
-                            <th>Person</th>
-                            <th>Branch</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <c:forEach var="reservation" items="${reservationList}">
-                            <tr>
-                                <td>${reservation.name}</td>
-                                <td>${reservation.email}</td>
-                                <td>${reservation.phone}</td>
-                                <td>${reservation.date}</td>
-                                <td>${reservation.time}</td>
-                                <td>${reservation.person}</td>
-                                <td>${reservation.branch}</td>
-                                <td>${reservation.status == 0 ? 'Pending' : 'Confirmed'}</td>
-                                <td>
-                                    <c:if test="${reservation.status == 0}">
-                                        <form action="${pageContext.request.contextPath}/confirmReservation" method="post">
-                                            <input type="hidden" name="id" value="${reservation.id}">
-                                            <button type="submit" class="btn-confirm"><i class='bx bx-check'></i>
-                                            </button>
-                                        </form>
-                                    </c:if>
-                                </td>
-                            </tr>
-                        </c:forEach>
-                    </tbody>
-                </table>
+                 <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Person</th>
+                <th>Branch</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <c:forEach var="reservation" items="${reservationList}">
+                <tr>
+                    <td>${reservation.name}</td>
+                    <td>${reservation.email}</td>
+                    <td>${reservation.phone}</td>
+                    <td>${reservation.date}</td>
+                    <td>${reservation.time}</td>
+                    <td>${reservation.person}</td>
+                    <td>${reservation.branch}</td>
+                    <td>${reservation.status == 0 ? 'Pending' : 'Confirmed'}</td>
+                    <td>
+                        <c:if test="${reservation.status == 0}">
+                            <form action="${pageContext.request.contextPath}/confirmReservation" method="post" style="display:inline;">
+                                <input type="hidden" name="id" value="${reservation.id}">
+                                <button type="submit" class="btn-confirm"><i class='bx bx-check'></i></button>
+                            </form>
+                        </c:if>
+                        <form action="${pageContext.request.contextPath}/deleteReservation" method="post" style="display:inline;">
+                            <input type="hidden" name="id" value="${reservation.id}">
+                            <button type="submit" class="btn-delete"><i class='bx bx-trash'></i></button>
+                        </form>
+                    </td>
+                </tr>
+            </c:forEach>
+        </tbody>
+    </table>
             </div>
         </div>
     </main>
