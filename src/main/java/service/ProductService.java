@@ -23,4 +23,8 @@ public class ProductService {
     public Product getProductById(int productId) throws SQLException {
         return productDAO.getProductById(productId);
     }
+    public List<Product> searchProducts(String query) throws SQLException {
+        return productDAO.searchProducts(query);
+    }
+    
 }

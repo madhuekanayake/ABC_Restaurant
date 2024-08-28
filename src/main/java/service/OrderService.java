@@ -1,5 +1,6 @@
 package service;
 
+import com.res.model.Order;
 import com.res.model.Cart;
 import com.res.model.CartItem;
 import com.res.model.Customer;
@@ -9,6 +10,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class OrderService {
     public int saveOrder(Customer customer, Cart cart, String firstName, String lastName, String phone, String email,
@@ -68,5 +71,39 @@ public class OrderService {
         }
 
         return orderId;
+    }
+
+    public List<Order> getAllOrders() throws Exception {
+        List<Order> orders = new ArrayList<>();
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        try {
+            conn = DatabaseUtil.getConnection();
+            String sql = "SELECT * FROM orders ORDER BY id DESC";
+            pstmt = conn.prepareStatement(sql);
+            rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                Order order = new Order();
+                order.setId(rs.getInt("id"));
+                order.setCustomerId(rs.getInt("customer_id"));
+                order.setFirstName(rs.getString("first_name"));
+                order.setLastName(rs.getString("last_name"));
+                order.setPhone(rs.getString("phone"));
+                order.setEmail(rs.getString("email"));
+                order.setTotalAmount(rs.getDouble("total_amount"));
+                order.setOrderDate(rs.getTimestamp("order_date"));
+                // Set other fields as needed
+                orders.add(order);
+            }
+        } finally {
+            if (rs != null) rs.close();
+            if (pstmt != null) pstmt.close();
+            if (conn != null) conn.close();
+        }
+
+        return orders;
     }
 }

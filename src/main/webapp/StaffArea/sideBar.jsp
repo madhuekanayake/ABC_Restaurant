@@ -28,6 +28,12 @@
 				<span class="text">Customer Reviews</span>
 				</a>
 			</li>
+			<li>
+				<a href="./orderList.jsp">
+				<i class='bx bx-order'></i>
+				<span class="text">Customer Orders</span>
+				</a>
+			</li>
 			
 			
 		</ul>

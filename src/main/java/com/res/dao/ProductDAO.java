@@ -78,4 +78,26 @@ public class ProductDAO {
         }
         return null;
     }
+    public List<Product> searchProducts(String query) throws SQLException {
+        List<Product> productList = new ArrayList<>();
+        String sql = "SELECT * FROM product WHERE name LIKE ? OR description LIKE ?";
+        try (Connection conn = DatabaseUtil.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, "%" + query + "%");
+            pstmt.setString(2, "%" + query + "%");
+            try (ResultSet rs = pstmt.executeQuery()) {
+                while (rs.next()) {
+                    Product product = new Product();
+                    product.setId(rs.getInt("id"));
+                    product.setName(rs.getString("name"));
+                    product.setPrice(rs.getDouble("price"));
+                    product.setDescription(rs.getString("description"));
+                    product.setCategory(rs.getString("category"));
+                    product.setProductImagePath(rs.getString("product_image_path"));
+                    productList.add(product);
+                }
+            }
+        }
+        return productList;
+    }
 }
