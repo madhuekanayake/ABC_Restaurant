@@ -245,7 +245,7 @@
 		                </div>
 		              </div>
 		              <p><span>Rice noodles</span>, <span>Scallions</span>, <span>Eggs</span>, <span>Bean sprouts</span></p>
-		              <p><a href="#" class="btn btn-primary">Order now</a></p>
+		              <p><a href="./menu.jsp" class="btn btn-primary">Order now</a></p>
 	              </div>
               </div>
             </div>
@@ -264,7 +264,7 @@
 		                </div>
 		              </div>
 		              <p><span>Grilled halloumi cheese</span>, <span>Cherry tomatoes</span>, <span>Cucumber slices</span></p>
-		              <p><a href="#" class="btn btn-primary">Order now</a></p>
+		              <p><a href="./menu.jsp" class="btn btn-primary">Order now</a></p>
 	              </div>
               </div>
             </div>
@@ -284,7 +284,7 @@
 		                </div>
 		              </div>
 		              <p><span>Pancakes</span>, <span>Caramel sauce</span>, <span>Fresh strawberries</span></p>
-		              <p><a href="#" class="btn btn-primary">Order now</a></p>
+		              <p><a href="./menu.jsp" class="btn btn-primary">Order now</a></p>
 	              </div>
               </div>
             </div>
@@ -303,7 +303,7 @@
 		                </div>
 		              </div>
 		              <p><span>Strawberries</span>, <span>Graham Cracker Crumbs</span></p>
-		              <p><a href="#" class="btn btn-primary">Order now</a></p>
+		              <p><a href="./menu.jsp" class="btn btn-primary">Order now</a></p>
 	              </div>
               </div>
             </div>
@@ -323,7 +323,7 @@
 		                </div>
 		              </div>
 		              <p><span>Chicken Drumettes</span>, <span>Lettuce</span>, <span>Tomatoes</span></p>
-		              <p><a href="#" class="btn btn-primary">Order now</a></p>
+		              <p><a href="./menu.jsp" class="btn btn-primary">Order now</a></p>
 	              </div>
               </div>
             </div>
@@ -342,7 +342,7 @@
 		                </div>
 		              </div>
 		              <p><span>Red Wine</span>, <span>Grapes</span></p>
-		              <p><a href="#" class="btn btn-primary">Order now</a></p>
+		              <p><a href="./menu.jsp" class="btn btn-primary">Order now</a></p>
 	              </div>
               </div>
             </div>

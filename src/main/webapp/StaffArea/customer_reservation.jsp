@@ -18,21 +18,9 @@
     <link rel="stylesheet" href="./css/style.css">
     <title>Reservation List</title>
     <style>
-        .btn-confirm {
-            background-color: #28a745; /* Bootstrap's green color */
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            cursor: pointer;
-            border-radius: 4px;
-            transition: background-color 0.3s ease;
-        }
+        
 
-        .btn-confirm:hover {
-            background-color: #218838; /* Slightly darker green for hover effect */
-        }
-
-        .btn-delete {
+        .btn{
             background-color: #dc3545; /* Bootstrap's red color */
             color: white;
             border: none;
@@ -104,12 +92,14 @@
                         <c:if test="${reservation.status == 0}">
                             <form action="${pageContext.request.contextPath}/confirmReservation" method="post" style="display:inline;">
                                 <input type="hidden" name="id" value="${reservation.id}">
-                                <button type="submit" class="btn-confirm"><i class='bx bx-check'></i></button>
+                                <button type="submit" class="btn" style="background-color: #00C000;"><i class='bx bx-check'></i></button>
+                                
+                                
                             </form>
                         </c:if>
                         <form action="${pageContext.request.contextPath}/deleteReservation" method="post" style="display:inline;">
                             <input type="hidden" name="id" value="${reservation.id}">
-                            <button type="submit" class="btn-delete"><i class='bx bx-trash'></i></button>
+                            <button type="submit" class="btn"><i class='bx bx-trash'></i></button>
                         </form>
                     </td>
                 </tr>

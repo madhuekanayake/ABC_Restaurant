@@ -61,9 +61,11 @@
                                 <td>${review.message}</td>
                                 
                                 <td>
-                                    
-                                    <a href="${pageContext.request.contextPath}/reviews?action=delete&id=${review.id}" class="btn-delete" onclick="return confirm('Are you sure you want to delete this review?')">Delete</a>
-                                </td>
+    <a href="${pageContext.request.contextPath}/reviews?action=delete&id=${review.id}" class="btn-delete" onclick="return confirm('Are you sure you want to delete this review?')">
+        <i class='bx bx-trash'></i>
+    </a>
+</td>
+                                
                             </tr>
                         </c:forEach>
                     </tbody>
