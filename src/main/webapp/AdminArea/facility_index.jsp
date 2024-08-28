@@ -149,7 +149,8 @@
                                 </td>
                                 <td>
                                     <a href="${pageContext.request.contextPath}/AdminArea/edit_facility.jsp?id=${facility.id}" class="btn-edit">Edit</a>
-                                    <a href="${pageContext.request.contextPath}/facility_index?action=delete&id=${facility.id}" class="btn-delete" onclick="return confirm('Are you sure you want to delete this facility?')">Delete</a>
+                                    <a href="${pageContext.request.contextPath}/facility_index?action=delete&id=${facility.id}" class="btn-delete" onclick="return confirm('Are you sure you want to delete this facility?')"><i class='bx bx-trash'></i>
+                                    </a>
                                 </td>
                             </tr>
                         </c:forEach>

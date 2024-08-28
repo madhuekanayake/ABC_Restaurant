@@ -142,7 +142,8 @@
                                 <td>${gallery.description}</td>
                                 <td>
                                     <a href="${pageContext.request.contextPath}/AdminArea/edit_gallery.jsp?id=${gallery.id}" class="btn-edit">Edit</a>
-                                    <a href="${pageContext.request.contextPath}/gallery_index?action=delete&id=${gallery.id}" class="btn-delete" onclick="return confirm('Are you sure you want to delete this gallery image?')">Delete</a>
+                                    <a href="${pageContext.request.contextPath}/gallery_index?action=delete&id=${gallery.id}" class="btn-delete" onclick="return confirm('Are you sure you want to delete this gallery image?')"><i class='bx bx-trash'></i>
+                                    </a>
                                 </td>
                             </tr>
                         </c:forEach>

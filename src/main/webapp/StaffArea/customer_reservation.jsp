@@ -17,6 +17,21 @@
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="./css/style.css">
     <title>Reservation List</title>
+    <style>
+        .btn-confirm {
+            background-color: #28a745; /* Bootstrap's green color */
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-confirm:hover {
+            background-color: #218838; /* Slightly darker green for hover effect */
+        }
+    </style>
 </head>
 <body>
 
@@ -32,11 +47,8 @@
                 <ul class="breadcrumb">
                     <li><a href="#">Reservations</a></li>
                 </ul>
-                
-                
             </div>
             <a href="${pageContext.request.contextPath}/StaffArea/confirmed_reservations.jsp" class="btn-download">
-                
                 <span class="text">Confirmed Reservations</span>
             </a>
         </div>
@@ -77,7 +89,8 @@
                                     <c:if test="${reservation.status == 0}">
                                         <form action="${pageContext.request.contextPath}/confirmReservation" method="post">
                                             <input type="hidden" name="id" value="${reservation.id}">
-                                            <button type="submit">Confirm</button>
+                                            <button type="submit" class="btn-confirm"><i class='bx bx-check'></i>
+                                            </button>
                                         </form>
                                     </c:if>
                                 </td>
@@ -92,3 +105,4 @@
 
 <script src="./js/script.js"></script>
 </body>
+</html>
