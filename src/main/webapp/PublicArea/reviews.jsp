@@ -41,7 +41,7 @@
 
                 <form action="${pageContext.request.contextPath}/reviews" method="post">
                     <div class="form-group">
-                        <input type="text" class="form-control" name="customername" placeholder="Username" required>
+                        <input type="text" class="form-control" name="username" placeholder="Username" required>
                     </div>
                     <div class="form-group">
                         <textarea class="form-control" name="message" placeholder="Feedback" rows="4" required></textarea>
@@ -60,7 +60,7 @@
                 </c:forEach>
 
             </div>
-            <div class="col-md-6 d-flex align-items-stretch pb-5 pb-md-0" style="margin-top: 40px; ">
+            <div class="col-md-6 d-flex align-items-stretch pb-5 pb-md-0" style="margin-top: 20px; margin-bottum: 20px">
                 <img src="./images/about-1.jpg" alt="About Us" class="img-fluid w-100 h-100" style="object-fit: cover;">
             </div>
         </div>

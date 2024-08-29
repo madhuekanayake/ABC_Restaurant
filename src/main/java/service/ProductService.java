@@ -20,11 +20,13 @@ public class ProductService {
     public void deleteProduct(int productId) throws SQLException {
         productDAO.deleteProduct(productId);
     }
+
     public Product getProductById(int productId) throws SQLException {
         return productDAO.getProductById(productId);
     }
+
+    // Add this new method
     public List<Product> searchProducts(String query) throws SQLException {
         return productDAO.searchProducts(query);
     }
-    
 }

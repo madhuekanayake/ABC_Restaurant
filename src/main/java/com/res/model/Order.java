@@ -1,6 +1,7 @@
 package com.res.model;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 public class Order {
     private int id;
@@ -9,10 +10,20 @@ public class Order {
     private String lastName;
     private String phone;
     private String email;
+    private String address;
+    private String city;
+    private String house;
+    private String postalCode;
+    private String zip;
+    private String message;
     private double totalAmount;
     private Timestamp orderDate;
+    private List<OrderItem> orderItems;
 
-    // Getters and Setters
+    // Default constructor
+    public Order() {}
+
+    // Getters and setters
     public int getId() {
         return id;
     }
@@ -61,6 +72,54 @@ public class Order {
         this.email = email;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getHouse() {
+        return house;
+    }
+
+    public void setHouse(String house) {
+        this.house = house;
+    }
+
+    public String getPostalCode() {
+        return postalCode;
+    }
+
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
+    }
+
+    public String getZip() {
+        return zip;
+    }
+
+    public void setZip(String zip) {
+        this.zip = zip;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
     public double getTotalAmount() {
         return totalAmount;
     }
@@ -75,5 +134,34 @@ public class Order {
 
     public void setOrderDate(Timestamp orderDate) {
         this.orderDate = orderDate;
+    }
+
+    public List<OrderItem> getOrderItems() {
+        return orderItems;
+    }
+
+    public void setOrderItems(List<OrderItem> orderItems) {
+        this.orderItems = orderItems;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", customerId=" + customerId +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
+                ", city='" + city + '\'' +
+                ", house='" + house + '\'' +
+                ", postalCode='" + postalCode + '\'' +
+                ", zip='" + zip + '\'' +
+                ", message='" + message + '\'' +
+                ", totalAmount=" + totalAmount +
+                ", orderDate=" + orderDate +
+                ", orderItems=" + orderItems +
+                '}';
     }
 }

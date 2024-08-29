@@ -60,9 +60,8 @@
                                     <td>Rs${order.totalAmount}</td>
                                     <td><fmt:formatDate value="${order.orderDate}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
                                     <td>
-                                        <a href="${pageContext.request.contextPath}/admin/orderDetails?id=${order.id}" class="btn-view">View</a>
-                                        
-                                    </td>
+    <a href="${pageContext.request.contextPath}/StaffArea/orderDetails?id=${order.id}" class="btn-view">View</a>
+</td>
                                 </tr>
                             </c:forEach>
                         </tbody>

@@ -1,6 +1,7 @@
 package service;
 
 import com.res.model.Order;
+import com.res.model.OrderItem;
 import com.res.model.Cart;
 import com.res.model.CartItem;
 import com.res.model.Customer;
@@ -93,9 +94,11 @@ public class OrderService {
                 order.setLastName(rs.getString("last_name"));
                 order.setPhone(rs.getString("phone"));
                 order.setEmail(rs.getString("email"));
+                order.setAddress(rs.getString("address"));
+                order.setCity(rs.getString("city"));
+                order.setPostalCode(rs.getString("postal_code"));
                 order.setTotalAmount(rs.getDouble("total_amount"));
                 order.setOrderDate(rs.getTimestamp("order_date"));
-                // Set other fields as needed
                 orders.add(order);
             }
         } finally {
@@ -105,5 +108,66 @@ public class OrderService {
         }
 
         return orders;
+    }
+
+    public Order getOrderDetails(int orderId) throws Exception {
+        Order order = null;
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        try {
+            conn = DatabaseUtil.getConnection();
+            
+            // Fetch order details
+            String orderSql = "SELECT * FROM orders WHERE id = ?";
+            pstmt = conn.prepareStatement(orderSql);
+            pstmt.setInt(1, orderId);
+            rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                order = new Order();
+                order.setId(rs.getInt("id"));
+                order.setCustomerId(rs.getInt("customer_id"));
+                order.setFirstName(rs.getString("first_name"));
+                order.setLastName(rs.getString("last_name"));
+                order.setPhone(rs.getString("phone"));
+                order.setEmail(rs.getString("email"));
+                order.setAddress(rs.getString("address"));
+                order.setCity(rs.getString("city"));
+                order.setPostalCode(rs.getString("postal_code"));
+                order.setTotalAmount(rs.getDouble("total_amount"));
+                order.setOrderDate(rs.getTimestamp("order_date"));
+            }
+
+            // Fetch order items
+            if (order != null) {
+                String itemsSql = "SELECT oi.*, p.name AS product_name FROM order_items oi " +
+                                  "JOIN products p ON oi.product_id = p.id " +
+                                  "WHERE oi.order_id = ?";
+                pstmt = conn.prepareStatement(itemsSql);
+                pstmt.setInt(1, orderId);
+                rs = pstmt.executeQuery();
+
+                List<OrderItem> orderItems = new ArrayList<>();
+                while (rs.next()) {
+                    OrderItem item = new OrderItem();
+                    item.setId(rs.getInt("id"));
+                    item.setOrderId(rs.getInt("order_id"));
+                    item.setProductId(rs.getInt("product_id"));
+                    item.setProductName(rs.getString("product_name"));
+                    item.setQuantity(rs.getInt("quantity"));
+                    item.setPrice(rs.getDouble("price"));
+                    orderItems.add(item);
+                }
+                order.setOrderItems(orderItems);
+            }
+        } finally {
+            if (rs != null) rs.close();
+            if (pstmt != null) pstmt.close();
+            if (conn != null) conn.close();
+        }
+
+        return order;
     }
 }

@@ -78,13 +78,17 @@ public class ProductDAO {
         }
         return null;
     }
+    
+    
     public List<Product> searchProducts(String query) throws SQLException {
-        List<Product> productList = new ArrayList<>();
-        String sql = "SELECT * FROM product WHERE name LIKE ? OR description LIKE ?";
+        List<Product> searchResults = new ArrayList<>();
+        String sql = "SELECT * FROM product WHERE name LIKE ? OR description LIKE ? OR category LIKE ?";
         try (Connection conn = DatabaseUtil.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, "%" + query + "%");
-            pstmt.setString(2, "%" + query + "%");
+            String likeQuery = "%" + query + "%";
+            pstmt.setString(1, likeQuery);
+            pstmt.setString(2, likeQuery);
+            pstmt.setString(3, likeQuery);
             try (ResultSet rs = pstmt.executeQuery()) {
                 while (rs.next()) {
                     Product product = new Product();
@@ -94,10 +98,12 @@ public class ProductDAO {
                     product.setDescription(rs.getString("description"));
                     product.setCategory(rs.getString("category"));
                     product.setProductImagePath(rs.getString("product_image_path"));
-                    productList.add(product);
+                    searchResults.add(product);
                 }
             }
         }
-        return productList;
+        return searchResults;
     }
+    
+    
 }

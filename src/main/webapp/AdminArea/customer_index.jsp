@@ -32,7 +32,7 @@
             <div class="left">
                 <h1>Customer List</h1>
                 <ul class="breadcrumb">
-                    <li><a href="#">Customer</a></li>
+                    <li><a href="#">Customers</a></li>
                 </ul>
             </div>
         </div>

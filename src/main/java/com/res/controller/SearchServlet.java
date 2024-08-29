@@ -20,10 +20,10 @@ public class SearchServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String query = request.getParameter("query");
+        
         try {
             List<Product> searchResults = productService.searchProducts(query);
-            request.setAttribute("productList", searchResults);
-            request.setAttribute("searchQuery", query);
+            request.setAttribute("searchResults", searchResults);
             request.getRequestDispatcher("/PublicArea/menu.jsp").forward(request, response);
         } catch (SQLException e) {
             throw new ServletException(e);
