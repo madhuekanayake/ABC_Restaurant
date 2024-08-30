@@ -13,6 +13,7 @@ import com.res.model.Customer;
 import service.OrderService;
 
 @WebServlet("/checkout")
+
 public class CheckoutServlet extends HttpServlet {
     private OrderService orderService = new OrderService();
 
@@ -41,7 +42,14 @@ public class CheckoutServlet extends HttpServlet {
         try {
             int orderId = orderService.saveOrder(customer, cart, firstName, lastName, phone, email, address, city, house, postalCode, zip, message);
             session.removeAttribute("cart");
-            response.sendRedirect(request.getContextPath() + "/PublicArea/checkout.jsp?orderId=" + orderId);
+            
+            // Store order information in the session
+            session.setAttribute("orderId", orderId);
+            session.setAttribute("totalAmount", cart.getTotal());
+            session.setAttribute("customerName", firstName + " " + lastName);
+            
+            // Redirect to the payment page
+            response.sendRedirect(request.getContextPath() + "/PublicArea/payment.jsp");
         } catch (Exception e) {
             throw new ServletException("Error processing checkout", e);
         }

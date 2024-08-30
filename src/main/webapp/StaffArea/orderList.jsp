@@ -6,11 +6,11 @@
 <%@ page import="service.OrderService" %>
 
 <%
-    // Fetch the order list from the database
     OrderService orderService = new OrderService();
     List<Order> orderList = orderService.getAllOrders();
     request.setAttribute("orderList", orderList);
 %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,6 +19,16 @@
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="./css/style.css">
     <title>Customer Orders</title>
+    <style>
+        .status-paid {
+            color: green;
+            font-weight: bold;
+        }
+        .status-unpaid {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <jsp:include page="./sideBar.jsp" />
@@ -36,7 +46,7 @@
             <div class="table-data">
                 <div class="order">
                     <div class="head">
-                        <h3>Customer Orders</h3>
+                        <h3>All Orders</h3>
                         <i class='bx bx-search'></i>
                         <i class='bx bx-filter'></i>
                     </div>
@@ -48,6 +58,7 @@
                                 <th>Email</th>
                                 <th>Total Amount</th>
                                 <th>Order Date</th>
+                                <th>Payment Status</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -60,8 +71,18 @@
                                     <td>Rs${order.totalAmount}</td>
                                     <td><fmt:formatDate value="${order.orderDate}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
                                     <td>
-    <a href="${pageContext.request.contextPath}/StaffArea/orderDetails?id=${order.id}" class="btn-view">View</a>
-</td>
+                                        <c:choose>
+                                            <c:when test="${order.status == 1}">
+                                                <span class="status-paid">Paid</span>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <span class="status-unpaid">Unpaid</span>
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </td>
+                                    <td>
+                                        <a href="${pageContext.request.contextPath}/StaffArea/orderDetails?id=${order.id}" class="btn-view">View</a>
+                                    </td>
                                 </tr>
                             </c:forEach>
                         </tbody>

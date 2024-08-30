@@ -1,3 +1,16 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.res.model.Order" %>
+<%@ page import="service.OrderService" %>
+
+<%
+    // Fetch the order list from the database
+    OrderService orderService = new OrderService();
+    List<Order> orderList = orderService.getAllOrders();
+    request.setAttribute("orderList", orderList);
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,8 +35,8 @@
                     <div class="selectBox selected">&#x2713;</div>
                   </div>
                   <div class="my-3">
-                    <div><small class="text-secondary">CARD NYUMBER</small></div>
-                    <div class="fs-4 text-info">** ** ** 2288</div>
+                    <div><small class="text-secondary">CARD NUMBER</small></div>
+                    <div class="fs-4 text-info">* * ** 2288</div>
                   </div>
                   <div class="my-3">
                     <div class='d-flex align-items-center justify-content-between'>
@@ -44,8 +57,8 @@
                     <div class="selectBox"></div>
                   </div>
                   <div class="my-3">
-                    <div><small class="text-secondary">CARD NYUMBER</small></div>
-                    <div class="fs-4 text-dark">** ** ** 8822</div>
+                    <div><small class="text-secondary">CARD NUMBER</small></div>
+                    <div class="fs-4 text-dark">* * ** 8822</div>
                   </div>
                   <div class="my-3">
                     <div class='d-flex align-items-center justify-content-between'>
@@ -82,7 +95,7 @@
                   </div>
                 </div>
                 <div class="my-3">
-                  <small class="text-secondary">I authorize some insurance company to charge my debit / credit card for the total amount of xxx.xx</small>
+                  <small class="text-secondary">I authorize some insurance company to charge my debit / credit card for the total amount of ${totalAmount}</small>
                 </div>
                 <div class="mt-5 mb-3">
                   <div class="row">
@@ -99,17 +112,16 @@
           </div>
           <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
             <h4>Purchase Summary</h4>
-       
-    
             <div class="shadow-sm bg-white p-4 mt-4 mb-3">
-            
               <div class="p-4">
+                <h5 class="h6"><strong>Order ID: ${param.orderId}</strong></h5>
+                <h5 class="h6"><strong>Customer Name: ${customerName}</strong></h5>
                 <h5 class="h6"><strong>Price Breakup</strong></h5>
                 <table class="w-100 mt-3">
                   <tr>
                     <td>Total</td>
                     <td>:</td>
-                    <td><strong class="ms-2 text-success">$11,000</strong></td>
+                    <td><strong class="ms-2 text-success">${totalAmount}</strong></td>
                   </tr>
                   <tr>
                     <td colspan="3"><hr /></td>
@@ -118,7 +130,7 @@
                 <div>
                   <div class="text-secondary"><span class="badge bg-secondary me-2">big2022</span> Offer applied</div>
                   <div class="text-secondary my-2">Secure payment</div>
-                  <div class="text-secondary">30 day money back gaurantee</div>
+                  <div class="text-secondary">30 day money back guarantee</div>
                 </div>
               </div>
               <div class="p-4 border-top">

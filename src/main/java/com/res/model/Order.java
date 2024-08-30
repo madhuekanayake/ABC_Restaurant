@@ -19,6 +19,7 @@ public class Order {
     private double totalAmount;
     private Timestamp orderDate;
     private List<OrderItem> orderItems;
+    private int status; // 0 for unpaid, 1 for paid
 
     // Default constructor
     public Order() {}
@@ -144,6 +145,14 @@ public class Order {
         this.orderItems = orderItems;
     }
 
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
         return "Order{" +
@@ -162,6 +171,7 @@ public class Order {
                 ", totalAmount=" + totalAmount +
                 ", orderDate=" + orderDate +
                 ", orderItems=" + orderItems +
+                ", status=" + status +
                 '}';
     }
 }

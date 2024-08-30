@@ -27,7 +27,7 @@ public class OrderService {
             conn.setAutoCommit(false);
 
             // Insert order
-            String orderSql = "INSERT INTO orders (customer_id, first_name, last_name, phone, email, address, city, house, postal_code, zip, message, total_amount) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String orderSql = "INSERT INTO orders (customer_id, first_name, last_name, phone, email, address, city, house, postal_code, zip, message, total_amount, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             pstmt = conn.prepareStatement(orderSql, Statement.RETURN_GENERATED_KEYS);
             pstmt.setInt(1, customer.getId());
             pstmt.setString(2, firstName);
@@ -41,6 +41,7 @@ public class OrderService {
             pstmt.setString(10, zip);
             pstmt.setString(11, message);
             pstmt.setDouble(12, cart.getTotal());
+            pstmt.setInt(13, 0); // Set initial status to 0 (unpaid)
             pstmt.executeUpdate();
 
             rs = pstmt.getGeneratedKeys();
@@ -74,6 +75,23 @@ public class OrderService {
         return orderId;
     }
 
+    public void updateOrderStatus(int orderId, int status) throws Exception {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+
+        try {
+            conn = DatabaseUtil.getConnection();
+            String sql = "UPDATE orders SET status = ? WHERE id = ?";
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, status);
+            pstmt.setInt(2, orderId);
+            pstmt.executeUpdate();
+        } finally {
+            if (pstmt != null) pstmt.close();
+            if (conn != null) conn.close();
+        }
+    }
+
     public List<Order> getAllOrders() throws Exception {
         List<Order> orders = new ArrayList<>();
         Connection conn = null;
@@ -99,6 +117,7 @@ public class OrderService {
                 order.setPostalCode(rs.getString("postal_code"));
                 order.setTotalAmount(rs.getDouble("total_amount"));
                 order.setOrderDate(rs.getTimestamp("order_date"));
+                order.setStatus(rs.getInt("status"));
                 orders.add(order);
             }
         } finally {
@@ -118,7 +137,7 @@ public class OrderService {
 
         try {
             conn = DatabaseUtil.getConnection();
-            
+
             // Fetch order details
             String orderSql = "SELECT * FROM orders WHERE id = ?";
             pstmt = conn.prepareStatement(orderSql);
@@ -138,6 +157,7 @@ public class OrderService {
                 order.setPostalCode(rs.getString("postal_code"));
                 order.setTotalAmount(rs.getDouble("total_amount"));
                 order.setOrderDate(rs.getTimestamp("order_date"));
+                order.setStatus(rs.getInt("status"));
             }
 
             // Fetch order items
