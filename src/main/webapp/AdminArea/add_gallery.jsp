@@ -11,7 +11,7 @@
 	<!-- My CSS -->
 	<link rel="stylesheet" href="./css/style.css">
 
-	<title>Add Gallery</title>
+	<title>ABC Restaurant</title>
 <style>
 
 		<style>

@@ -52,13 +52,16 @@
 					<i class='bx bx-id-card'></i>
 					
 					<span class="text">View Customers</span>
-				</a><li>
+				</a>
+				</li>
+				
+				<li>
 				<a href="./contact.jsp">
 					<i class='bx bx-envelope'></i>
 					<span class="text">Special Massages</span>
 				</a>
 			</li>
-			</li> 
+			
 			
 		</ul>
 		<ul class="side-menu">

@@ -10,7 +10,7 @@
 	<!-- My CSS -->
 	<link rel="stylesheet" href="./css/style.css">
 
-	<title>StaffHub</title>
+	<title>ABC Restaurant</title>
 </head>
 <body>
 <!-- NAVBAR -->

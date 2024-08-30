@@ -15,7 +15,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Offers List</title>
+    <title>ABC Restaurant</title>
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/AdminArea/css/style.css?v=1.0">
 </head>
@@ -76,6 +76,13 @@
                 <span class="text">View Customers</span>
             </a>
         </li>
+        
+        <li>
+				<a href="./contact.jsp">
+					<i class='bx bx-envelope'></i>
+					<span class="text">Special Massages</span>
+				</a>
+			</li>
     </ul>
     <ul class="side-menu">
 			<li>

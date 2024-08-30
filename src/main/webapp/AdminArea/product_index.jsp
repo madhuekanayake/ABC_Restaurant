@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/AdminArea/css/admin.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/AdminArea/css/style.css">
 
-    <title>Product List</title>
+    <title>ABC Restaurant</title>
 </head>
 <body>
 
@@ -78,6 +78,13 @@
                 <span class="text">View Customers</span>
             </a>
         </li>
+        
+        <li>
+				<a href="./contact.jsp">
+					<i class='bx bx-envelope'></i>
+					<span class="text">Special Massages</span>
+				</a>
+			</li>
     </ul>
     <ul class="side-menu">
 			<li>
