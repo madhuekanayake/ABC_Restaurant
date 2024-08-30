@@ -76,8 +76,8 @@
                                         <a href="${pageContext.request.contextPath}/PublicArea/index.jsp" class="btn btn-outline-secondary w-100">Cancel</a>
                                     </div>
                                     <div class="col">
-                                       <input type="hidden" name="orderId" value="${sessionScope.orderId}">
-                                       <button type="submit" class="btn btn-primary w-100">Pay Now</button>
+                                      <input type="hidden" name="orderId" value="${sessionScope.orderId}">
+                         <button type="submit" class="btn btn-primary w-100">Pay Now</button>
                                     </div>
                                 </div>
                             </div>
@@ -115,6 +115,20 @@
             </div>
         </div>
     </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            <c:if test="${sessionScope.paymentSuccess}">
+                Swal.fire({
+                    title: 'Payment Successful!',
+                    text: 'Your payment has been processed successfully.',
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                });
+                <% session.removeAttribute("paymentSuccess"); %>
+            </c:if>
+        });
+    </script>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

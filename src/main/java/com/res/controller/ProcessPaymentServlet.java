@@ -2,12 +2,15 @@ package com.res.controller;
 
 
 
+
+
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import service.OrderService;
 
 @WebServlet("/processPayment")
@@ -23,7 +26,12 @@ public class ProcessPaymentServlet extends HttpServlet {
             
             if (paymentSuccessful) {
                 orderService.updateOrderStatus(orderId, 1); // Set status to 1 (paid)
-                response.sendRedirect(request.getContextPath() + "/paymentSuccess.jsp");
+                
+                // Set a session attribute to trigger the success message
+                HttpSession session = request.getSession();
+                session.setAttribute("paymentSuccess", true);
+                
+                response.sendRedirect(request.getContextPath() + "/PublicArea/orderConfirmation.jsp");
             } else {
                 response.sendRedirect(request.getContextPath() + "/paymentFailure.jsp");
             }
