@@ -30,9 +30,9 @@
     <main>
         <div class="head-title">
             <div class="left">
-                <h1>Special Massages</h1>
+                <h1>Special Messages</h1>
                 <ul class="breadcrumb">
-                    <li><a href="#">Special Massages</a></li>
+                    <li><a href="#">Special Messages</a></li>
                 </ul>
             </div>
         </div>
@@ -40,28 +40,30 @@
         <div class="table-data">
             <div class="order">
                 <div class="head">
-                    <h3>Massages</h3>
+                    <h3>Messages</h3>
                     <i class='bx bx-search'></i>
                     <i class='bx bx-filter'></i>
                 </div>
                 <table>
                     <thead>
                         <tr>
-                           
                             <th>Name</th>
                             <th>Email</th>
                             <th>Subject</th>
                             <th>Message</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <c:forEach var="contact" items="${contactList}">
                             <tr>
-                                
                                 <td>${contact.name}</td>
                                 <td>${contact.email}</td>
                                 <td>${contact.subject}</td>
                                 <td>${contact.message}</td>
+                                <td>
+                                    <a href="${pageContext.request.contextPath}/contact?action=delete&id=${contact.id}" class="btn-delete" onclick="return confirm('Are you sure you want to delete this message?')"><i class='bx bx-trash'></i></a>
+                                </td>
                             </tr>
                         </c:forEach>
                     </tbody>

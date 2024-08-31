@@ -1,6 +1,8 @@
 	  <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 	  <jsp:include page="./navBar.jsp" />
+	  
+	  <link rel="icon" type="image/x-icon" href="./images/ABC_logo.jpg">
     <!-- END nav -->
     
     <section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_3.jpg');" data-stellar-background-ratio="0.5">

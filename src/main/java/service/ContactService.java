@@ -1,14 +1,10 @@
 package service;
 
-
-
 import java.sql.SQLException;
 import java.util.List;
 
 import com.res.dao.ContactDAO;
 import com.res.model.Contact;
-
-
 
 public class ContactService {
     private ContactDAO contactDAO = new ContactDAO();
@@ -19,5 +15,9 @@ public class ContactService {
     
     public List<Contact> getAllContacts() throws SQLException {
         return contactDAO.getAllContacts();
+    }
+
+    public void deleteContact(int id) throws SQLException {
+        contactDAO.deleteContact(id);
     }
 }

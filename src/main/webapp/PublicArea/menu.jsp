@@ -24,10 +24,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="icon" type="image/x-icon" href="./images/ABC_logo.jpg">
     <title>ABC Restaurant</title>
     <!-- Add your CSS links here -->
 </head>
 <body>
+
+
     <jsp:include page="./navBar.jsp" />
     <!-- END nav -->
 

@@ -1,8 +1,5 @@
 package com.res.dao;
 
-
-
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -28,20 +25,30 @@ public class ContactDAO {
     
     public List<Contact> getAllContacts() throws SQLException {
         List<Contact> contacts = new ArrayList<>();
-        String sql = "SELECT name, email, subject, message FROM contacts"; // Make sure to select all required columns
+        String sql = "SELECT id, name, email, subject, message FROM contacts";
         try (Connection conn = DatabaseUtil.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql);
              ResultSet rs = pstmt.executeQuery()) {
             while (rs.next()) {
                 Contact contact = new Contact(
+                    rs.getInt("id"),
                     rs.getString("name"),
                     rs.getString("email"),
                     rs.getString("subject"),
-                    rs.getString("message") // Use the correct column name here
+                    rs.getString("message")
                 );
                 contacts.add(contact);
             }
         }
         return contacts;
+    }
+
+    public void deleteContact(int id) throws SQLException {
+        String sql = "DELETE FROM contacts WHERE id = ?";
+        try (Connection conn = DatabaseUtil.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, id);
+            pstmt.executeUpdate();
+        }
     }
 }

@@ -178,6 +178,12 @@
   	<description></description>
   	<servlet-class>com.res.controller.ProcessPaymentServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>DashboardServlet</servlet-name>
+  	<display-name>DashboardServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.res.controller.DashboardServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>AdminLoginServlet</servlet-name>
   	<url-pattern>/AdminLoginServlet</url-pattern>
@@ -293,5 +299,9 @@
   <servlet-mapping>
   	<servlet-name>ProcessPaymentServlet</servlet-name>
   	<url-pattern>/ProcessPaymentServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>DashboardServlet</servlet-name>
+  	<url-pattern>/DashboardServlet</url-pattern>
   </servlet-mapping>
 </web-app>

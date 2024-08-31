@@ -1,7 +1,5 @@
 package com.res.controller;
 
-
-
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
@@ -14,11 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.res.model.Contact;
-
 import service.ContactService;
-
-
-
 
 @WebServlet("/contact")
 public class ContactServlet extends HttpServlet {
@@ -35,7 +29,6 @@ public class ContactServlet extends HttpServlet {
         try {
             contactService.addContact(contact);
             
-            // Set success message in session
             HttpSession session = request.getSession();
             session.setAttribute("successMessage", "Your message has been successfully sent!");
 
@@ -44,14 +37,27 @@ public class ContactServlet extends HttpServlet {
             throw new ServletException(e);
         }
     }
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String action = request.getParameter("action");
+        
+        if ("delete".equals(action)) {
+            int id = Integer.parseInt(request.getParameter("id"));
+            try {
+                contactService.deleteContact(id);
+                response.sendRedirect(request.getContextPath() + "/AdminArea/contact.jsp");
+                return;
+            } catch (SQLException e) {
+                throw new ServletException(e);
+            }
+        }
+        
         try {
             List<Contact> contactList = contactService.getAllContacts();
             request.setAttribute("contactList", contactList);
-            request.getRequestDispatcher("/WEB-INF/views/contact_list.jsp").forward(request, response);
+            request.getRequestDispatcher("/AdminArea/contact.jsp").forward(request, response);
         } catch (SQLException e) {
             throw new ServletException(e);
         }
     }
-
 }

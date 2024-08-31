@@ -52,6 +52,7 @@
                             <th>Email</th>
                             <th>Subject</th>
                             <th>Message</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -62,6 +63,9 @@
                                 <td>${contact.email}</td>
                                 <td>${contact.subject}</td>
                                 <td>${contact.message}</td>
+                                <td>
+                                    <a href="${pageContext.request.contextPath}/contact?action=delete&id=${contact.id}" class="btn-delete" onclick="return confirm('Are you sure you want to delete this message?')"><i class='bx bx-trash'></i></a>
+                                </td>
                             </tr>
                         </c:forEach>
                     </tbody>

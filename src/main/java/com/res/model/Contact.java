@@ -1,8 +1,7 @@
 package com.res.model;
 
-
-
 public class Contact {
+    private int id;
     private String name;
     private String email;
     private String subject;
@@ -15,7 +14,18 @@ public class Contact {
         this.message = message;
     }
 
+    public Contact(int id, String name, String email, String subject, String message) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.subject = subject;
+        this.message = message;
+    }
+
     // Getters and setters
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
+
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
 
