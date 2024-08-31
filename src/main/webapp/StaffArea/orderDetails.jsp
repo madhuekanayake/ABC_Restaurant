@@ -9,6 +9,7 @@
 </head>
 <body>
     <jsp:include page="./sideBar.jsp" />
+      <link rel="icon" type="image/x-icon" href="./image/ABC_logo.jpg">
     <section id="content">
         <jsp:include page="./navBar.jsp" />
         <main>

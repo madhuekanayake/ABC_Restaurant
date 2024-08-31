@@ -16,6 +16,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="icon" type="image/x-icon" href="./assets/img/ABC_logo.jpg">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/AdminArea/css/admin.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/AdminArea/css/style.css">

@@ -15,6 +15,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="icon" type="image/x-icon" href="./image/ABC_logo.jpg">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="./css/style.css">
     <title>ABC Restaurant</title>
@@ -104,7 +105,7 @@
                 <li>
                     <i class='bx bxs-calendar-check' ></i>
                     <span class="text">
-                        <h3>1020</h3>
+                        <h3>102</h3>
                         <p>New Orders</p>
                     </span>
                 </li>
@@ -112,7 +113,7 @@
                     <i class='bx bxs-group' ></i>
                     <span class="text">
                         <h3>2834</h3>
-                        <p>Visitors</p>
+                        <p>Customers</p>
                     </span>
                 </li>
                 <li>

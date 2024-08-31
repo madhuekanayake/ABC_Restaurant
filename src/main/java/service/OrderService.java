@@ -190,4 +190,101 @@ public class OrderService {
 
         return order;
     }
+    public List<Order> getPaidOrders() throws Exception {
+        List<Order> orders = new ArrayList<>();
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        try {
+            conn = DatabaseUtil.getConnection();
+            String sql = "SELECT * FROM orders WHERE status = 1 ORDER BY id DESC";
+            pstmt = conn.prepareStatement(sql);
+            rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                Order order = new Order();
+                order.setId(rs.getInt("id"));
+                order.setCustomerId(rs.getInt("customer_id"));
+                order.setFirstName(rs.getString("first_name"));
+                order.setLastName(rs.getString("last_name"));
+                order.setPhone(rs.getString("phone"));
+                order.setEmail(rs.getString("email"));
+                order.setAddress(rs.getString("address"));
+                order.setCity(rs.getString("city"));
+                order.setPostalCode(rs.getString("postal_code"));
+                order.setTotalAmount(rs.getDouble("total_amount"));
+                order.setOrderDate(rs.getTimestamp("order_date"));
+                order.setStatus(rs.getInt("status"));
+                orders.add(order);
+            }
+        } finally {
+            if (rs != null) rs.close();
+            if (pstmt != null) pstmt.close();
+            if (conn != null) conn.close();
+        }
+
+        return orders;
+    }
+
+    public List<Order> getUnpaidOrders() throws Exception {
+        List<Order> orders = new ArrayList<>();
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        try {
+            conn = DatabaseUtil.getConnection();
+            String sql = "SELECT * FROM orders WHERE status = 0 ORDER BY id DESC";
+            pstmt = conn.prepareStatement(sql);
+            rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                Order order = new Order();
+                order.setId(rs.getInt("id"));
+                order.setCustomerId(rs.getInt("customer_id"));
+                order.setFirstName(rs.getString("first_name"));
+                order.setLastName(rs.getString("last_name"));
+                order.setPhone(rs.getString("phone"));
+                order.setEmail(rs.getString("email"));
+                order.setAddress(rs.getString("address"));
+                order.setCity(rs.getString("city"));
+                order.setPostalCode(rs.getString("postal_code"));
+                order.setTotalAmount(rs.getDouble("total_amount"));
+                order.setOrderDate(rs.getTimestamp("order_date"));
+                order.setStatus(rs.getInt("status"));
+                orders.add(order);
+            }
+        } finally {
+            if (rs != null) rs.close();
+            if (pstmt != null) pstmt.close();
+            if (conn != null) conn.close();
+        }
+
+        return orders;
+    }
+
+    public double getTotalPaidAmount() throws Exception {
+        double totalPaidAmount = 0;
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        try {
+            conn = DatabaseUtil.getConnection();
+            String sql = "SELECT SUM(total_amount) AS total_paid FROM orders WHERE status = 1";
+            pstmt = conn.prepareStatement(sql);
+            rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                totalPaidAmount = rs.getDouble("total_paid");
+            }
+        } finally {
+            if (rs != null) rs.close();
+            if (pstmt != null) pstmt.close();
+            if (conn != null) conn.close();
+        }
+
+        return totalPaidAmount;
+    }
 }
