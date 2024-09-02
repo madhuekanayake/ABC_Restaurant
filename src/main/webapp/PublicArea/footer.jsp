@@ -1,3 +1,6 @@
+    <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="java.util.List" %>
     <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container">
         <div class="row mb-5">
@@ -51,12 +54,12 @@
             <div class="ftco-footer-widget mb-4">
             	<h2 class="ftco-heading-2">Newsletter</h2>
             	<p>By the Mahaweli River, keep in touch with ABC Restaurant latest updates and special offers through .</p>
-              <form action="#" class="subscribe-form">
-                <div class="form-group">
-                  <input type="text" class="form-control mb-2 text-center" placeholder="Enter email address">
-                  <input type="submit" value="Subscribe" class="form-control submit px-3">
-                </div>
-              </form>
+              <form action="${pageContext.request.contextPath}/subscribe" method="post" class="subscribe-form">
+    <div class="form-group">
+        <input type="email" name="email" class="form-control mb-2 text-center" placeholder="Enter email address" required>
+        <input type="submit" value="subscribe" class="form-control submit px-3">
+    </div>
+</form>
             </div>
           </div>
         </div>
