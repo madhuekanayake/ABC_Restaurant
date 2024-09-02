@@ -81,7 +81,7 @@
         <li>
 				<a href="./contact.jsp">
 					<i class='bx bx-envelope'></i>
-					<span class="text">Special Massages</span>
+					<span class="text">Queries</span>
 				</a>
 			</li>
     </ul>
@@ -151,7 +151,7 @@
                                     <img src="${pageContext.request.contextPath}/${offer.offerImagePath}" alt="Offer Image" style="width: 100px; height: auto;">
                                 </td>
                                 <td>
-                                    <a href="${pageContext.request.contextPath}/AdminArea/edit_offer.jsp?id=${offer.id}" class="btn-edit">Edit</a>
+                                    
                                     <a href="${pageContext.request.contextPath}/offer_index?action=delete&id=${offer.id}" class="btn-delete" onclick="return confirm('Are you sure you want to delete this offer?')"><i class='bx bx-trash'></i>
                                     </a>
                                 </td>

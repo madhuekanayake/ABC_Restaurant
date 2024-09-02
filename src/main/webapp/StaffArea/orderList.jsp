@@ -16,7 +16,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="icon" type="image/x-icon" href="./image/ABC_logo.jpg">
+    <link rel="icon" type="image/x-icon" href="./image/ABC_logo.jpg">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="./css/style.css">
     <title>ABC Restaurant</title>
@@ -27,6 +27,20 @@
         }
         .status-unpaid {
             color: red;
+            font-weight: bold;
+        }
+        .btn-confirm {
+            background-color: #4CAF50;
+            color: white;
+            padding: 5px 10px;
+            text-decoration: none;
+            border-radius: 3px;
+        }
+        .btn-confirm:hover {
+            background-color: #45a049;
+        }
+        .status-confirmed {
+            color: blue;
             font-weight: bold;
         }
     </style>
@@ -56,10 +70,11 @@
                             <tr>
                                 <th>Order ID</th>
                                 <th>Customer Name</th>
-                                <th>Email</th>
+                               
                                 <th>Total Amount</th>
                                 <th>Order Date</th>
                                 <th>Payment Status</th>
+                                <th>Order Confirmation</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -68,7 +83,7 @@
                                 <tr>
                                     <td>${order.id}</td>
                                     <td>${order.firstName} ${order.lastName}</td>
-                                    <td>${order.email}</td>
+                                   
                                     <td>Rs${order.totalAmount}</td>
                                     <td><fmt:formatDate value="${order.orderDate}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
                                     <td>
@@ -78,6 +93,16 @@
                                             </c:when>
                                             <c:otherwise>
                                                 <span class="status-unpaid">Unpaid</span>
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </td>
+                                    <td>
+                                        <c:choose>
+                                            <c:when test="${order.orderConfirmation == 0}">
+                                                <a href="${pageContext.request.contextPath}/StaffArea/confirmOrder?id=${order.id}" class="btn-confirm"><i class='bx bx-check'></i></a>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <span class="status-confirmed">Confirmed</span>
                                             </c:otherwise>
                                         </c:choose>
                                     </td>

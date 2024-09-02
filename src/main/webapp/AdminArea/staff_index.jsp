@@ -82,7 +82,7 @@ request.setAttribute("staffList", staffList);
         <li>
 				<a href="./contact.jsp">
 					<i class='bx bx-envelope'></i>
-					<span class="text">Special Massages</span>
+					<span class="text">Queries</span>
 				</a>
 			</li>
     </ul>
@@ -154,7 +154,7 @@ request.setAttribute("staffList", staffList);
             <img src="${pageContext.request.contextPath}/${staff.profileImagePath}" alt="${staff.name}" width="50">
         </td>
         <td>
-            <a href="${pageContext.request.contextPath}/AdminArea/edit_staff.jsp?id=${staff.id}" class="btn-edit">Edit</a>
+           
             <a href="${pageContext.request.contextPath}/staff?action=delete&id=${staff.id}" class="btn-delete" onclick="return confirm('Are you sure you want to delete this staff member?')"><i class='bx bx-trash'></i>
             </a>
         </td>

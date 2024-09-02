@@ -82,7 +82,7 @@
         <li>
 				<a href="./contact.jsp">
 					<i class='bx bx-envelope'></i>
-					<span class="text">Special Massages</span>
+					<span class="text">Queries</span>
 				</a>
 			</li>
     </ul>
@@ -156,7 +156,7 @@
                                     <img src="${pageContext.request.contextPath}/${facility.facilityImagePath}" alt="${facility.name}" width="50">
                                 </td>
                                 <td>
-                                    <a href="${pageContext.request.contextPath}/AdminArea/edit_facility.jsp?id=${facility.id}" class="btn-edit">Edit</a>
+                                    
                                     <a href="${pageContext.request.contextPath}/facility_index?action=delete&id=${facility.id}" class="btn-delete" onclick="return confirm('Are you sure you want to delete this facility?')"><i class='bx bx-trash'></i>
                                     </a>
                                 </td>

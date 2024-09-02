@@ -83,7 +83,7 @@
         <li>
 				<a href="./contact.jsp">
 					<i class='bx bx-envelope'></i>
-					<span class="text">Special Massages</span>
+					<span class="text">Queries</span>
 				</a>
 			</li>
     </ul>
@@ -149,7 +149,7 @@
                                 <td><img src="${pageContext.request.contextPath}/${gallery.galleryImagePath}" alt="Gallery Image" width="50"></td>
                                 <td>${gallery.description}</td>
                                 <td>
-                                    <a href="${pageContext.request.contextPath}/AdminArea/edit_gallery.jsp?id=${gallery.id}" class="btn-edit">Edit</a>
+                                    
                                     <a href="${pageContext.request.contextPath}/gallery_index?action=delete&id=${gallery.id}" class="btn-delete" onclick="return confirm('Are you sure you want to delete this gallery image?')"><i class='bx bx-trash'></i>
                                     </a>
                                 </td>

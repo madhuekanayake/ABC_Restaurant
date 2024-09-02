@@ -19,6 +19,7 @@ public class Order {
     private double totalAmount;
     private Timestamp orderDate;
     private List<OrderItem> orderItems;
+    private int orderConfirmation;
     private int status; // 0 for unpaid, 1 for paid
 
     // Default constructor
@@ -153,7 +154,15 @@ public class Order {
         this.status = status;
     }
 
-    @Override
+    public int getOrderConfirmation() {
+		return orderConfirmation;
+	}
+
+	public void setOrderConfirmation(int orderConfirmation) {
+		this.orderConfirmation = orderConfirmation;
+	}
+
+	@Override
     public String toString() {
         return "Order{" +
                 "id=" + id +
@@ -172,6 +181,7 @@ public class Order {
                 ", orderDate=" + orderDate +
                 ", orderItems=" + orderItems +
                 ", status=" + status +
+                ", orderConfirmation =" + orderConfirmation  +
                 '}';
     }
 }

@@ -19,7 +19,7 @@
 			<li>
 				<a href="./contact.jsp">
 					<i class='bx bx-envelope'></i>
-					<span class="text">Special Massages</span>
+					<span class="text"> Queries</span>
 				</a>
 			</li>
 			<li>
