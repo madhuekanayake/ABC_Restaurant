@@ -37,12 +37,12 @@
 			</li>
 			
 			<li>
-				<a href="./subscription.jsp">
-				<i class='bx bx-cart'></i>
-				
-				<span class="text">Customer Subscription</span>
-				</a>
-			</li>
+    <a href="./subscription.jsp">
+        <i class='bx bx-user-check'></i>
+        <span class="text">Subscriptions</span>
+    </a>
+</li>
+			
 			
 		</ul>
 		<ul class="side-menu">

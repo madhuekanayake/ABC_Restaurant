@@ -16,7 +16,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subscription List</title>
+    <title>ABC Restaurant</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
@@ -29,7 +29,7 @@
     <main>
         <div class="head-title">
             <div class="left">
-                <h1>Subscriptions</h1>
+                <h1>Customer Subscriptions</h1>
                 <ul class="breadcrumb">
                     <li><a href="#">Subscriptions</a></li>
                 </ul>

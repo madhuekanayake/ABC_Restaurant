@@ -16,7 +16,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="icon" type="image/x-icon" href="./image/ABC_logo.jpg">
+    <link rel="icon" type="image/x-icon" href="./image/ABC_logo.jpg">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="./css/style.css">
     <title>ABC Restaurant</title>
@@ -31,9 +31,9 @@
     <main>
         <div class="head-title">
             <div class="left">
-                <h1>Special Massages</h1>
+                <h1>Queries</h1>
                 <ul class="breadcrumb">
-                    <li><a href="#">Special Massages</a></li>
+                    <li><a href="#">Queries</a></li>
                 </ul>
             </div>
         </div>
@@ -41,14 +41,13 @@
         <div class="table-data">
             <div class="order">
                 <div class="head">
-                    <h3>Massages</h3>
+                    <h3>Messages</h3>
                     <i class='bx bx-search'></i>
                     <i class='bx bx-filter'></i>
                 </div>
                 <table>
                     <thead>
                         <tr>
-                           
                             <th>Name</th>
                             <th>Email</th>
                             <th>Subject</th>
@@ -59,12 +58,13 @@
                     <tbody>
                         <c:forEach var="contact" items="${contactList}">
                             <tr>
-                                
                                 <td>${contact.name}</td>
                                 <td>${contact.email}</td>
                                 <td>${contact.subject}</td>
                                 <td>${contact.message}</td>
-                                
+                                <td>
+                                    <a href="./responce.jsp?name=${contact.name}&email=${contact.email}" class="btn btn-primary">Response</a>
+                                </td>
                             </tr>
                         </c:forEach>
                     </tbody>

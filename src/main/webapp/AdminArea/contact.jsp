@@ -31,9 +31,9 @@
     <main>
         <div class="head-title">
             <div class="left">
-                <h1>Special Messages</h1>
+                <h1>Queries</h1>
                 <ul class="breadcrumb">
-                    <li><a href="#">Special Messages</a></li>
+                    <li><a href="#">Queries</a></li>
                 </ul>
             </div>
         </div>
