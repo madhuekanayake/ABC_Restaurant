@@ -52,11 +52,11 @@
                 <form action="${pageContext.request.contextPath}/SendEmail" method="post" class="p-4 bg-light rounded shadow-sm">
                     <div class="form-group">
                         <label for="contactName">Name</label>
-                        <input type="text" id="contactName" name="name" class="form-control" value="${param.name}" required placeholder="Name">
+                        <input type="text" id="contactName" name="name" class="form-control" value="${param.name}" required placeholder="Name" readonly>
                     </div>
                     <div class="form-group">
                         <label for="contactEmail">Email</label>
-                        <input type="email" id="contactEmail" name="email" class="form-control" value="${param.email}" required placeholder="Email">
+                        <input type="email" id="contactEmail" name="email" class="form-control" value="${param.email}" required placeholder="Email" readonly>
                     </div>
                     <div class="form-group">
                         <label for="subject">Subject</label>
@@ -66,9 +66,8 @@
                         <label for="message">Message</label>
                         <textarea name="message" id="message" class="form-control" required rows="5" placeholder="Your Message"></textarea>
                     </div>
-                    <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" id="submit" class="btn btn-primary">Send Response</button>
                 </form>
-
             </div>
         </div>
     </main>

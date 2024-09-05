@@ -20,4 +20,12 @@ public class ContactService {
     public void deleteContact(int id) throws SQLException {
         contactDAO.deleteContact(id);
     }
+
+    public void updateContactStatus(int id, int status) throws SQLException {
+        contactDAO.updateContactStatus(id, status);
+    }
+
+    public Contact getContactById(int id) throws SQLException {
+        return contactDAO.getContactById(id);
+    }
 }

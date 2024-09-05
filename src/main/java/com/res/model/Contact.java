@@ -6,20 +6,23 @@ public class Contact {
     private String email;
     private String subject;
     private String message;
+    private int status;
 
     public Contact(String name, String email, String subject, String message) {
         this.name = name;
         this.email = email;
         this.subject = subject;
         this.message = message;
+        this.status = 0; // Default status is 0 (not replied)
     }
 
-    public Contact(int id, String name, String email, String subject, String message) {
+    public Contact(int id, String name, String email, String subject, String message, int status) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.subject = subject;
         this.message = message;
+        this.status = status;
     }
 
     // Getters and setters
@@ -37,4 +40,7 @@ public class Contact {
 
     public String getMessage() { return message; }
     public void setMessage(String message) { this.message = message; }
+
+    public int getStatus() { return status; }
+    public void setStatus(int status) { this.status = status; }
 }

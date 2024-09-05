@@ -18,6 +18,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="./image/ABC_logo.jpg">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    
     <link rel="stylesheet" href="./css/style.css">
     <title>ABC Restaurant</title>
 </head>
@@ -45,13 +47,14 @@
                     <i class='bx bx-search'></i>
                     <i class='bx bx-filter'></i>
                 </div>
-                <table>
+                <table class="table">
                     <thead>
                         <tr>
                             <th>Name</th>
                             <th>Email</th>
                             <th>Subject</th>
                             <th>Message</th>
+                            <th>Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -62,8 +65,15 @@
                                 <td>${contact.email}</td>
                                 <td>${contact.subject}</td>
                                 <td>${contact.message}</td>
+                                <td>${contact.status == 0 ? 'Not Replied' : 'Replied'}</td>
                                 <td>
-                                    <a href="./responce.jsp?name=${contact.name}&email=${contact.email}" class="btn btn-primary">Response</a>
+                                    <c:if test="${contact.status == 0}">
+                                        <a href="${pageContext.request.contextPath}/contact?action=updateStatus&id=${contact.id}&status=1" class="btn btn-primary"><i class='bx bx-arrow-to-right'></i>
+                                        </a>
+                                    </c:if>
+                                    <c:if test="${contact.status == 1}">
+                                        <span class="text-success">Replied</span>
+                                    </c:if>
                                 </td>
                             </tr>
                         </c:forEach>
@@ -73,6 +83,11 @@
         </div>
     </main>
 </section>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="./js/script.js"></script>
 
 <script src="./js/script.js"></script>
 </body>

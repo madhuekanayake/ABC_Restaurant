@@ -41,21 +41,55 @@ public class ContactServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
         
-        if ("delete".equals(action)) {
-            int id = Integer.parseInt(request.getParameter("id"));
-            try {
-                contactService.deleteContact(id);
-                response.sendRedirect(request.getContextPath() + "/AdminArea/contact.jsp");
-                return;
-            } catch (SQLException e) {
-                throw new ServletException(e);
+        if (action == null) {
+            listContacts(request, response);
+        } else {
+            switch (action) {
+                case "delete":
+                    deleteContact(request, response);
+                    break;
+                case "updateStatus":
+                    updateContactStatus(request, response);
+                    break;
+                default:
+                    listContacts(request, response);
+                    break;
             }
         }
-        
+    }
+
+    private void listContacts(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             List<Contact> contactList = contactService.getAllContacts();
             request.setAttribute("contactList", contactList);
-            request.getRequestDispatcher("/AdminArea/contact.jsp").forward(request, response);
+            request.getRequestDispatcher("/StaffArea/contact.jsp").forward(request, response);
+        } catch (SQLException e) {
+            throw new ServletException(e);
+        }
+    }
+
+    private void deleteContact(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        try {
+            contactService.deleteContact(id);
+            response.sendRedirect(request.getContextPath() + "/AdminArea/contact.jsp");
+        } catch (SQLException e) {
+            throw new ServletException(e);
+        }
+    }
+
+    private void updateContactStatus(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        int status = Integer.parseInt(request.getParameter("status"));
+        try {
+            Contact contact = contactService.getContactById(id);
+            contactService.updateContactStatus(id, status);
+            
+            // URL encode the name and email to handle special characters
+            String encodedName = java.net.URLEncoder.encode(contact.getName(), "UTF-8");
+            String encodedEmail = java.net.URLEncoder.encode(contact.getEmail(), "UTF-8");
+            
+            response.sendRedirect(request.getContextPath() + "/StaffArea/responce.jsp?name=" + encodedName + "&email=" + encodedEmail);
         } catch (SQLException e) {
             throw new ServletException(e);
         }
