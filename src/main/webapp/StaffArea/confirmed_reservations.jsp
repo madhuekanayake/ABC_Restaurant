@@ -54,20 +54,31 @@
                             <th>Time</th>
                             <th>Person</th>
                             <th>Branch</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <c:forEach var="reservation" items="${confirmedReservations}">
-                            <tr>
-                                <td>${reservation.name}</td>
-                                <td>${reservation.email}</td>
-                                <td>${reservation.phone}</td>
-                                <td>${reservation.date}</td>
-                                <td>${reservation.time}</td>
-                                <td>${reservation.person}</td>
-                                <td>${reservation.branch}</td>
-                            </tr>
-                        </c:forEach>
+    <tr>
+        <td>${reservation.name}</td>
+        <td>${reservation.email}</td>
+        <td>${reservation.phone}</td>
+        <td>${reservation.date}</td>
+        <td>${reservation.time}</td>
+        <td>${reservation.person}</td>
+        <td>${reservation.branch}</td>
+        <td>
+            <form action="${pageContext.request.contextPath}/SendEmailResrvation" method="post">
+                <input type="hidden" name="name" value="${reservation.name}">
+                <input type="hidden" name="email" value="${reservation.email}">
+                <input type="hidden" name="subject" value="Your Reservation Confirmation">
+                <input type="hidden" name="customerMessage" value="Dear ${reservation.name}, your reservation for ${reservation.date} at ${reservation.time} for ${reservation.person} person(s) at our ${reservation.branch} branch is confirmed.">
+                <input type="hidden" name="replyMessage" value="Thank you for choosing ABC Restaurant. We are looking forward to serving you.">
+                <button type="submit" class="btn-delete">Send Email</button>
+            </form>
+        </td>
+    </tr>
+</c:forEach>
                     </tbody>
                 </table>
             </div>

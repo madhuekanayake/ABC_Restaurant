@@ -1,74 +1,85 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.res.model.Contact" %>
+<%@ page import="com.res.dao.ContactDAO" %>
+
+<%
+    // Fetch the contact list from the database
+    ContactDAO contactDAO = new ContactDAO();
+    List<Contact> contactList = contactDAO.getAllContacts();
+    request.setAttribute("contactList", contactList);
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link rel="icon" type="image/x-icon" href="./images/ABC_logo.jpg">
+    <link rel="icon" type="image/x-icon" href="./image/ABC_logo.jpg">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./css/style.css">
     <title>ABC Restaurant</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <style>
-        ._failed { border-bottom: solid 4px red !important; }
-        ._failed i { color: red !important; }
-
-        ._success {
-            box-shadow: 0 15px 25px #00000019;
-            padding: 45px;
-            width: 100%;
-            text-align: center;
-            margin: 40px auto;
-            border-bottom: solid 4px #28a745;
-        }
-
-        ._success i {
-            font-size: 55px;
-            color: #28a745;
-        }
-
-        ._success h2 {
-            margin-bottom: 12px;
-            font-size: 40px;
-            font-weight: 500;
-            line-height: 1.2;
-            margin-top: 10px;
-        }
-
-        ._success p {
-            margin-bottom: 20px;
-            font-size: 18px;
-            color: #495057;
-            font-weight: 500;
-        }
-
-        .btn-ok {
-            padding: 10px 30px;
-            font-size: 18px;
-        }
-    </style>
 </head>
 <body>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-5">
-                <div class="message-box _success">
-                    <i class="fa fa-check-circle" aria-hidden="true"></i>
-                    <h2>Reply Sent To The Customer</h2>
-                    
-                    <button id="okButton" class="btn btn-success btn-ok">OK</button>
-                </div>
+
+<jsp:include page="./sideBar.jsp" />
+
+<section id="content">
+    <jsp:include page="./navBar.jsp" />
+
+    <main class="container">
+        <div class="head-title">
+            <div class="left">
+                <h1>Queries</h1>
+                <ul class="breadcrumb">
+                    <li><a href="#">Queries</a></li>
+                </ul>
             </div>
         </div>
-        <hr>
-    </div>
 
-    <script>
-        document.getElementById('okButton').addEventListener('click', function() {
-            window.location.href = '${pageContext.request.contextPath}/StaffArea/contact.jsp';
-        });
-    </script>
+        <div class="table-data">
+            <div class="order">
+                <div class="head">
+                    <h3>Messages</h3>
+                    <div class="d-flex align-items-center">
+                        <i class='bx bx-search mr-3'></i>
+                        <i class='bx bx-filter'></i>
+                    </div>
+                </div>
+
+                <form action="${pageContext.request.contextPath}/SendEmail" method="post" class="p-4 bg-light rounded shadow-sm">
+                    <div class="form-group">
+                        <label for="contactName">Name</label>
+                        <input type="text" id="contactName" name="name" class="form-control" value="${param.name}" required placeholder="Name" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactEmail">Email</label>
+                        <input type="email" id="contactEmail" name="email" class="form-control" value="${param.email}" required placeholder="Email" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerMessage">Customer Message</label>
+                        <textarea name="customerMessage" id="customerMessage" class="form-control" required rows="5" readonly>${param.message}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" name="subject" class="form-control" required placeholder="Subject">
+                    </div>
+                    <div class="form-group">
+                        <label for="replyMessage">Reply</label>
+                        <textarea name="replyMessage" id="replyMessage" class="form-control" required rows="5" placeholder="Your Message"></textarea>
+                    </div>
+                    <button type="submit" id="submit" class="btn btn-primary">Send Response</button>
+                </form>
+            </div>
+        </div>
+    </main>
+</section>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="./js/script.js"></script>
 </body>
 </html>
