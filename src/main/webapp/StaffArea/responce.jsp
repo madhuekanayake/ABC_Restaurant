@@ -59,12 +59,16 @@
                         <input type="email" id="contactEmail" name="email" class="form-control" value="${param.email}" required placeholder="Email" readonly>
                     </div>
                     <div class="form-group">
+                        <label for="customerMessage">Customer Message</label>
+                        <textarea name="customerMessage" id="customerMessage" class="form-control" required rows="5" readonly>${param.message}</textarea>
+                    </div>
+                    <div class="form-group">
                         <label for="subject">Subject</label>
                         <input type="text" name="subject" class="form-control" required placeholder="Subject">
                     </div>
                     <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea name="message" id="message" class="form-control" required rows="5" placeholder="Your Message"></textarea>
+                        <label for="replyMessage">Reply</label>
+                        <textarea name="replyMessage" id="replyMessage" class="form-control" required rows="5" placeholder="Your Message"></textarea>
                     </div>
                     <button type="submit" id="submit" class="btn btn-primary">Send Response</button>
                 </form>

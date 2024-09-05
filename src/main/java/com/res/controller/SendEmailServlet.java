@@ -23,23 +23,24 @@ public class SendEmailServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        PrintWriter out = response.getWriter();
-        response.setContentType("text/html");
-
+        // Retrieve form data
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String subject = request.getParameter("subject");
-        String msg = request.getParameter("message");
+        String userMessage = request.getParameter("customerMessage");
+        String staffReply = request.getParameter("replyMessage");
 
         final String username = "kingchamod2001@gmail.com"; // Replace with your email id
         final String password = "jbta ymaz vqxi gwgb";  // Replace with your email password
 
+        // Mail server properties
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.smtp.host", "smtp.gmail.com");
         props.put("mail.smtp.port", "587");
 
+        // Create session for email
         Session session = Session.getInstance(props,
                 new javax.mail.Authenticator() {
                     @Override
@@ -49,28 +50,74 @@ public class SendEmailServlet extends HttpServlet {
                 });
 
         try {
+            // Create message
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(username));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
             message.setSubject(subject);
 
-            MimeBodyPart textPart = new MimeBodyPart();
-            Multipart multipart = new MimeMultipart();
-            String finalText = "Name: " + name + "\nEmail: " + email + "\nSubject: " + subject + "\nMessage: " + msg;
-            textPart.setText(finalText);
+            // HTML content for email
+            String htmlContent = "<!DOCTYPE html>"
+                + "<html lang=\"en\">"
+                + "<head>"
+                + "<meta charset=\"UTF-8\">"
+                + "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">"
+                + "<title>ABC Restaurant - Response to Your Inquiry</title>"
+                + "</head>"
+                + "<body style=\"font-family: Arial, sans-serif; line-height: 1.6; color: #333333; max-width: 600px; margin: 0 auto; padding: 20px;\">"
+                + "<header style=\"text-align: center; margin-bottom: 20px;\">"
+                + "<img src=\"https://example.com/abc_logo.jpg\" alt=\"ABC Restaurant Logo\" style=\"max-width: 150px; height: auto;\">"
+                + "</header>"
+                + "<main>"
+                + "<h1 style=\"color: #4A4A4A; text-align: center; margin-bottom: 20px;\">Response to Your Inquiry</h1>"
+                + "<p>Dear " + name + ",</p>"
+                + "<p>Thank you for reaching out to ABC Restaurant. We appreciate your interest and the time you've taken to contact us. Please find our response to your inquiry below:</p>"
+                + "<div style=\"background-color: #f8f8f8; border-left: 4px solid #4CAF50; padding: 15px; margin: 20px 0;\">"
+                + "<h2 style=\"color: #4CAF50; margin-top: 0;\">Our Response:</h2>"
+                + "<p style=\"margin-bottom: 0;\">" + staffReply + "</p>"
+                + "</div>"
+                + "<h2 style=\"color: #4A4A4A;\">Your Original Message:</h2>"
+                + "<table style=\"width: 100%; border-collapse: collapse; margin-bottom: 20px;\">"
+                + "<tr>"
+                + "<th style=\"text-align: left; padding: 8px; border-bottom: 1px solid #ddd;\">Subject:</th>"
+                + "<td style=\"padding: 8px; border-bottom: 1px solid #ddd;\">" + subject + "</td>"
+                + "</tr>"
+                + "<tr>"
+                + "<th style=\"text-align: left; padding: 8px; border-bottom: 1px solid #ddd;\">Message:</th>"
+                + "<td style=\"padding: 8px; border-bottom: 1px solid #ddd;\">" + userMessage + "</td>"
+                + "</tr>"
+                + "</table>"
+                + "<p>We hope this information addresses your inquiry satisfactorily. If you have any further questions or need additional assistance, please don't hesitate to contact us again.</p>"
+                + "<p>We value your interest in ABC Restaurant and look forward to serving you soon.</p>"
+                + "</main>"
+                + "<footer style=\"margin-top: 30px; text-align: center; color: #777;\">"
+                + "<p>Best regards,<br>The ABC Restaurant Team</p>"
+                + "<p style=\"font-size: 0.9em;\">ABC Restaurant<br>123 Main Street, Cityville, State 12345<br>Phone: (555) 123-4567 | Email: info@abcrestaurant.com</p>"
+                + "</footer>"
+                + "</body>"
+                + "</html>";
 
+            // Prepare message part
+            MimeBodyPart textPart = new MimeBodyPart();
+            textPart.setContent(htmlContent, "text/html");
+
+            // Combine into multipart
+            Multipart multipart = new MimeMultipart();
             multipart.addBodyPart(textPart);
+
+            // Set content
             message.setContent(multipart);
 
+            // Send email
             Transport.send(message);
 
-            out.println("<center><h2 style='color:green;'>Email Sent Successfully.</h2>");
-            out.println("Thank you " + name + ", your message has been submitted to us.</center>");
-            
-            // Redirect to the home page after successful email send
+            // Redirect to success page after sending the email
             response.sendRedirect(request.getContextPath() + "/StaffArea/emailSentSuccess.jsp");
 
         } catch (Exception e) {
+            // Handle errors
+            response.setContentType("text/html");
+            PrintWriter out = response.getWriter();
             out.println("<center><h2 style='color:red;'>Error Sending Email!</h2></center>");
             e.printStackTrace(out);
         }
