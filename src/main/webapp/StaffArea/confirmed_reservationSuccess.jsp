@@ -56,7 +56,7 @@
             <div class="col-md-5">
                 <div class="message-box _success">
                     <i class="fa fa-check-circle" aria-hidden="true"></i>
-                    <h2>E mail sent successful</h2>
+                    <h2>Reservation Confirmation E mail Sent To The Customer</h2>
                     
                     <button id="okButton" class="btn btn-success btn-ok">OK</button>
                 </div>

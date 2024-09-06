@@ -72,7 +72,7 @@ public class SendEmailReservationServlet extends HttpServlet {
             ReservationDAO reservationDAO = new ReservationDAO();
             reservationDAO.markEmailAsSent(id);
 
-            response.sendRedirect(request.getContextPath() + "/StaffArea/confirmed_reservations.jsp");
+            response.sendRedirect(request.getContextPath() + "/StaffArea/confirmed_reservationSuccess.jsp");
 
         } catch (Exception e) {
             response.setContentType("text/html");

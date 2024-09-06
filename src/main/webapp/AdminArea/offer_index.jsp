@@ -148,7 +148,7 @@
                                 <td>${offer.id}</td>
                                 <td>${offer.description}</td>
                                 <td>
-                                    <img src="${pageContext.request.contextPath}/${offer.offerImagePath}" alt="Offer Image" style="width: 100px; height: auto;">
+                                    <img src="${pageContext.request.contextPath}/${offer.offerImagePath}" alt="Offer Image" style="width: 50">
                                 </td>
                                 <td>
                                     

@@ -214,6 +214,12 @@
   	<description></description>
   	<servlet-class>com.res.controller.SendEmailReservationServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>SendEmailToAllSubscribersServlet</servlet-name>
+  	<display-name>SendEmailToAllSubscribersServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.res.controller.SendEmailToAllSubscribersServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>AdminLoginServlet</servlet-name>
   	<url-pattern>/AdminLoginServlet</url-pattern>
@@ -353,5 +359,9 @@
   <servlet-mapping>
   	<servlet-name>SendEmailReservationServlet</servlet-name>
   	<url-pattern>/SendEmailReservationServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>SendEmailToAllSubscribersServlet</servlet-name>
+  	<url-pattern>/SendEmailToAllSubscribersServlet</url-pattern>
   </servlet-mapping>
 </web-app>

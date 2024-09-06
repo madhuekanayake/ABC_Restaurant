@@ -6,6 +6,7 @@
 
 	<!-- Boxicons -->
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="icon" type="image/x-icon" href="./Image/ABC_logo.jpg">
 	
 	<!-- My CSS -->
 	<link rel="stylesheet" href="./css/style.css">

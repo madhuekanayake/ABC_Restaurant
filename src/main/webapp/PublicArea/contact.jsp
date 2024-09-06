@@ -56,8 +56,9 @@
 						
 					</div>
 				<div class="col-md-6 d-flex align-items-stretch pb-5 pb-md-0" style="margin-top: 40px;">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.457093020949!2d80.6329713748134!3d7.302432392705301!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae3676df00217ff%3A0xac59999a6821007e!2sICBT%20Kandy%20Campus!5e0!3m2!1sen!2slk!4v1724303603286!5m2!1sen!2slk" width="1000" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.69553091442!2d79.84399937481284!3d6.9269504183438935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae259004ed40bb9%3A0x8287e4de6231b972!2sABC%20Restaurant!5e0!3m2!1sen!2slk!4v1725630710953!5m2!1sen!2slk" width="1000" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
+				
 				
 				</div>
 			</div>

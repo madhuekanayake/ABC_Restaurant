@@ -5,7 +5,7 @@
 <%@ page import="com.res.dao.SubscriptionDAO" %>
 
 <%
-    // Fetch the review list from the database
+    // Fetch the subscription list from the database
     SubscriptionDAO subscriptionDAO = new SubscriptionDAO();
     List<Subscription> subscriptionList = subscriptionDAO.getAllSubscriptions();
     request.setAttribute("subscriptionList", subscriptionList);
@@ -16,8 +16,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ABC Restaurant</title>
+    <title>ABC Restaurant - Subscriptions</title>
     <link rel="stylesheet" href="./css/style.css">
+    <!-- Include TinyMCE -->
+    <script src="https://cdn.tiny.cloud/1/2zwgr1g5gb1lul6y8kux22g6jxrpxupeac7rwd96lg2t8o8t/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: '#emailContent',
+            height: 300,
+            menubar: false,
+            plugins: 'advlist autolink lists link image charmap preview anchor searchreplace visualblocks code fullscreen insertdatetime media table paste code help wordcount',
+            toolbar: 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help',
+            content_css: 'https://www.tiny.cloud/css/codepen.min.css',
+            branding: false
+        });
+    </script>
 </head>
 <body>
 
@@ -65,6 +78,20 @@
                 </table>
             </div>
         </div>
+
+
+       
+        <!-- Email Composition Form -->
+<div class="compose-email">
+    <h2>Email to All Subscribers</h2>
+    <form action="${pageContext.request.contextPath}/sendBulkEmail" method="post">
+        <input type="text" name="subject" placeholder="Email Subject" class="email-subject" required>
+        <textarea id="emailContent" name="emailContent" class="email-content"></textarea>
+        <button type="submit" class="btn btn-primary w-100">Send to All Subscribers</button>
+        
+    </form>
+</div>
+        
     </main>
 </section>
 
