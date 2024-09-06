@@ -12,7 +12,7 @@ import util.DatabaseUtil;
 
 public class ReservationDAO {
     public void addReservation(Reservation reservation) throws SQLException {
-        String sql = "INSERT INTO reservations (name, email, phone, date, time, person, branch, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO reservations (name, email, phone, date, time, person, branch, status, email_sent) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (Connection conn = DatabaseUtil.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, reservation.getName());
@@ -22,7 +22,8 @@ public class ReservationDAO {
             pstmt.setString(5, reservation.getTime());
             pstmt.setString(6, reservation.getPerson());
             pstmt.setString(7, reservation.getBranch());
-            pstmt.setInt(8, 0); // Default status is 0
+            pstmt.setInt(8, reservation.getStatus());
+            pstmt.setBoolean(9, reservation.isEmailSent());
             pstmt.executeUpdate();
         }
     }
@@ -43,7 +44,8 @@ public class ReservationDAO {
                     rs.getString("time"),
                     rs.getString("person"),
                     rs.getString("branch"),
-                    rs.getInt("status")
+                    rs.getInt("status"),
+                    rs.getBoolean("email_sent")
                 );
                 reservations.add(reservation);
             }
@@ -76,15 +78,26 @@ public class ReservationDAO {
                     rs.getString("time"),
                     rs.getString("person"),
                     rs.getString("branch"),
-                    rs.getInt("status")
+                    rs.getInt("status"),
+                    rs.getBoolean("email_sent")
                 );
                 reservations.add(reservation);
             }
         }
         return reservations;
     }
+
     public void deleteReservation(int id) throws SQLException {
         String sql = "DELETE FROM reservations WHERE id = ?";
+        try (Connection conn = DatabaseUtil.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, id);
+            pstmt.executeUpdate();
+        }
+    }
+
+    public void markEmailAsSent(int id) throws SQLException {
+        String sql = "UPDATE reservations SET email_sent = true WHERE id = ?";
         try (Connection conn = DatabaseUtil.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, id);

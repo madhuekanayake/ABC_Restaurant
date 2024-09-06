@@ -3,26 +3,21 @@ package com.res.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Properties;
-import javax.mail.Message;
-import javax.mail.Multipart;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeBodyPart;
-import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
+import javax.mail.*;
+import javax.mail.internet.*;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import com.res.dao.ReservationDAO;
 
 @WebServlet(name = "SendEmailResrvation", urlPatterns = {"/SendEmailResrvation"})
 public class SendEmailReservationServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String subject = request.getParameter("subject");
@@ -73,7 +68,11 @@ public class SendEmailReservationServlet extends HttpServlet {
 
             Transport.send(message);
 
-            response.sendRedirect(request.getContextPath() + "/StaffArea/confirmed_reservationSuccess.jsp");
+            // Mark the email as sent in the database
+            ReservationDAO reservationDAO = new ReservationDAO();
+            reservationDAO.markEmailAsSent(id);
+
+            response.sendRedirect(request.getContextPath() + "/StaffArea/confirmed_reservations.jsp");
 
         } catch (Exception e) {
             response.setContentType("text/html");

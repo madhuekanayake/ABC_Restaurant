@@ -72,7 +72,8 @@
                                         </a>
                                     </c:if>
                                     <c:if test="${contact.status == 1}">
-                                        <span class="text-success">Replied</span>
+                                        <span class="text-success fw-bold">Replied</span>
+                                        
                                     </c:if>
                                 </td>
                             </tr>

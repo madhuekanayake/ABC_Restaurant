@@ -14,8 +14,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="icon" type="image/x-icon" href="./image/ABC_logo.jpg">
+    <link rel="icon" type="image/x-icon" href="./image/ABC_logo.jpg">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
     <title>ABC Restaurant</title>
 </head>
@@ -44,7 +45,7 @@
                     <i class='bx bx-search'></i>
                     <i class='bx bx-filter'></i>
                 </div>
-                <table>
+                <table class="table">
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -59,26 +60,37 @@
                     </thead>
                     <tbody>
                         <c:forEach var="reservation" items="${confirmedReservations}">
-    <tr>
-        <td>${reservation.name}</td>
-        <td>${reservation.email}</td>
-        <td>${reservation.phone}</td>
-        <td>${reservation.date}</td>
-        <td>${reservation.time}</td>
-        <td>${reservation.person}</td>
-        <td>${reservation.branch}</td>
-        <td>
-            <form action="${pageContext.request.contextPath}/SendEmailResrvation" method="post">
-                <input type="hidden" name="name" value="${reservation.name}">
-                <input type="hidden" name="email" value="${reservation.email}">
-                <input type="hidden" name="subject" value="Your Reservation Confirmation">
-                <input type="hidden" name="customerMessage" value="Dear ${reservation.name}, your reservation for ${reservation.date} at ${reservation.time} for ${reservation.person} person(s) at our ${reservation.branch} branch is confirmed.">
-                <input type="hidden" name="replyMessage" value="Thank you for choosing ABC Restaurant. We are looking forward to serving you.">
-                <button type="submit" class="btn-delete">Send Email</button>
-            </form>
-        </td>
-    </tr>
-</c:forEach>
+                            <tr>
+                                <td>${reservation.name}</td>
+                                <td>${reservation.email}</td>
+                                <td>${reservation.phone}</td>
+                                <td>${reservation.date}</td>
+                                <td>${reservation.time}</td>
+                                <td>${reservation.person}</td>
+                                <td>${reservation.branch}</td>
+                                <td>
+                                    <c:choose>
+                                        <c:when test="${reservation.emailSent}">
+                                            <span class="text-success fw-bold">Email Sent</span>
+                                            
+                                        </c:when>
+                                        <c:otherwise>
+                                            <form action="${pageContext.request.contextPath}/SendEmailResrvation" method="post">
+                                                <input type="hidden" name="id" value="${reservation.id}">
+                                                <input type="hidden" name="name" value="${reservation.name}">
+                                                <input type="hidden" name="email" value="${reservation.email}">
+                                                <input type="hidden" name="subject" value="Your Reservation Confirmation">
+                                                <input type="hidden" name="customerMessage" value="Dear ${reservation.name}, your reservation for ${reservation.date} at ${reservation.time} for ${reservation.person} person(s) at our ${reservation.branch} branch is confirmed.">
+                                                <input type="hidden" name="replyMessage" value="Thank you for choosing ABC Restaurant. We are looking forward to serving you.">
+                                                <button type="submit" class="btn btn-primary">
+                                                    <i class='bx bx-send'></i>
+                                                </button>
+                                            </form>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </td>
+                            </tr>
+                        </c:forEach>
                     </tbody>
                 </table>
             </div>
@@ -86,6 +98,7 @@
     </main>
 </section>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="./js/script.js"></script>
 </body>
 </html>
