@@ -51,4 +51,33 @@ public class GalleryDAO {
             pstmt.executeUpdate();
         }
     }
+    
+    public Gallery getGalleryImageById(int id) throws SQLException {
+        String sql = "SELECT * FROM gallery WHERE id = ?";
+        try (Connection conn = DatabaseUtil.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, id);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    Gallery gallery = new Gallery();
+                    gallery.setId(rs.getInt("id"));
+                    gallery.setDescription(rs.getString("description"));
+                    gallery.setGalleryImagePath(rs.getString("gallery_image_path"));
+                    return gallery;
+                }
+            }
+        }
+        return null;
+    }
+
+    public void updateGalleryImage(Gallery gallery) throws SQLException {
+        String sql = "UPDATE gallery SET description = ?, gallery_image_path = ? WHERE id = ?";
+        try (Connection conn = DatabaseUtil.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, gallery.getDescription());
+            pstmt.setString(2, gallery.getGalleryImagePath());
+            pstmt.setInt(3, gallery.getId());
+            pstmt.executeUpdate();
+        }
+    }
 }

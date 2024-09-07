@@ -20,4 +20,12 @@ public class GalleryService {
     public void deleteGalleryImage(int galleryId) throws SQLException {
         galleryDAO.deleteGalleryImage(galleryId);
     }
+    
+    public Gallery getGalleryImageById(int id) throws SQLException {
+        return galleryDAO.getGalleryImageById(id);
+    }
+
+    public void updateGalleryImage(Gallery gallery) throws SQLException {
+        galleryDAO.updateGalleryImage(gallery);
+    }
 }

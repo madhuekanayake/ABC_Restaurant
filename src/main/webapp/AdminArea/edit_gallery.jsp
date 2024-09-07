@@ -1,44 +1,72 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page import="java.util.List" %>
-<%@ page import="com.res.model.Product" %>
-<%@ page import="com.res.dao.ProductDAO" %>
-
-<%
-    // Fetch the product list from the database
-    ProductDAO productDAO = new ProductDAO();
-    List<Product> productList = productDAO.getAllProducts();
-    request.setAttribute("productList", productList);
-%>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="icon" type="image/x-icon" href="./assets/img/ABC_logo.jpg">
+    <link rel="icon" type="image/x-icon" href="./assets/img/ABC_logo.jpg">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/AdminArea/css/admin.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/AdminArea/css/style.css">
-
-    <title>ABC Restaurant</title>
-    
+    <title>Edit Gallery Image</title>
     <style>
-        .alert {
-            padding: 15px;
-            margin-bottom: 20px;
-            border: 1px solid transparent;
+        /* Form styling */
+        
+
+        .form-group {
+            margin-bottom: 30px;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .form-group img {
+            margin-top: 10px;
             border-radius: 4px;
         }
-        .alert-success {
-            color: #155724;
-            background-color: #d4edda;
-            border-color: #c3e6cb;
+
+        /* Button styling */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            width: 100%;
+            border: none;
         }
+
+        .btn-primary {
+            background-color: #5cb85c;
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            color: #fff;
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+
     </style>
 </head>
 <body>
-
 <section id="sidebar">
     <a href="#" class="brand">
         <i class='bx bxs-smile'></i>
@@ -120,72 +148,49 @@
 </script>
 </section>
 
-
 <section id="content">
     <jsp:include page="./navBar.jsp" />
 
     <main>
-    <c:if test="${not empty sessionScope.alertMessage}">
-            <div class="alert alert-success">
-                ${sessionScope.alertMessage}
-            </div>
-            <% session.removeAttribute("alertMessage"); %>
-        </c:if>
         <div class="head-title">
             <div class="left">
-                <h1>Product List</h1>
+                <h1>Edit Gallery Image</h1>
                 <ul class="breadcrumb">
                     <li>
-                        <a href="#">Product</a>
+                        <a href="${pageContext.request.contextPath}/gallery_index">Gallery</a>
+                    </li>
+                    <li><i class='bx bx-chevron-right'></i></li>
+                    <li>
+                        <a class="active" href="#">Edit</a>
                     </li>
                 </ul>
             </div>
-            <a href="${pageContext.request.contextPath}/AdminArea/add_product.jsp" class="btn-download">
-                <i class='bx bxs-plus-circle'></i>
-                <span class="text">Add New Products</span>
-            </a>
         </div>
 
-        <div class="table-data">
-            <div class="order">
-                <div class="head">
-                    <h3>Products</h3>
-                    <i class='bx bx-search'></i>
-                    <i class='bx bx-filter'></i>
+        <div class="form-container">
+            <form action="${pageContext.request.contextPath}/gallery_index?action=update" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="id" value="${gallery.id}">
+                
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <input type="text" id="description" name="description" value="${gallery.description}" required>
                 </div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Product Name</th>
-                            <th>Price</th>
-                            <th>Description</th>
-                            <th>Category</th>
-                            <th>Image</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <c:forEach var="product" items="${productList}">
-                            <tr>
-                                <td>${product.id}</td>
-                                <td>${product.name}</td>
-                                <td>${product.price}</td>
-                                <td>${product.description}</td>
-                                <td>${product.category}</td>
-                                <td><img src="${pageContext.request.contextPath}/${product.productImagePath}" alt="${product.name}" width="50"></td>
-                                <td>
-                                    <a href="${pageContext.request.contextPath}/product_index?action=edit&id=${product.id}" class="btn-edit"><i class='bx bx-edit'></i></a>
-                                    <a href="${pageContext.request.contextPath}/product_index?action=delete&id=${product.id}" class="btn-delete" onclick="return confirm('Are you sure you want to delete this product?')"><i class='bx bx-trash'></i>
-                                    </a>
-                                    
-                                </td>
-                                
-                            </tr>
-                        </c:forEach>
-                    </tbody>
-                </table>
-            </div>
+                
+                <div class="form-group">
+                    <label for="galleryImage">Current Image:</label>
+                    <img src="${pageContext.request.contextPath}/${gallery.galleryImagePath}" alt="Current Gallery Image" width="100">
+                </div>
+                
+                <div class="form-group">
+                    <label for="newGalleryImage">New Image (optional):</label>
+                    <input type="file" id="newGalleryImage" name="newGalleryImage">
+                </div>
+                
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Update Gallery Image</button>
+                    
+                </div>
+            </form>
         </div>
     </main>
 </section>

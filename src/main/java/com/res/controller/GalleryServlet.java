@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import com.res.model.Gallery;
@@ -29,10 +30,22 @@ public class GalleryServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
-        if ("delete".equals(action)) {
+        
+        if ("edit".equals(action)) {
+            int galleryId = Integer.parseInt(request.getParameter("id"));
+            try {
+                Gallery gallery = galleryService.getGalleryImageById(galleryId);
+                request.setAttribute("gallery", gallery);
+                request.getRequestDispatcher("/AdminArea/edit_gallery.jsp").forward(request, response);
+            } catch (SQLException e) {
+                throw new ServletException(e);
+            }
+        } else if ("delete".equals(action)) {
             int galleryId = Integer.parseInt(request.getParameter("id"));
             try {
                 galleryService.deleteGalleryImage(galleryId);
+                HttpSession session = request.getSession();
+                session.setAttribute("alertMessage", "Gallery image deleted successfully!");
                 response.sendRedirect(request.getContextPath() + "/gallery_index");
             } catch (SQLException e) {
                 throw new ServletException(e);
@@ -50,30 +63,68 @@ public class GalleryServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String description = request.getParameter("description");
+        String action = request.getParameter("action");
 
-        // Handle file upload
-        Part filePart = request.getPart("galleryImage");
-        String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
-        String fileExtension = fileName.substring(fileName.lastIndexOf("."));
-        String newFileName = UUID.randomUUID().toString() + fileExtension;
+        if ("update".equals(action)) {
+            int id = Integer.parseInt(request.getParameter("id"));
+            String description = request.getParameter("description");
+            
+            try {
+                Gallery gallery = galleryService.getGalleryImageById(id);
+                gallery.setDescription(description);
 
-        String uploadPath = getServletContext().getRealPath("") + File.separator + UPLOAD_DIRECTORY;
-        File uploadDir = new File(uploadPath);
-        if (!uploadDir.exists()) uploadDir.mkdir();
+                Part filePart = request.getPart("newGalleryImage");
+                if (filePart != null && filePart.getSize() > 0) {
+                    String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
+                    String fileExtension = fileName.substring(fileName.lastIndexOf("."));
+                    String newFileName = UUID.randomUUID().toString() + fileExtension;
 
-        String filePath = uploadPath + File.separator + newFileName;
-        filePart.write(filePath);
+                    String uploadPath = getServletContext().getRealPath("") + File.separator + UPLOAD_DIRECTORY;
+                    File uploadDir = new File(uploadPath);
+                    if (!uploadDir.exists()) uploadDir.mkdir();
 
-        String galleryImagePath = UPLOAD_DIRECTORY + File.separator + newFileName;
+                    String filePath = uploadPath + File.separator + newFileName;
+                    filePart.write(filePath);
 
-        Gallery gallery = new Gallery(description, galleryImagePath);
+                    gallery.setGalleryImagePath(UPLOAD_DIRECTORY + File.separator + newFileName);
+                }
 
-        try {
-            galleryService.addGalleryImage(gallery);
-            response.sendRedirect(request.getContextPath() + "/gallery_index");
-        } catch (SQLException e) {
-            throw new ServletException(e);
+                galleryService.updateGalleryImage(gallery);
+                
+                HttpSession session = request.getSession();
+                session.setAttribute("alertMessage", "Gallery image updated successfully!");
+                
+                response.sendRedirect(request.getContextPath() + "/gallery_index");
+            } catch (SQLException e) {
+                throw new ServletException(e);
+            }
+        } else {
+            String description = request.getParameter("description");
+
+            Part filePart = request.getPart("galleryImage");
+            String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
+            String fileExtension = fileName.substring(fileName.lastIndexOf("."));
+            String newFileName = UUID.randomUUID().toString() + fileExtension;
+
+            String uploadPath = getServletContext().getRealPath("") + File.separator + UPLOAD_DIRECTORY;
+            File uploadDir = new File(uploadPath);
+            if (!uploadDir.exists()) uploadDir.mkdir();
+
+            String filePath = uploadPath + File.separator + newFileName;
+            filePart.write(filePath);
+
+            String galleryImagePath = UPLOAD_DIRECTORY + File.separator + newFileName;
+
+            Gallery gallery = new Gallery(description, galleryImagePath);
+
+            try {
+                galleryService.addGalleryImage(gallery);
+                HttpSession session = request.getSession();
+                session.setAttribute("alertMessage", "New gallery image added successfully!");
+                response.sendRedirect(request.getContextPath() + "/gallery_index");
+            } catch (SQLException e) {
+                throw new ServletException(e);
+            }
         }
     }
 }

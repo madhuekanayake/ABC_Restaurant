@@ -5,20 +5,24 @@
 <%@ page import="com.res.model.Order" %>
 <%@ page import="service.OrderService" %>
 <%@ page import="service.CustomerService" %>
+<%@ page import="service.StaffService" %>
 
 <%
     OrderService orderService = new OrderService();
     CustomerService customerService = new CustomerService();
+    StaffService staffService = new StaffService();
     List<Order> allOrders = orderService.getAllOrders();
     List<Order> paidOrders = orderService.getPaidOrders();
     List<Order> unpaidOrders = orderService.getUnpaidOrders();
     double totalPaidAmount = orderService.getTotalPaidAmount();
     int totalCustomers = customerService.getTotalCustomerCount();
+    int totalStaff = staffService.getTotalStaffCount();
     request.setAttribute("allOrders", allOrders);
     request.setAttribute("paidOrders", paidOrders);
     request.setAttribute("unpaidOrders", unpaidOrders);
     request.setAttribute("totalPaidAmount", totalPaidAmount);
     request.setAttribute("totalCustomers", totalCustomers);
+    request.setAttribute("totalStaff", totalStaff);
 %>
 
 <!DOCTYPE html>
@@ -54,9 +58,16 @@
                         <p>Total Amount</p>
                     </span>
                 </li>
+                <li>
+                   <i class='bx bxs-user-detail'></i>
+                   
+               <span class="text">
+                        <h3>${totalStaff}</h3>
+                        <p>Staff</p>
+                    </span>
+                </li>
             </ul>
-            
-            <div class="table-data">
+          <div class="table-data">
                 <div class="order">
                     <div class="head">
                         <h3>Paid Orders</h3>
@@ -120,5 +131,7 @@
     
     </section>
     <script src="./js/script.js"></script>
+</body>
+        
 </body>
 </html>

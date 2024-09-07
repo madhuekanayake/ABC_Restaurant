@@ -105,5 +105,19 @@ public class ProductDAO {
         return searchResults;
     }
     
+    public void updateProduct(Product product) throws SQLException {
+        String sql = "UPDATE product SET name = ?, price = ?, description = ?, category = ?, product_image_path = ? WHERE id = ?";
+        try (Connection conn = DatabaseUtil.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, product.getName());
+            pstmt.setDouble(2, product.getPrice());
+            pstmt.setString(3, product.getDescription());
+            pstmt.setString(4, product.getCategory());
+            pstmt.setString(5, product.getProductImagePath());
+            pstmt.setInt(6, product.getId());
+            pstmt.executeUpdate();
+        }
+    }
+    
     
 }

@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import com.res.model.Product;
@@ -29,10 +30,22 @@ public class ProductServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
-        if ("delete".equals(action)) {
+        
+        if ("edit".equals(action)) {
+            int productId = Integer.parseInt(request.getParameter("id"));
+            try {
+                Product product = productService.getProductById(productId);
+                request.setAttribute("product", product);
+                request.getRequestDispatcher("/AdminArea/edit_product.jsp").forward(request, response);
+            } catch (SQLException e) {
+                throw new ServletException(e);
+            }
+        } else if ("delete".equals(action)) {
             int productId = Integer.parseInt(request.getParameter("id"));
             try {
                 productService.deleteProduct(productId);
+                HttpSession session = request.getSession();
+                session.setAttribute("alertMessage", "Product deleted successfully!");
                 response.sendRedirect(request.getContextPath() + "/product_index");
             } catch (SQLException e) {
                 throw new ServletException(e);
@@ -50,33 +63,78 @@ public class ProductServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String name = request.getParameter("name");
-        double price = Double.parseDouble(request.getParameter("price"));
-        String description = request.getParameter("description");
-        String category = request.getParameter("category");
+        String action = request.getParameter("action");
 
-        // Handle file upload
-        Part filePart = request.getPart("productImage");
-        String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
-        String fileExtension = fileName.substring(fileName.lastIndexOf("."));
-        String newFileName = UUID.randomUUID().toString() + fileExtension;
+        if ("update".equals(action)) {
+            int id = Integer.parseInt(request.getParameter("id"));
+            String name = request.getParameter("name");
+            double price = Double.parseDouble(request.getParameter("price"));
+            String description = request.getParameter("description");
+            String category = request.getParameter("category");
+            
+            try {
+                Product product = productService.getProductById(id);
+                product.setName(name);
+                product.setPrice(price);
+                product.setDescription(description);
+                product.setCategory(category);
 
-        String uploadPath = getServletContext().getRealPath("") + File.separator + UPLOAD_DIRECTORY;
-        File uploadDir = new File(uploadPath);
-        if (!uploadDir.exists()) uploadDir.mkdir();
+                Part filePart = request.getPart("newProductImage");
+                if (filePart != null && filePart.getSize() > 0) {
+                    String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
+                    String fileExtension = fileName.substring(fileName.lastIndexOf("."));
+                    String newFileName = UUID.randomUUID().toString() + fileExtension;
 
-        String filePath = uploadPath + File.separator + newFileName;
-        filePart.write(filePath);
+                    String uploadPath = getServletContext().getRealPath("") + File.separator + UPLOAD_DIRECTORY;
+                    File uploadDir = new File(uploadPath);
+                    if (!uploadDir.exists()) uploadDir.mkdir();
 
-        String productImagePath = UPLOAD_DIRECTORY + File.separator + newFileName;
+                    String filePath = uploadPath + File.separator + newFileName;
+                    filePart.write(filePath);
 
-        Product product = new Product(name, price, description, category, productImagePath);
+                    product.setProductImagePath(UPLOAD_DIRECTORY + File.separator + newFileName);
+                }
 
-        try {
-            productService.addProduct(product);
-            response.sendRedirect(request.getContextPath() + "/product_index");
-        } catch (SQLException e) {
-            throw new ServletException(e);
+                productService.updateProduct(product);
+                
+                HttpSession session = request.getSession();
+                session.setAttribute("alertMessage", "Product updated successfully!");
+                
+                response.sendRedirect(request.getContextPath() + "/product_index");
+            } catch (SQLException e) {
+                throw new ServletException(e);
+            }
+        } else {
+            // Existing code for adding a new product
+            String name = request.getParameter("name");
+            double price = Double.parseDouble(request.getParameter("price"));
+            String description = request.getParameter("description");
+            String category = request.getParameter("category");
+
+            Part filePart = request.getPart("productImage");
+            String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
+            String fileExtension = fileName.substring(fileName.lastIndexOf("."));
+            String newFileName = UUID.randomUUID().toString() + fileExtension;
+
+            String uploadPath = getServletContext().getRealPath("") + File.separator + UPLOAD_DIRECTORY;
+            File uploadDir = new File(uploadPath);
+            if (!uploadDir.exists()) uploadDir.mkdir();
+
+            String filePath = uploadPath + File.separator + newFileName;
+            filePart.write(filePath);
+
+            String productImagePath = UPLOAD_DIRECTORY + File.separator + newFileName;
+
+            Product product = new Product(name, price, description, category, productImagePath);
+
+            try {
+                productService.addProduct(product);
+                HttpSession session = request.getSession();
+                session.setAttribute("alertMessage", "New product added successfully!");
+                response.sendRedirect(request.getContextPath() + "/product_index");
+            } catch (SQLException e) {
+                throw new ServletException(e);
+            }
         }
     }
 }

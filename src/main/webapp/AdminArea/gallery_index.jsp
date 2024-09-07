@@ -5,7 +5,7 @@
 <%@ page import="com.res.dao.GalleryDAO" %>
 
 <%
-    // Fetch the product list from the database
+    // Fetch the gallery list from the database
     GalleryDAO galleryDAO = new GalleryDAO();
     List<Gallery> galleryList = galleryDAO.getAllGalleryImages();
     request.setAttribute("galleryList", galleryList);
@@ -16,12 +16,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="icon" type="image/x-icon" href="./assets/img/ABC_logo.jpg">
+    <link rel="icon" type="image/x-icon" href="./assets/img/ABC_logo.jpg">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/AdminArea/css/admin.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/AdminArea/css/style.css">
-
-    <title>ABC Restaurant</title>
+    <title>ABC Restaurant - Gallery Management</title>
+    <style>
+        .alert {
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid transparent;
+            border-radius: 4px;
+        }
+        .alert-success {
+            color: #155724;
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+        }
+    </style>
 </head>
 <body>
 
@@ -106,11 +118,18 @@
 </script>
 </section>
 
-
 <section id="content">
     <jsp:include page="./navBar.jsp" />
 
     <main>
+        <!-- Display alert message if it exists -->
+        <c:if test="${not empty sessionScope.alertMessage}">
+            <div class="alert alert-success">
+                ${sessionScope.alertMessage}
+            </div>
+            <% session.removeAttribute("alertMessage"); %>
+        </c:if>
+
         <div class="head-title">
             <div class="left">
                 <h1>Gallery List</h1>
@@ -149,9 +168,8 @@
                                 <td><img src="${pageContext.request.contextPath}/${gallery.galleryImagePath}" alt="Gallery Image" width="50"></td>
                                 <td>${gallery.description}</td>
                                 <td>
-                                    
-                                    <a href="${pageContext.request.contextPath}/gallery_index?action=delete&id=${gallery.id}" class="btn-delete" onclick="return confirm('Are you sure you want to delete this gallery image?')"><i class='bx bx-trash'></i>
-                                    </a>
+                                    <a href="${pageContext.request.contextPath}/gallery_index?action=edit&id=${gallery.id}" class="btn-edit"><i class='bx bx-edit'></i></a>
+                                    <a href="${pageContext.request.contextPath}/gallery_index?action=delete&id=${gallery.id}" class="btn-delete" onclick="return confirm('Are you sure you want to delete this gallery image?')"><i class='bx bx-trash'></i></a>
                                 </td>
                             </tr>
                         </c:forEach>

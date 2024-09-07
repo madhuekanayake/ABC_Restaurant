@@ -31,6 +31,8 @@ li {
 	--light-yellow: #FFF2C6;
 	--orange: #FD7238;
 	--light-orange: #FFE0D3;
+	--light-green: #d4edda;
+    --green: #28a745;
 }
 
 html {
@@ -415,6 +417,11 @@ color :var(--wite);
 	background: var(--light-orange);
 	color: var(--orange);
 }
+#content main .box-info li:nth-child(4) .bx {
+    background: var(--light-green); /* You can change this to any color */
+    color: var(--green); /* Adjust the icon color to match */
+}
+
 #content main .box-info li .text h3 {
 	font-size: 24px;
 	font-weight: 600;

@@ -162,7 +162,7 @@
 		          <div class="col-md-6 col-lg-3 mb-4 mb-lg-0 d-flex justify-content-center counter-wrap ftco-animate">
 		            <div class="block-18">
 		              <div class="text">
-		                <strong class="number" data-number="15000">0</strong>
+		                <strong class="number" data-number="1000">0</strong>
 		                <span>Happy Customers</span>
 		              </div>
 		            </div>

@@ -25,4 +25,7 @@ public class StaffService {
         return staffDAO.getStaffByUsernameAndPassword(username, password);
     }
 
+    public int getTotalStaffCount() throws SQLException {
+        return staffDAO.getTotalStaffCount();
+    }
 }

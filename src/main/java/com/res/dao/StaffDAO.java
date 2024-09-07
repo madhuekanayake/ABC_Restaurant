@@ -68,4 +68,16 @@ public class StaffDAO {
         }
         return null;
     }
+    public int getTotalStaffCount() throws SQLException {
+        String sql = "SELECT COUNT(*) FROM staff";
+        try (Connection conn = DatabaseUtil.getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+
+            if (rs.next()) {
+                return rs.getInt(1);
+            }
+        }
+        return 0;
+    }
 }

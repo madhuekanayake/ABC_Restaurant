@@ -29,4 +29,8 @@ public class ProductService {
     public List<Product> searchProducts(String query) throws SQLException {
         return productDAO.searchProducts(query);
     }
+    
+    public void updateProduct(Product product) throws SQLException {
+        productDAO.updateProduct(product);
+    }
 }
