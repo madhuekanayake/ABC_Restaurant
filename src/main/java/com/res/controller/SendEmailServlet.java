@@ -92,7 +92,8 @@ public class SendEmailServlet extends HttpServlet {
                 + "</main>"
                 + "<footer style=\"margin-top: 30px; text-align: center; color: #777;\">"
                 + "<p>Best regards,<br>The ABC Restaurant Team</p>"
-                + "<p style=\"font-size: 0.9em;\">ABC Restaurant<br>123 Main Street, Cityville, State 12345<br>Phone: (555) 123-4567 | Email: info@abcrestaurant.com</p>"
+                + "<p style=\"font-size: 0.9em;\">ABC Restaurant<br>ABC Restaurant\r\n"
+                + "WRGW+QJG, Baladaksha Mawatha, Colombo<br>Phone: +94 11 234 5678 | Email: abcrestaurant@gmail.com</p>"
                 + "</footer>"
                 + "</body>"
                 + "</html>";

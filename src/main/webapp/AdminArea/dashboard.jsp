@@ -4,70 +4,46 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.res.model.Order" %>
 <%@ page import="service.OrderService" %>
+<%@ page import="service.CustomerService" %>
 
 <%
     OrderService orderService = new OrderService();
+    CustomerService customerService = new CustomerService();
     List<Order> allOrders = orderService.getAllOrders();
     List<Order> paidOrders = orderService.getPaidOrders();
     List<Order> unpaidOrders = orderService.getUnpaidOrders();
     double totalPaidAmount = orderService.getTotalPaidAmount();
+    int totalCustomers = customerService.getTotalCustomerCount();
     request.setAttribute("allOrders", allOrders);
     request.setAttribute("paidOrders", paidOrders);
     request.setAttribute("unpaidOrders", unpaidOrders);
     request.setAttribute("totalPaidAmount", totalPaidAmount);
+    request.setAttribute("totalCustomers", totalCustomers);
 %>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="./images/ABC_logo.jpg">
-    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="./css/style.css">
-    <title>ABC Restaurant</title>
-    <style>
-        .status-paid {
-            color: green;
-            font-weight: bold;
-        }
-        .status-unpaid {
-            color: red;
-            font-weight: bold;
-        }
-    </style>
+    <!-- ... existing head content ... -->
 </head>
 <body>
     <jsp:include page="./sideBar.jsp" />
     <section id="content">
         <jsp:include page="./navBar.jsp" />
         <main>
-            <div class="head-title">
-                <div class="left">
-                    <h1>Dashboard</h1>
-                    <ul class="breadcrumb">
-                        <li>
-                            <a href="#">Dashboard</a>
-                        </li>
-                        <li><i class='bx bx-chevron-right' ></i></li>
-                        <li>
-                            <a class="active" href="#">Home</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            <!-- ... existing content ... -->
             <ul class="box-info">
                 <li>
                     <i class='bx bxs-calendar-check' ></i>
                     <span class="text">
-                        <h3>102</h3>
+                        <h3>${allOrders.size()}</h3>
                         <p>New Orders</p>
                     </span>
                 </li>
                 <li>
                     <i class='bx bxs-group' ></i>
                     <span class="text">
-                        <h3>2834</h3>
+                        <h3>${totalCustomers}</h3>
                         <p>Customers</p>
                     </span>
                 </li>
@@ -75,12 +51,11 @@
                     <i class='bx bxs-dollar-circle' ></i>
                     <span class="text">
                         <h3>${totalPaidAmount}</h3>
-                        <p>Total Cash</p>
+                        <p>Total Amount</p>
                     </span>
                 </li>
             </ul>
             
-
             <div class="table-data">
                 <div class="order">
                     <div class="head">
@@ -142,6 +117,7 @@
                 </div>
             </div>
         </main>
+    
     </section>
     <script src="./js/script.js"></script>
 </body>

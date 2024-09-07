@@ -17,10 +17,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="./image/ABC_logo.jpg">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="./css/style.css">
     <title>ABC Restaurant</title>
+    
+    <style>
+        
+
+        /* Form styling */
+        .compose-email {
+            margin-bottom: 20px;
+        }
+
+        .compose-email form {
+            background-color: #fafafa;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .compose-email input[type="text"],
+                .compose-email input[type="email"],
+        .compose-email textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .compose-email button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .compose-email button:hover {
+            background-color: #0056b3;
+        }
+        
+
+        /* Button styling */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            width: 100%;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
 
@@ -49,7 +113,8 @@
                     </div>
                 </div>
 
-                <form action="${pageContext.request.contextPath}/SendEmail" method="post" class="p-4 bg-light rounded shadow-sm">
+                <!-- Email Response Form -->
+                <form action="${pageContext.request.contextPath}/SendEmail" method="post" class="compose-email">
                     <div class="form-group">
                         <label for="contactName">Name</label>
                         <input type="text" id="contactName" name="name" class="form-control" value="${param.name}" required placeholder="Name" readonly>
@@ -77,9 +142,6 @@
     </main>
 </section>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="./js/script.js"></script>
 </body>
 </html>

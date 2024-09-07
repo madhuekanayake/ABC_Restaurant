@@ -72,7 +72,8 @@
           <div class="w-100"></div>
           <div class="col-md-3 d-flex">
           	<div class="dbox">
-	            <p><span>Address:</span> ABC Restaurant, Riverbank Road, Kandy, Sri Lanka</p>
+	            <p><span>Address:</span> ABC Restaurant
+WRGW+QJG, Baladaksha Mawatha, Colombo</p>
             </div>
           </div>
           <div class="col-md-3 d-flex">

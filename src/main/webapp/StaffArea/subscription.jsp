@@ -31,6 +31,55 @@
             branding: false
         });
     </script>
+
+    <style>
+        /* General container styling */
+        
+
+        
+
+        
+
+        /* Form styling */
+        .compose-email {
+            margin-bottom: 20px;
+        }
+
+        .compose-email form {
+            background-color: #fafafa;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .compose-email input[type="text"],
+        .compose-email textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .compose-email button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .compose-email button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Table styling */
+        
+    </style>
 </head>
 <body>
 
@@ -54,6 +103,17 @@
                 <div class="head">
                     <h3>Subscriptions</h3>
                 </div>
+
+                <!-- Email Composition Form -->
+                <div class="compose-email">
+                    <form action="${pageContext.request.contextPath}/sendBulkEmail" method="post">
+                        <input type="text" name="subject" placeholder="Email Subject" required>
+                        <textarea id="emailContent" name="emailContent"></textarea>
+                        <button type="submit">Send to All Subscribers</button>
+                    </form>
+                </div>
+
+                <!-- Subscription Table -->
                 <table>
                     <thead>
                         <tr>
@@ -78,20 +138,6 @@
                 </table>
             </div>
         </div>
-
-
-       
-        <!-- Email Composition Form -->
-<div class="compose-email">
-    <h2>Email to All Subscribers</h2>
-    <form action="${pageContext.request.contextPath}/sendBulkEmail" method="post">
-        <input type="text" name="subject" placeholder="Email Subject" class="email-subject" required>
-        <textarea id="emailContent" name="emailContent" class="email-content"></textarea>
-        <button type="submit" class="btn btn-primary w-100">Send to All Subscribers</button>
-        
-    </form>
-</div>
-        
     </main>
 </section>
 

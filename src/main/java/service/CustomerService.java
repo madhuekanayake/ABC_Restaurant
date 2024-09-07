@@ -28,4 +28,8 @@ public class CustomerService {
     public List<Customer> getAllCustomers() {
         return customerDAO.getAllCustomers();
     }
+
+    public int getTotalCustomerCount() {
+        return customerDAO.getTotalCustomerCount();
+    }
 }

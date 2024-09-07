@@ -36,4 +36,5 @@ public class RegisterServlet extends HttpServlet {
         request.setAttribute("customers", customers);
         request.getRequestDispatcher("/admin/customerList.jsp").forward(request, response);
     }
+    
 }
