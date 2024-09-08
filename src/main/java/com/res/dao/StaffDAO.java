@@ -80,4 +80,37 @@ public class StaffDAO {
         }
         return 0;
     }
+    
+    public Staff getStaffById(int id) throws SQLException {
+        String sql = "SELECT * FROM staff WHERE id = ?";
+        try (Connection conn = DatabaseUtil.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, id);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    Staff staff = new Staff();
+                    staff.setId(rs.getInt("id"));
+                    staff.setName(rs.getString("name"));
+                    staff.setEmail(rs.getString("email"));
+                    staff.setPassword(rs.getString("password"));
+                    staff.setProfileImagePath(rs.getString("profile_image_path"));
+                    return staff;
+                }
+            }
+        }
+        return null;
+    }
+
+    public void updateStaff(Staff staff) throws SQLException {
+        String sql = "UPDATE staff SET name = ?, email = ?, password = ?, profile_image_path = ? WHERE id = ?";
+        try (Connection conn = DatabaseUtil.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, staff.getName());
+            pstmt.setString(2, staff.getEmail());
+            pstmt.setString(3, staff.getPassword());
+            pstmt.setString(4, staff.getProfileImagePath());
+            pstmt.setInt(5, staff.getId());
+            pstmt.executeUpdate();
+        }
+    }
 }

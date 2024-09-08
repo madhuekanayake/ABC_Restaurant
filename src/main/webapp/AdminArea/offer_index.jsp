@@ -18,7 +18,8 @@
       <link rel="icon" type="image/x-icon" href="./assets/img/ABC_logo.jpg">
     <title>ABC Restaurant</title>
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/AdminArea/css/style.css?v=1.0">
+    <link rel="stylesheet" href="./AdminArea/css/style.css?v=1.0">
+        <link rel="stylesheet" href="./AdminArea/css/other.css">
 </head>
 <body>
 
@@ -111,6 +112,13 @@
     <jsp:include page="./navBar.jsp" />
 
     <main>
+    <!-- Display alert message if it exists -->
+        <c:if test="${not empty sessionScope.alertMessage}">
+            <div class="alert alert-success">
+                ${sessionScope.alertMessage}
+            </div>
+            <% session.removeAttribute("alertMessage"); %>
+        </c:if>
         <div class="head-title">
             <div class="left">
                 <h1>Offers List</h1>
@@ -151,10 +159,9 @@
                                     <img src="${pageContext.request.contextPath}/${offer.offerImagePath}" alt="Offer Image" style="width: 50">
                                 </td>
                                 <td>
-                                    
-                                    <a href="${pageContext.request.contextPath}/offer_index?action=delete&id=${offer.id}" class="btn-delete" onclick="return confirm('Are you sure you want to delete this offer?')"><i class='bx bx-trash'></i>
-                                    </a>
-                                </td>
+    <a href="${pageContext.request.contextPath}/offer_index?action=edit&id=${offer.id}" class="btn-edit"><i class='bx bx-edit'></i></a>
+    <a href="${pageContext.request.contextPath}/offer_index?action=delete&id=${offer.id}" class="btn-delete" onclick="return confirm('Are you sure you want to delete this offer?')"><i class='bx bx-trash'></i></a>
+</td>
                             </tr>
                         </c:forEach>
                     </tbody>

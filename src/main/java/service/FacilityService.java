@@ -20,4 +20,11 @@ public class FacilityService {
     public void deleteFacility(int facilityId) throws SQLException {
         facilityDAO.deleteFacility(facilityId);
     }
+    public Facility getFacilityById(int id) throws SQLException {
+        return facilityDAO.getFacilityById(id);
+    }
+
+    public void updateFacility(Facility facility) throws SQLException {
+        facilityDAO.updateFacility(facility);
+    }
 }

@@ -3,12 +3,31 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.res.model.Order" %>
 <%@ page import="service.OrderService" %>
+<%@ page import="service.CustomerService" %>
+<%@ page import="service.StaffService" %>
+
 
 <%
     OrderService orderService = new OrderService();
     List<Order> orderList = orderService.getAllOrders();
     request.setAttribute("orderList", orderList);
+    
+    CustomerService customerService = new CustomerService();
+    StaffService staffService = new StaffService();
+    List<Order> allOrders = orderService.getAllOrders();
+    List<Order> paidOrders = orderService.getPaidOrders();
+    List<Order> unpaidOrders = orderService.getUnpaidOrders();
+    double totalPaidAmount = orderService.getTotalPaidAmount();
+    int totalCustomers = customerService.getTotalCustomerCount();
+    int totalStaff = staffService.getTotalStaffCount();
+    request.setAttribute("allOrders", allOrders);
+    request.setAttribute("paidOrders", paidOrders);
+    request.setAttribute("unpaidOrders", unpaidOrders);
+    request.setAttribute("totalPaidAmount", totalPaidAmount);
+    request.setAttribute("totalCustomers", totalCustomers);
+    request.setAttribute("totalStaff", totalStaff);
 %>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,63 +37,10 @@
       <link rel="icon" type="image/x-icon" href="./image/ABC_logo.jpg">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/other.css">
     <title>ABC Restaurant</title>
     <style>
-        /* Updated Table Styling */
-        .order-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            background-color: #fff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        .order-table th, .order-table td {
-            padding: 15px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-            transition: all 0.3s ease;
-        }
-        .order-table th {
-            background-color: #f4f4f4;
-            font-weight: 600;
-            color: #333;
-        }
-        .order-table tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-        .order-table tr:hover {
-            background-color: #f1f1f1;
-            cursor: pointer;
-        }
-        .order-table td {
-            color: #555;
-        }
-        .status-paid {
-            color: #28a745;
-            font-weight: bold;
-            padding: 5px 10px;
-            border-radius: 4px;
-            background-color: #e6f7ea;
-        }
-        .status-unpaid {
-            color: #dc3545;
-            font-weight: bold;
-            padding: 5px 10px;
-            border-radius: 4px;
-            background-color: #f8d7da;
-        }
-        .order-table td:first-child, 
-        .order-table th:first-child {
-            border-top-left-radius: 8px;
-            border-bottom-left-radius: 8px;
-        }
-        .order-table td:last-child, 
-        .order-table th:last-child {
-            border-top-right-radius: 8px;
-            border-bottom-right-radius: 8px;
-        }
+
     </style>
 </head>
 <body>
@@ -105,22 +71,22 @@
                 <li>
                     <i class='bx bxs-calendar-check' ></i>
                     <span class="text">
-                        <h3>102</h3>
+                        <h3>${allOrders.size()}</h3>
                         <p>New Orders</p>
                     </span>
                 </li>
                 <li>
                     <i class='bx bxs-group' ></i>
                     <span class="text">
-                        <h3>2834</h3>
+                        <h3>${totalCustomers}</h3>
                         <p>Customers</p>
                     </span>
                 </li>
                 <li>
                     <i class='bx bxs-dollar-circle' ></i>
                     <span class="text">
-                        <h3>2543</h3>
-                        <p>Total Sales</p>
+                        <h3>${totalPaidAmount}</h3>
+                        <p>Total Amount</p>
                     </span>
                 </li>
             </ul>

@@ -32,7 +32,7 @@ li {
 	--orange: #FD7238;
 	--light-orange: #FFE0D3;
 	--light-green: #d4edda;
-    --green: #28a745;
+  
 }
 
 html {
@@ -580,7 +580,7 @@ color :var(--wite);
 }
 
 .btn-submit:hover {
-    background-color: #4cae4c;
+    background-color: #0056b3;
 }
 
 

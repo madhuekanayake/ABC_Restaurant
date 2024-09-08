@@ -20,4 +20,12 @@ public class OfferService {
     public void deleteOffer(int id) throws SQLException {
         offerDAO.deleteOffer(id);
     }
+    
+    public Offer getOfferById(int id) throws SQLException {
+        return offerDAO.getOfferById(id);
+    }
+
+    public void updateOffer(Offer offer) throws SQLException {
+        offerDAO.updateOffer(offer);
+    }
 }

@@ -28,4 +28,11 @@ public class StaffService {
     public int getTotalStaffCount() throws SQLException {
         return staffDAO.getTotalStaffCount();
     }
+    public Staff getStaffById(int id) throws SQLException {
+        return staffDAO.getStaffById(id);
+    }
+
+    public void updateStaff(Staff staff) throws SQLException {
+        staffDAO.updateStaff(staff);
+    }
 }

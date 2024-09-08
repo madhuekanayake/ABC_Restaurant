@@ -53,4 +53,35 @@ public class FacilityDAO {
             pstmt.executeUpdate();
         }
     }
+    
+    public Facility getFacilityById(int id) throws SQLException {
+        String sql = "SELECT * FROM facility WHERE id = ?";
+        try (Connection conn = DatabaseUtil.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, id);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    Facility facility = new Facility();
+                    facility.setId(rs.getInt("id"));
+                    facility.setName(rs.getString("name"));
+                    facility.setDescription(rs.getString("description"));
+                    facility.setFacilityImagePath(rs.getString("facility_image_path"));
+                    return facility;
+                }
+            }
+        }
+        return null;
+    }
+
+    public void updateFacility(Facility facility) throws SQLException {
+        String sql = "UPDATE facility SET name = ?, description = ?, facility_image_path = ? WHERE id = ?";
+        try (Connection conn = DatabaseUtil.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, facility.getName());
+            pstmt.setString(2, facility.getDescription());
+            pstmt.setString(3, facility.getFacilityImagePath());
+            pstmt.setInt(4, facility.getId());
+            pstmt.executeUpdate();
+        }
+    }
 }

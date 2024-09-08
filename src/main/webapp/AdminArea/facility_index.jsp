@@ -19,7 +19,9 @@
       <link rel="icon" type="image/x-icon" href="./assets/img/ABC_logo.jpg">
     <title>ABC Restaurant</title>
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/AdminArea/css/style.css">
+    <link rel="stylesheet" href="./AdminArea/css/other.css">
+    <link rel="stylesheet" href="./AdminArea/css/style.css">
+        
 </head>
 <body>
 
@@ -113,6 +115,13 @@
 
     <!-- MAIN -->
     <main>
+     <!-- Display alert message if it exists -->
+        <c:if test="${not empty sessionScope.alertMessage}">
+            <div class="alert alert-success">
+                ${sessionScope.alertMessage}
+            </div>
+            <% session.removeAttribute("alertMessage"); %>
+        </c:if>
         <div class="head-title">
             <div class="left">
                 <h1>Facility List</h1>
@@ -147,21 +156,18 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <c:forEach var="facility" items="${facilityList}">
-                            <tr>
-                                <td>${facility.id}</td>
-                                <td>${facility.name}</td>
-                                <td>${facility.description}</td>
-                                <td>
-                                    <img src="${pageContext.request.contextPath}/${facility.facilityImagePath}" alt="${facility.name}" width="50">
-                                </td>
-                                <td>
-                                    
-                                    <a href="${pageContext.request.contextPath}/facility_index?action=delete&id=${facility.id}" class="btn-delete" onclick="return confirm('Are you sure you want to delete this facility?')"><i class='bx bx-trash'></i>
-                                    </a>
-                                </td>
-                            </tr>
-                        </c:forEach>
+                       <c:forEach var="facility" items="${facilityList}">
+    <tr>
+        <td>${facility.id}</td>
+        <td>${facility.name}</td>
+        <td>${facility.description}</td>
+        <td><img src="${pageContext.request.contextPath}/${facility.facilityImagePath}" alt="Facility Image" width="50"></td>
+        <td>
+            <a href="${pageContext.request.contextPath}/facility_index?action=edit&id=${facility.id}" class="btn-edit"><i class='bx bx-edit'></i></a>
+            <a href="${pageContext.request.contextPath}/facility_index?action=delete&id=${facility.id}" class="btn-delete" onclick="return confirm('Are you sure you want to delete this facility?')"><i class='bx bx-trash'></i></a>
+        </td>
+    </tr>
+</c:forEach>
                     </tbody>
                 </table>
             </div>

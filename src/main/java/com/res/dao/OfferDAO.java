@@ -51,4 +51,33 @@ public class OfferDAO {
             pstmt.executeUpdate();
         }
     }
+    
+    public Offer getOfferById(int id) throws SQLException {
+        String sql = "SELECT * FROM offers WHERE id = ?";
+        try (Connection conn = DatabaseUtil.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, id);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    Offer offer = new Offer();
+                    offer.setId(rs.getInt("id"));
+                    offer.setDescription(rs.getString("description"));
+                    offer.setOfferImagePath(rs.getString("offer_image_path"));
+                    return offer;
+                }
+            }
+        }
+        return null;
+    }
+
+    public void updateOffer(Offer offer) throws SQLException {
+        String sql = "UPDATE offers SET description = ?, offer_image_path = ? WHERE id = ?";
+        try (Connection conn = DatabaseUtil.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, offer.getDescription());
+            pstmt.setString(2, offer.getOfferImagePath());
+            pstmt.setInt(3, offer.getId());
+            pstmt.executeUpdate();
+        }
+    }
 }

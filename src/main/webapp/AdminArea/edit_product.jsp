@@ -7,55 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="./assets/img/ABC_logo.jpg">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/AdminArea/css/admin.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/AdminArea/css/style.css">
+    <link rel="stylesheet" href="./AdminArea/css/other.css">
+    <link rel="stylesheet" href="./AdminArea/css/style.css">
     <title>Edit Product</title>
-    <style>
-    .form-group {
-        margin-bottom: 30px;
-    }
-    .form-group input[type="text"],
-    .form-group input[type="number"],
-    .form-group input[type="file"],
-    .form-group textarea,
-    .form-group select {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        font-size: 14px;
-    }
-    .form-group img {
-        margin-top: 10px;
-        border-radius: 4px;
-    }
-    .btn {
-        display: inline-block;
-        padding: 10px 20px;
-        font-size: 16px;
-        cursor: pointer;
-        border-radius: 4px;
-        text-align: center;
-        text-decoration: none;
-        transition: background-color 0.3s;
-        width: 100%;
-        border: none;
-    }
-    .btn-primary {
-        background-color: #5cb85c;
-        color: #fff;
-    }
-    .btn-primary:hover {
-        background-color: #0056b3;
-    }
-    .btn-secondary {
-        background-color: #6c757d;
-        color: #fff;
-    }
-    .btn-secondary:hover {
-        background-color: #5a6268;
-    }
-</style>
+  
 </head>
 <body>
 <section id="sidebar">
@@ -163,10 +118,15 @@
                 <div class="form-group">
                     <label for="category">Category:</label>
                     <select id="category" name="category" required>
-                        <option value="Appetizer" ${product.category == 'Appetizer' ? 'selected' : ''}>Appetizer</option>
-                        <option value="Main Course" ${product.category == 'Main Course' ? 'selected' : ''}>Main Course</option>
-                        <option value="Dessert" ${product.category == 'Dessert' ? 'selected' : ''}>Dessert</option>
-                        <option value="Beverage" ${product.category == 'Beverage' ? 'selected' : ''}>Beverage</option>
+                        <option value="Breakfast" ${product.category == 'Appetizer' ? 'selected' : ''}>Breakfast</option>
+                        <option value="Lunch" ${product.category == 'Main Course' ? 'selected' : ''}>Lunch</option>
+                        <option value="Dinner" ${product.category == 'Dessert' ? 'selected' : ''}>Dinner</option>
+                        <option value="Salads" ${product.category == 'Beverage' ? 'selected' : ''}>Salads</option>
+                        <option value="Desserts" ${product.category == 'Main Course' ? 'selected' : ''}>Desserts</option>
+                        <option value="Beverages" ${product.category == 'Dessert' ? 'selected' : ''}>Beverages</option>
+                        <option value="Wine" ${product.category == 'Beverage' ? 'selected' : ''}>Wine</option>
+                        
+                       
                     </select>
                 </div>
                 

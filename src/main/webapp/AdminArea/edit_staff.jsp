@@ -1,31 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page import="java.util.List" %>
-<%@ page import="com.res.model.Staff" %>
-<%@ page import="com.res.dao.StaffDAO" %>
-
-<%
-// Fetch the staff list from the database
-StaffDAO staffDAO = new StaffDAO();
-List<Staff> staffList = staffDAO.getAllStaff();
-request.setAttribute("staffList", staffList);
-%>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="icon" type="image/x-icon" href="./assets/img/ABC_logo.jpg">
+    <link rel="icon" type="image/x-icon" href="./assets/img/ABC_logo.jpg">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="./AdminArea/css/other.css">
     <link rel="stylesheet" href="./AdminArea/css/style.css">
-    <title>ABC Restaurant</title>
+    <title>Edit Offer</title>
     
 </head>
 <body>
-
-    <section id="sidebar">
+ <section id="sidebar">
     <a href="#" class="brand">
         <i class='bx bxs-smile'></i>
         <span class="text">Admin ABC</span>
@@ -107,74 +95,62 @@ request.setAttribute("staffList", staffList);
 
 </section>
 
-    <section id="content">
-        <jsp:include page="./navBar.jsp" />
+<section id="content">
+    <jsp:include page="./navBar.jsp" />
 
-        <main>
-         <!-- Display alert message if it exists -->
-        <c:if test="${not empty sessionScope.alertMessage}">
-            <div class="alert alert-success">
-                ${sessionScope.alertMessage}
+    <main>
+        <div class="head-title">
+            <div class="left">
+                <h1>Edit Staff Member</h1>
+                <ul class="breadcrumb">
+                    <li>
+                        <a href="${pageContext.request.contextPath}/staff">Staff</a>
+                    </li>
+                    <li><i class='bx bx-chevron-right'></i></li>
+                    <li>
+                        <a class="active" href="#">Edit</a>
+                    </li>
+                </ul>
             </div>
-            <% session.removeAttribute("alertMessage"); %>
-        </c:if>
-            <div class="head-title">
-                <div class="left">
-                    <h1>Staff Members List</h1>
-                    <ul class="breadcrumb">
-                        <li>
-                            <a href="#">Staff</a>
-                        </li>
-                    </ul>
+        </div>
+
+        <div class="form-container">
+            <form action="${pageContext.request.contextPath}/staff?action=update" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="id" value="${staff.id}">
+                
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" value="${staff.name}" required>
                 </div>
-                <a href="${pageContext.request.contextPath}/AdminArea/add_staff.jsp" class="btn-download">
-                    <i class='bx bxs-plus-circle'></i>
-                    <span class="text">Add New Staff Members</span>
-                </a>
-            </div>
-
-            <div class="table-data">
-                <div class="order">
-                    <div class="head">
-                        <h3>Staff Members</h3>
-                        <i class='bx bx-search'></i>
-                        <i class='bx bx-filter'></i>
-                    </div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Staff Member Name</th>
-                                <th>Email</th>
-                                <th>Password</th>
-                                <th>Profile Image</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                           <c:forEach var="staff" items="${staffList}">
-    <tr>
-        <td>${staff.id}</td>
-        <td>${staff.name}</td>
-        <td>${staff.email}</td>
-        <td>${staff.password}</td>
-        <td>
-            <img src="${pageContext.request.contextPath}/${staff.profileImagePath}" alt="${staff.name}" width="50">
-        </td>
-        <td>
-            <a href="${pageContext.request.contextPath}/staff?action=edit&id=${staff.id}" class="btn-edit"><i class='bx bx-edit'></i></a>
-            <a href="${pageContext.request.contextPath}/staff?action=delete&id=${staff.id}" class="btn-delete" onclick="return confirm('Are you sure you want to delete this staff member?')"><i class='bx bx-trash'></i></a>
-        </td>
-    </tr>
-</c:forEach>
-                           
-                        </tbody>
-                    </table>
+                
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" value="${staff.email}" required>
                 </div>
-            </div>
-        </main>
-    </section>
+                
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" value="${staff.password}" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="currentProfileImage">Current Profile Image:</label>
+                    <img src="${pageContext.request.contextPath}/${staff.profileImagePath}" alt="Current Profile Image" width="100">
+                </div>
+                
+                <div class="form-group">
+                    <label for="newProfileImage">New Profile Image (optional):</label>
+                    <input type="file" id="newProfileImage" name="newProfileImage">
+                </div>
+                
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Update Staff Member</button>
+                </div>
+            </form>
+        </div>
+    </main>
+</section>
 
-    <script src="${pageContext.request.contextPath}/AdminArea/js/script.js"></script>
+<script src="${pageContext.request.contextPath}/AdminArea/js/script.js"></script>
 </body>
 </html>

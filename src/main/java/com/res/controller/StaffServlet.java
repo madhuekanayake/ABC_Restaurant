@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import com.res.model.Staff;
@@ -28,10 +29,35 @@ public class StaffServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
-        if ("delete".equalsIgnoreCase(action)) {
+        if ("edit".equals(action)) {
+            handleEditRequest(request, response);
+        } else if ("delete".equals(action)) {
             handleDeleteRequest(request, response);
         } else {
             displayStaffList(request, response);
+        }
+    }
+
+    private void handleEditRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int staffId = Integer.parseInt(request.getParameter("id"));
+        try {
+            Staff staff = staffService.getStaffById(staffId);
+            request.setAttribute("staff", staff);
+            request.getRequestDispatcher("/AdminArea/edit_staff.jsp").forward(request, response);
+        } catch (SQLException e) {
+            throw new ServletException(e);
+        }
+    }
+
+    private void handleDeleteRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int staffId = Integer.parseInt(request.getParameter("id"));
+        try {
+            staffService.deleteStaff(staffId);
+            HttpSession session = request.getSession();
+            session.setAttribute("alertMessage", "Staff member deleted successfully!");
+            response.sendRedirect(request.getContextPath() + "/staff");
+        } catch (SQLException e) {
+            throw new ServletException(e);
         }
     }
 
@@ -45,22 +71,59 @@ public class StaffServlet extends HttpServlet {
         }
     }
 
-    private void handleDeleteRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int staffId = Integer.parseInt(request.getParameter("id"));
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String action = request.getParameter("action");
+
+        if ("update".equals(action)) {
+            handleUpdateRequest(request, response);
+        } else {
+            handleAddRequest(request, response);
+        }
+    }
+
+    private void handleUpdateRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        String name = request.getParameter("name");
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
+
         try {
-            staffService.deleteStaff(staffId);
+            Staff staff = staffService.getStaffById(id);
+            staff.setName(name);
+            staff.setEmail(email);
+            staff.setPassword(password);
+
+            Part filePart = request.getPart("newProfileImage");
+            if (filePart != null && filePart.getSize() > 0) {
+                String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
+                String fileExtension = fileName.substring(fileName.lastIndexOf("."));
+                String newFileName = UUID.randomUUID().toString() + fileExtension;
+
+                String uploadPath = getServletContext().getRealPath("") + File.separator + UPLOAD_DIRECTORY;
+                File uploadDir = new File(uploadPath);
+                if (!uploadDir.exists()) uploadDir.mkdir();
+
+                String filePath = uploadPath + File.separator + newFileName;
+                filePart.write(filePath);
+
+                staff.setProfileImagePath(UPLOAD_DIRECTORY + File.separator + newFileName);
+            }
+
+            staffService.updateStaff(staff);
+            
+            HttpSession session = request.getSession();
+            session.setAttribute("alertMessage", "Staff member updated successfully!");
             response.sendRedirect(request.getContextPath() + "/staff");
         } catch (SQLException e) {
             throw new ServletException(e);
         }
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void handleAddRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        // Handle file upload
         Part filePart = request.getPart("profileImage");
         String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
         String fileExtension = fileName.substring(fileName.lastIndexOf("."));
@@ -79,6 +142,8 @@ public class StaffServlet extends HttpServlet {
 
         try {
             staffService.addStaff(staff);
+            HttpSession session = request.getSession();
+            session.setAttribute("alertMessage", "New staff member added successfully!");
             response.sendRedirect(request.getContextPath() + "/staff");
         } catch (SQLException e) {
             throw new ServletException(e);

@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import com.res.model.Facility;
@@ -29,10 +30,22 @@ public class FacilityServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
-        if ("delete".equals(action)) {
+        
+        if ("edit".equals(action)) {
+            int facilityId = Integer.parseInt(request.getParameter("id"));
+            try {
+                Facility facility = facilityService.getFacilityById(facilityId);
+                request.setAttribute("facility", facility);
+                request.getRequestDispatcher("/AdminArea/edit_facility.jsp").forward(request, response);
+            } catch (SQLException e) {
+                throw new ServletException(e);
+            }
+        } else if ("delete".equals(action)) {
             int facilityId = Integer.parseInt(request.getParameter("id"));
             try {
                 facilityService.deleteFacility(facilityId);
+                HttpSession session = request.getSession();
+                session.setAttribute("alertMessage", "Facility deleted successfully!");
                 response.sendRedirect(request.getContextPath() + "/facility_index");
             } catch (SQLException e) {
                 throw new ServletException(e);
@@ -50,31 +63,71 @@ public class FacilityServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String name = request.getParameter("name");
-        String description = request.getParameter("description");
+        String action = request.getParameter("action");
 
-        // Handle file upload
-        Part filePart = request.getPart("facilityImage");
-        String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
-        String fileExtension = fileName.substring(fileName.lastIndexOf("."));
-        String newFileName = UUID.randomUUID().toString() + fileExtension;
+        if ("update".equals(action)) {
+            int id = Integer.parseInt(request.getParameter("id"));
+            String name = request.getParameter("name");
+            String description = request.getParameter("description");
+            
+            try {
+                Facility facility = facilityService.getFacilityById(id);
+                facility.setName(name);
+                facility.setDescription(description);
 
-        String uploadPath = getServletContext().getRealPath("") + File.separator + UPLOAD_DIRECTORY;
-        File uploadDir = new File(uploadPath);
-        if (!uploadDir.exists()) uploadDir.mkdir();
+                Part filePart = request.getPart("newFacilityImage");
+                if (filePart != null && filePart.getSize() > 0) {
+                    String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
+                    String fileExtension = fileName.substring(fileName.lastIndexOf("."));
+                    String newFileName = UUID.randomUUID().toString() + fileExtension;
 
-        String filePath = uploadPath + File.separator + newFileName;
-        filePart.write(filePath);
+                    String uploadPath = getServletContext().getRealPath("") + File.separator + UPLOAD_DIRECTORY;
+                    File uploadDir = new File(uploadPath);
+                    if (!uploadDir.exists()) uploadDir.mkdir();
 
-        String facilityImagePath = UPLOAD_DIRECTORY + File.separator + newFileName;
+                    String filePath = uploadPath + File.separator + newFileName;
+                    filePart.write(filePath);
 
-        Facility facility = new Facility(name, description, facilityImagePath);
+                    facility.setFacilityImagePath(UPLOAD_DIRECTORY + File.separator + newFileName);
+                }
 
-        try {
-            facilityService.addFacility(facility);
-            response.sendRedirect(request.getContextPath() + "/facility_index");
-        } catch (SQLException e) {
-            throw new ServletException(e);
+                facilityService.updateFacility(facility);
+                
+                HttpSession session = request.getSession();
+                session.setAttribute("alertMessage", "Facility updated successfully!");
+                
+                response.sendRedirect(request.getContextPath() + "/facility_index");
+            } catch (SQLException e) {
+                throw new ServletException(e);
+            }
+        } else {
+            String name = request.getParameter("name");
+            String description = request.getParameter("description");
+
+            Part filePart = request.getPart("facilityImage");
+            String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
+            String fileExtension = fileName.substring(fileName.lastIndexOf("."));
+            String newFileName = UUID.randomUUID().toString() + fileExtension;
+
+            String uploadPath = getServletContext().getRealPath("") + File.separator + UPLOAD_DIRECTORY;
+            File uploadDir = new File(uploadPath);
+            if (!uploadDir.exists()) uploadDir.mkdir();
+
+            String filePath = uploadPath + File.separator + newFileName;
+            filePart.write(filePath);
+
+            String facilityImagePath = UPLOAD_DIRECTORY + File.separator + newFileName;
+
+            Facility facility = new Facility(name, description, facilityImagePath);
+
+            try {
+                facilityService.addFacility(facility);
+                HttpSession session = request.getSession();
+                session.setAttribute("alertMessage", "New facility added successfully!");
+                response.sendRedirect(request.getContextPath() + "/facility_index");
+            } catch (SQLException e) {
+                throw new ServletException(e);
+            }
         }
     }
 }
