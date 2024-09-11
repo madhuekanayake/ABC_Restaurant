@@ -14,7 +14,7 @@ import util.DatabaseUtil;
 
 public class ProductDAO {
 
-    // Method to add a new product to the database
+    
     public void addProduct(Product product) throws SQLException {
         String sql = "INSERT INTO product (name, price, description, category, product_image_path) VALUES (?, ?, ?, ?, ?)";
         try (Connection conn = DatabaseUtil.getConnection();
@@ -28,7 +28,7 @@ public class ProductDAO {
         }
     }
 
-    // Method to retrieve all products from the database
+    
     public List<Product> getAllProducts() throws SQLException {
         List<Product> productList = new ArrayList<>();
         String sql = "SELECT * FROM product";
@@ -49,7 +49,7 @@ public class ProductDAO {
         return productList;
     }
 
-    // Method to delete a product from the database
+    
     public void deleteProduct(int productId) throws SQLException {
         String sql = "DELETE FROM product WHERE id = ?";
         try (Connection conn = DatabaseUtil.getConnection();

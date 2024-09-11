@@ -59,7 +59,7 @@ public class CustomerDAO {
                 customer.setId(rs.getInt("id"));
                 customer.setUsername(rs.getString("username"));
                 customer.setEmail(rs.getString("email"));
-                customer.setPassword(rs.getString("password")); // Optional: Only if you want to include the password.
+                customer.setPassword(rs.getString("password")); 
                 customers.add(customer);
             }
         } catch (SQLException e) {

@@ -25,7 +25,7 @@ public class ReviewServlet extends HttpServlet {
             if (action != null && action.equals("delete")) {
                 int id = Integer.parseInt(request.getParameter("id"));
                 reviewService.deleteReview(id);
-                // Add success message to session
+                
                 request.getSession().setAttribute("success", "Review deleted successfully.");
                 response.sendRedirect(request.getContextPath() + "/StaffArea/reviews.jsp");
             } else {

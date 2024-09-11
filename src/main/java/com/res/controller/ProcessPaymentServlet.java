@@ -20,14 +20,13 @@ public class ProcessPaymentServlet extends HttpServlet {
         
         OrderService orderService = new OrderService();
         try {
-            // Process payment logic here (e.g., integrate with a payment gateway)
-            // For this example, we'll assume the payment is always successful
+            
             boolean paymentSuccessful = true;
             
             if (paymentSuccessful) {
-                orderService.updateOrderStatus(orderId, 1); // Set status to 1 (paid)
+                orderService.updateOrderStatus(orderId, 1); 
                 
-                // Set a session attribute to trigger the success message
+                
                 HttpSession session = request.getSession();
                 session.setAttribute("paymentSuccess", true);
                 

@@ -25,7 +25,7 @@ public class ProductService {
         return productDAO.getProductById(productId);
     }
 
-    // Add this new method
+    
     public List<Product> searchProducts(String query) throws SQLException {
         return productDAO.searchProducts(query);
     }

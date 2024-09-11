@@ -46,11 +46,11 @@
 <body>
     <jsp:include page="./sideBar.jsp" />
     
-    <!-- CONTENT -->
+
     <section id="content">
         <jsp:include page="./navBar.jsp" />
         
-        <!-- MAIN -->
+     
         <main>
             <div class="head-title">
                 <div class="left">
@@ -99,7 +99,7 @@
                         <i class='bx bx-filter' ></i>
                     </div>
 
-                    <!-- Order Details Table -->
+                   
                     <table class="order-table">
                         <thead>
                             <tr>
@@ -132,16 +132,16 @@
                             </c:forEach>
                         </tbody>
                     </table>
-                    <!-- End of Order Details Table -->
+               
 
                 </div>
                 
                 
             </div>
         </main>
-        <!-- MAIN -->
+     
     </section>
-    <!-- CONTENT -->
+  
 
     <script src="./js/script.js"></script>
 </body>

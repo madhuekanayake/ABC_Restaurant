@@ -25,7 +25,7 @@
 </head>
 <body>
 
-<!-- Include Sidebar -->
+
 <section id="sidebar">
     <a href="#" class="brand">
         <i class='bx bxs-smile'></i>
@@ -108,14 +108,14 @@
 </section>
 
 
-<!-- CONTENT -->
+
 <section id="content">
-    <!-- Include Navbar -->
+  
     <jsp:include page="./navBar.jsp" />
 
-    <!-- MAIN -->
+
     <main>
-     <!-- Display alert message if it exists -->
+   
         <c:if test="${not empty sessionScope.alertMessage}">
             <div class="alert alert-success">
                 ${sessionScope.alertMessage}
@@ -137,7 +137,7 @@
             </a>
         </div>
 
-        <!-- Facility Table -->
+      
         <div class="table-data">
             <div class="order">
                 <div class="head">
@@ -173,9 +173,9 @@
             </div>
         </div>
     </main>
-    <!-- MAIN -->
+   
 </section>
-<!-- CONTENT -->
+
 
 <script src="${pageContext.request.contextPath}/AdminArea/js/script.js"></script>
 </body>

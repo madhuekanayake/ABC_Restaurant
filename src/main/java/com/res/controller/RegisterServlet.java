@@ -17,7 +17,7 @@ public class RegisterServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Handle customer registration
+        
         String username = request.getParameter("username");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
@@ -31,7 +31,7 @@ public class RegisterServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Handle listing customers
+        
         List<Customer> customers = customerService.getAllCustomers();
         request.setAttribute("customers", customers);
         request.getRequestDispatcher("/admin/customerList.jsp").forward(request, response);

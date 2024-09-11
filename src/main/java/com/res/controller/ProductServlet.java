@@ -105,7 +105,7 @@ public class ProductServlet extends HttpServlet {
                 throw new ServletException(e);
             }
         } else {
-            // Existing code for adding a new product
+            
             String name = request.getParameter("name");
             double price = Double.parseDouble(request.getParameter("price"));
             String description = request.getParameter("description");

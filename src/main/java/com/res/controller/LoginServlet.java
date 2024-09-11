@@ -30,7 +30,7 @@ public class LoginServlet extends HttpServlet {
         if (customer != null) {
             session.setAttribute("customer", customer);
 
-            // Check if the user was trying to access a specific page before logging in
+            
             String redirectAfterLogin = (String) session.getAttribute("redirectAfterLogin");
             if (redirectAfterLogin != null) {
                 session.removeAttribute("redirectAfterLogin");

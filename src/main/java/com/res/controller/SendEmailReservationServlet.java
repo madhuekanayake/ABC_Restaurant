@@ -24,8 +24,8 @@ public class SendEmailReservationServlet extends HttpServlet {
         String userMessage = request.getParameter("customerMessage");
         String staffReply = request.getParameter("replyMessage");
 
-        final String username = "kingchamod2001@gmail.com"; // Replace with your email
-        final String password = "jbta ymaz vqxi gwgb"; // Replace with your password
+        final String username = "kingchamod2001@gmail.com"; 
+        final String password = "jbta ymaz vqxi gwgb"; 
 
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
@@ -88,7 +88,7 @@ public class SendEmailReservationServlet extends HttpServlet {
 
             Transport.send(message);
 
-            // Mark the email as sent in the database
+            
             ReservationDAO reservationDAO = new ReservationDAO();
             reservationDAO.markEmailAsSent(id);
 

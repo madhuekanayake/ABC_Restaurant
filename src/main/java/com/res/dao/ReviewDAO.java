@@ -13,7 +13,7 @@ import util.DatabaseUtil;
 
 public class ReviewDAO {
 
-    // Method to add a new review to the database
+    
     public void addReview(Review review) throws SQLException {
         String sql = "INSERT INTO reviews (username, message) VALUES (?, ?)";
         try (Connection conn = DatabaseUtil.getConnection();
@@ -24,7 +24,7 @@ public class ReviewDAO {
         }
     }
 
-    // Method to retrieve all reviews from the database
+  
     public List<Review> getAllReviews() throws SQLException {
         List<Review> reviewList = new ArrayList<>();
         String sql = "SELECT * FROM reviews";
@@ -42,7 +42,7 @@ public class ReviewDAO {
         return reviewList;
     }
 
-    // Method to delete a review from the database
+    
     public void deleteReview(int id) throws SQLException {
         String sql = "DELETE FROM reviews WHERE id = ?";
         try (Connection conn = DatabaseUtil.getConnection();

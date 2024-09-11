@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="icon" type="image/x-icon" href="./assets/img/ABC_logo.jpg">
+    <link rel="icon" type="image/x-icon" href="./assets/img/ABC_logo.jpg">
     <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/admin_login.css" />
     <title>ABC Restaurant</title>
@@ -26,7 +26,7 @@
                         <div class="error-message">
                             <%= session.getAttribute("error") %>
                         </div>
-                        <% session.removeAttribute("error"); %> <!-- Remove the error after displaying it -->
+                        <% session.removeAttribute("error"); %> 
                     <% } %>
                     
                     <div class="input-field">

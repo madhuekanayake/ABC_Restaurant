@@ -13,7 +13,7 @@ import util.DatabaseUtil;
 
 public class OfferDAO {
 
-    // Method to add a new offer to the database
+   
     public void addOffer(Offer offer) throws SQLException {
         String sql = "INSERT INTO offers (description, offer_image_path) VALUES (?, ?)";
         try (Connection conn = DatabaseUtil.getConnection();
@@ -24,7 +24,7 @@ public class OfferDAO {
         }
     }
 
-    // Method to retrieve all offers from the database
+    
     public List<Offer> getAllOffers() throws SQLException {
         List<Offer> offerList = new ArrayList<>();
         String sql = "SELECT * FROM offers";

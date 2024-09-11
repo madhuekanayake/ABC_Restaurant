@@ -45,7 +45,7 @@ public class AdminDAO {
                     Admin admin = new Admin();
                     admin.setId(rs.getInt("id"));
                     admin.setUsername(rs.getString("username"));
-                    // Don't set the password for security reasons
+                    
                     return admin;
                 }
             }

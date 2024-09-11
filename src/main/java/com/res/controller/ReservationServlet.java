@@ -26,20 +26,20 @@ public class ReservationServlet extends HttpServlet {
         String person = request.getParameter("person");
         String branch = request.getParameter("branch");
 
-        // Create a new Reservation object
+       
         Reservation reservation = new Reservation(0, name, email, phone, date, time, person, branch, 0, false);
 
         try {
             reservationService.addReservation(reservation);
             
-            // Set success message in session
+            
             HttpSession session = request.getSession();
             session.setAttribute("successMessage", "Your reservation has been successfully submitted!");
             response.sendRedirect(request.getContextPath() + "/PublicArea/reservation.jsp");
         } catch (SQLException e) {
-            // Log the exception
+         
             getServletContext().log("Error adding reservation", e);
-            // Set error message in session
+          
             HttpSession session = request.getSession();
             session.setAttribute("errorMessage", "An error occurred while submitting your reservation. Please try again.");
             response.sendRedirect(request.getContextPath() + "/PublicArea/reservation.jsp");
@@ -52,9 +52,9 @@ public class ReservationServlet extends HttpServlet {
             request.setAttribute("reservationList", reservationList);
             request.getRequestDispatcher("/WEB-INF/views/reservation_list.jsp").forward(request, response);
         } catch (SQLException e) {
-            // Log the exception
+          
             getServletContext().log("Error retrieving reservations", e);
-            // Set error message in request
+           
             request.setAttribute("errorMessage", "An error occurred while retrieving reservations. Please try again.");
             request.getRequestDispatcher("/WEB-INF/views/error.jsp").forward(request, response);
         }

@@ -28,14 +28,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- ... existing head content ... -->
+    
 </head>
 <body>
     <jsp:include page="./sideBar.jsp" />
     <section id="content">
         <jsp:include page="./navBar.jsp" />
         <main>
-            <!-- ... existing content ... -->
+            
             <ul class="box-info">
                 <li>
                     <i class='bx bxs-calendar-check' ></i>

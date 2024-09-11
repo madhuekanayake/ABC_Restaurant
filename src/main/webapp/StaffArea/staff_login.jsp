@@ -26,7 +26,7 @@
                         <div class="error-message">
                             <%= session.getAttribute("error") %>
                         </div>
-                        <% session.removeAttribute("error"); %> <!-- Remove the error after displaying it -->
+                        <% session.removeAttribute("error"); %> 
                     <% } %>
                     
                     <div class="input-field">

@@ -85,7 +85,7 @@ public class ContactServlet extends HttpServlet {
             Contact contact = contactService.getContactById(id);
             contactService.updateContactStatus(id, status);
             
-            // URL encode the name, email, and message to handle special characters
+            
             String encodedName = java.net.URLEncoder.encode(contact.getName(), "UTF-8");
             String encodedEmail = java.net.URLEncoder.encode(contact.getEmail(), "UTF-8");
             String encodedMessage = java.net.URLEncoder.encode(contact.getMessage(), "UTF-8");

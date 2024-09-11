@@ -25,5 +25,5 @@ public class Admin {
         this.password = password;
     }
 
-    // Constructors, if needed
+   
 }

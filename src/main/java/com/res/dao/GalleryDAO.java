@@ -13,7 +13,7 @@ import com.res.model.Gallery;
 import util.DatabaseUtil;
 
 public class GalleryDAO {
-    // Method to add a new gallery image to the database
+    
     public void addGalleryImage(Gallery gallery) throws SQLException {
         String sql = "INSERT INTO gallery (description, gallery_image_path) VALUES (?, ?)";
         try (Connection conn = DatabaseUtil.getConnection();
@@ -24,7 +24,7 @@ public class GalleryDAO {
         }
     }
 
-    // Method to retrieve all gallery images from the database
+    
     public List<Gallery> getAllGalleryImages() throws SQLException {
         List<Gallery> galleryList = new ArrayList<>();
         String sql = "SELECT * FROM gallery";

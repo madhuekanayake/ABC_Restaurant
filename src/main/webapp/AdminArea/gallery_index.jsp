@@ -110,7 +110,7 @@
     <jsp:include page="./navBar.jsp" />
 
     <main>
-        <!-- Display alert message if it exists -->
+     
         <c:if test="${not empty sessionScope.alertMessage}">
             <div class="alert alert-success">
                 ${sessionScope.alertMessage}

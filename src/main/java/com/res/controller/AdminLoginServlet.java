@@ -27,7 +27,7 @@ public class AdminLoginServlet extends HttpServlet {
             
             switch (authResult) {
                 case AdminService.AUTH_SUCCESS:
-                    // Authentication successful
+                    
                     Admin admin = adminService.getAdminByUsername(username);
                     session.setAttribute("admin", admin); // Store admin object in session
                     response.sendRedirect(request.getContextPath() + "/AdminArea/dashboard.jsp");

@@ -23,24 +23,24 @@ public class SendEmailServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Retrieve form data
+        
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String subject = request.getParameter("subject");
         String userMessage = request.getParameter("customerMessage");
         String staffReply = request.getParameter("replyMessage");
 
-        final String username = "kingchamod2001@gmail.com"; // Replace with your email id
-        final String password = "jbta ymaz vqxi gwgb";  // Replace with your email password
+        final String username = "kingchamod2001@gmail.com"; 
+        final String password = "jbta ymaz vqxi gwgb";  
 
-        // Mail server properties
+      
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.smtp.host", "smtp.gmail.com");
         props.put("mail.smtp.port", "587");
 
-        // Create session for email
+        
         Session session = Session.getInstance(props,
                 new javax.mail.Authenticator() {
                     @Override
@@ -98,25 +98,25 @@ public class SendEmailServlet extends HttpServlet {
                 + "</body>"
                 + "</html>";
 
-            // Prepare message part
+           
             MimeBodyPart textPart = new MimeBodyPart();
             textPart.setContent(htmlContent, "text/html");
 
-            // Combine into multipart
+          
             Multipart multipart = new MimeMultipart();
             multipart.addBodyPart(textPart);
 
-            // Set content
+           
             message.setContent(multipart);
 
-            // Send email
+           
             Transport.send(message);
 
-            // Redirect to success page after sending the email
+           
             response.sendRedirect(request.getContextPath() + "/StaffArea/emailSentSuccess.jsp");
 
         } catch (Exception e) {
-            // Handle errors
+           
             response.setContentType("text/html");
             PrintWriter out = response.getWriter();
             out.println("<center><h2 style='color:red;'>Error Sending Email!</h2></center>");

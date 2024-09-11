@@ -33,7 +33,7 @@
         }
 
         .btn-delete:hover {
-            background-color: #c82333; /* Slightly darker red for hover effect */
+            background-color: #c82333; 
         }
     </style>
 </head>

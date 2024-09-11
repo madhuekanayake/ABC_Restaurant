@@ -23,7 +23,7 @@
 </head>
 <body>
 
-<!-- SIDEBAR -->
+
  <section id="sidebar">
     <a href="#" class="brand">
         <i class='bx bxs-smile'></i>
@@ -105,14 +105,14 @@
 </script>
 
 </section>
-<!-- SIDEBAR -->
 
-<!-- CONTENT -->
+
+
 <section id="content">
     <jsp:include page="./navBar.jsp" />
 
     <main>
-    <!-- Display alert message if it exists -->
+    
         <c:if test="${not empty sessionScope.alertMessage}">
             <div class="alert alert-success">
                 ${sessionScope.alertMessage}
@@ -151,26 +151,30 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <c:forEach var="offer" items="${offerList}">
-                            <tr>
-                                <td>${offer.id}</td>
-                                <td>${offer.description}</td>
-                                <td>
-                                    <img src="${pageContext.request.contextPath}/${offer.offerImagePath}" alt="Offer Image" style="width: 50">
-                                </td>
-                                <td>
-    <a href="${pageContext.request.contextPath}/offer_index?action=edit&id=${offer.id}" class="btn-edit"><i class='bx bx-edit'></i></a>
-    <a href="${pageContext.request.contextPath}/offer_index?action=delete&id=${offer.id}" class="btn-delete" onclick="return confirm('Are you sure you want to delete this offer?')"><i class='bx bx-trash'></i></a>
-</td>
-                            </tr>
-                        </c:forEach>
-                    </tbody>
+					    <c:forEach var="offer" items="${offerList}">
+					        <tr>
+					            <td>${offer.id}</td>
+					            <td>${offer.description}</td>
+					            <td>
+					                <img src="${pageContext.request.contextPath}/${offer.offerImagePath}" alt="Offer Image"
+					                    style="width: 50">
+					            </td>
+					            <td>
+					                <a href="${pageContext.request.contextPath}/offer_index?action=edit&id=${offer.id}" class="btn-edit"><i
+					                        class='bx bx-edit'></i></a>
+					                <a href="${pageContext.request.contextPath}/offer_index?action=delete&id=${offer.id}" class="btn-delete"
+					                    onclick="return confirm('Are you sure you want to delete this offer?')"><i
+					                        class='bx bx-trash'></i></a>
+					            </td>
+					        </tr>
+					    </c:forEach>
+					</tbody>
                 </table>
             </div>
         </div>
     </main>
 </section>
-<!-- CONTENT -->
+
 
 <script src="${pageContext.request.contextPath}/AdminArea/js/script.js?v=1.0"></script>
 </body>

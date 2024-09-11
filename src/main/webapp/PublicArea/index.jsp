@@ -11,7 +11,7 @@
     request.setAttribute("offerList", offerList);
 %>
 <jsp:include page="./navBar.jsp" />
-    <!-- END nav -->
+   
     
     <section class="home-slider owl-carousel js-fullheight">
       <div class="slider-item js-fullheight" style="background-image: url(images/bg_1.jpg);">

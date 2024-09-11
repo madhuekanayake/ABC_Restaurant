@@ -13,7 +13,7 @@ public class Contact {
         this.email = email;
         this.subject = subject;
         this.message = message;
-        this.status = 0; // Default status is 0 (not replied)
+        this.status = 0; 
     }
 
     public Contact(int id, String name, String email, String subject, String message, int status) {

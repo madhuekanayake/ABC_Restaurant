@@ -33,14 +33,8 @@
     </script>
 
     <style>
-        /* General container styling */
-        
-
-        
-
-        
-
-        /* Form styling */
+     
+       
         .compose-email {
             margin-bottom: 20px;
         }
@@ -77,7 +71,6 @@
             background-color: #0056b3;
         }
 
-        /* Table styling */
         
     </style>
 </head>
@@ -104,7 +97,7 @@
                     <h3>Subscriptions</h3>
                 </div>
 
-                <!-- Email Composition Form -->
+             
                 <div class="compose-email">
                     <form action="${pageContext.request.contextPath}/sendBulkEmail" method="post">
                         <input type="text" name="subject" placeholder="Email Subject" required>
@@ -113,7 +106,7 @@
                     </form>
                 </div>
 
-                <!-- Subscription Table -->
+              
                 <table>
                     <thead>
                         <tr>

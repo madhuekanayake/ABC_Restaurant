@@ -13,7 +13,7 @@ import util.DatabaseUtil;
 
 public class SubscriptionDAO {
 
-    // Method to add a new subscription to the database
+
     public void addSubscription(Subscription subscription) throws SQLException {
         String sql = "INSERT INTO subscriptions (email) VALUES (?)";
         try (Connection conn = DatabaseUtil.getConnection();
@@ -23,7 +23,7 @@ public class SubscriptionDAO {
         }
     }
 
-    // Method to retrieve all subscriptions from the database
+   
     public List<Subscription> getAllSubscriptions() throws SQLException {
         List<Subscription> subscriptionList = new ArrayList<>();
         String sql = "SELECT * FROM subscriptions";
@@ -40,7 +40,7 @@ public class SubscriptionDAO {
         return subscriptionList;
     }
 
-    // Method to delete a subscription from the database
+  
     public void deleteSubscription(int id) throws SQLException {
         String sql = "DELETE FROM subscriptions WHERE id = ?";
         try (Connection conn = DatabaseUtil.getConnection();

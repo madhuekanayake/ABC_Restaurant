@@ -25,7 +25,7 @@ public class SubscriptionServlet extends HttpServlet {
             if (action != null && action.equals("delete")) {
                 int id = Integer.parseInt(request.getParameter("id"));
                 subscriptionService.deleteSubscription(id);
-                // Add success message to session
+                
                 request.getSession().setAttribute("success", "Subscription deleted successfully.");
                 response.sendRedirect(request.getContextPath() + "/StaffArea/subscription.jsp");
             } else {
@@ -46,11 +46,11 @@ public class SubscriptionServlet extends HttpServlet {
 
         try {
             subscriptionService.addSubscription(subscription);
-            // Add success message to session
+            
             request.getSession().setAttribute("success", "You have been successfully subscribed.");
             response.sendRedirect(request.getContextPath() + "/PublicArea/index.jsp");
         } catch (SQLException e) {
-            // Handle error appropriately (no error message as per your request)
+            
             response.sendRedirect(request.getContextPath() + "/PublicArea/index.jsp");
         }
     }

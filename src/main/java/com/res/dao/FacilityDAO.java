@@ -13,7 +13,7 @@ import com.res.model.Facility;
 import util.DatabaseUtil;
 
 public class FacilityDAO {
-    // Method to add a new facility to the database
+    
     public void addFacility(Facility facility) throws SQLException {
         String sql = "INSERT INTO facility (name, description, facility_image_path) VALUES (?, ?, ?)";
         try (Connection conn = DatabaseUtil.getConnection();
@@ -25,7 +25,7 @@ public class FacilityDAO {
         }
     }
 
-    // Method to retrieve all facilities from the database
+    
     public List<Facility> getAllFacilities() throws SQLException {
         List<Facility> facilityList = new ArrayList<>();
         String sql = "SELECT * FROM facility";

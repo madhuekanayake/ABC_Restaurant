@@ -100,7 +100,7 @@ request.setAttribute("staffList", staffList);
     document.getElementById('logout-link').addEventListener('click', function(event) {
         var confirmation = confirm('Do you want to log out?');
         if (!confirmation) {
-            event.preventDefault(); // Prevents the default action (navigation) if the user cancels
+            event.preventDefault(); 
         }
     });
 </script>
@@ -111,7 +111,7 @@ request.setAttribute("staffList", staffList);
         <jsp:include page="./navBar.jsp" />
 
         <main>
-         <!-- Display alert message if it exists -->
+         
         <c:if test="${not empty sessionScope.alertMessage}">
             <div class="alert alert-success">
                 ${sessionScope.alertMessage}
@@ -152,23 +152,26 @@ request.setAttribute("staffList", staffList);
                             </tr>
                         </thead>
                         <tbody>
-                           <c:forEach var="staff" items="${staffList}">
-    <tr>
-        <td>${staff.id}</td>
-        <td>${staff.name}</td>
-        <td>${staff.email}</td>
-        <td>${staff.password}</td>
-        <td>
-            <img src="${pageContext.request.contextPath}/${staff.profileImagePath}" alt="${staff.name}" width="50">
-        </td>
-        <td>
-            <a href="${pageContext.request.contextPath}/staff?action=edit&id=${staff.id}" class="btn-edit"><i class='bx bx-edit'></i></a>
-            <a href="${pageContext.request.contextPath}/staff?action=delete&id=${staff.id}" class="btn-delete" onclick="return confirm('Are you sure you want to delete this staff member?')"><i class='bx bx-trash'></i></a>
-        </td>
-    </tr>
-</c:forEach>
-                           
-                        </tbody>
+							    <c:forEach var="staff" items="${staffList}">
+							        <tr>
+							            <td>${staff.id}</td>
+							            <td>${staff.name}</td>
+							            <td>${staff.email}</td>
+							            <td>${staff.password}</td>
+							            <td>
+							                <img src="${pageContext.request.contextPath}/${staff.profileImagePath}" alt="${staff.name}" width="50">
+							            </td>
+							            <td>
+							                <a href="${pageContext.request.contextPath}/staff?action=edit&id=${staff.id}" class="btn-edit"><i
+							                        class='bx bx-edit'></i></a>
+							                <a href="${pageContext.request.contextPath}/staff?action=delete&id=${staff.id}" class="btn-delete"
+							                    onclick="return confirm('Are you sure you want to delete this staff member?')"><i
+							                        class='bx bx-trash'></i></a>
+							            </td>
+							        </tr>
+							    </c:forEach>
+							
+							</tbody>
                     </table>
                 </div>
             </div>

@@ -27,7 +27,7 @@ public class CheckoutServlet extends HttpServlet {
             return;
         }
 
-        // Get form data
+        
         String firstName = request.getParameter("firstName");
         String lastName = request.getParameter("lastName");
         String phone = request.getParameter("phone");
@@ -43,12 +43,12 @@ public class CheckoutServlet extends HttpServlet {
             int orderId = orderService.saveOrder(customer, cart, firstName, lastName, phone, email, address, city, house, postalCode, zip, message);
             session.removeAttribute("cart");
             
-            // Store order information in the session
+            
             session.setAttribute("orderId", orderId);
             session.setAttribute("totalAmount", cart.getTotal());
             session.setAttribute("customerName", firstName + " " + lastName);
             
-            // Redirect to the payment page
+            
             response.sendRedirect(request.getContextPath() + "/PublicArea/payment.jsp");
         } catch (Exception e) {
             throw new ServletException("Error processing checkout", e);

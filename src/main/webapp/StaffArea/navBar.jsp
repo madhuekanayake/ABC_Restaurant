@@ -4,17 +4,17 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<!-- Boxicons -->
+
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<link rel="icon" type="image/x-icon" href="./Image/ABC_logo.jpg">
 	
-	<!-- My CSS -->
+
 	<link rel="stylesheet" href="./css/style.css">
 
 	<title>ABC Restaurant</title>
 </head>
 <body>
-<!-- NAVBAR -->
+
 		<nav>
 			<i class='bx bx-menu' ></i>
 			<a href="#" class="nav-link">Categories</a>
@@ -30,4 +30,4 @@
 			Staff
 			</a>
 		</nav>
-		<!-- NAVBAR -->
+	

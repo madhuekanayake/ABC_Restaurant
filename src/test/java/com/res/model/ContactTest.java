@@ -11,7 +11,7 @@ public class ContactTest {
 
     @BeforeEach
     public void setUp() {
-        // Initialize the Contact object with some sample data
+        
         contact = new Contact("Jane Doe", "jane.doe@example.com", "Inquiry", "I would like more information.");
     }
 
@@ -19,7 +19,7 @@ public class ContactTest {
     public void testDefaultConstructor() {
         Contact defaultContact = new Contact(1, "John Smith", "john.smith@example.com", "Support", "Need help with my account.", 1);
 
-        // Verify the default values
+        
         assertEquals(1, defaultContact.getId());
         assertEquals("John Smith", defaultContact.getName());
         assertEquals("john.smith@example.com", defaultContact.getEmail());
@@ -46,7 +46,7 @@ public class ContactTest {
         contact.setMessage("Great service, thanks!");
         contact.setStatus(1);
 
-        // Verify the updated values
+        
         assertEquals(2, contact.getId());
         assertEquals("Alice Johnson", contact.getName());
         assertEquals("alice.johnson@example.com", contact.getEmail());
@@ -57,11 +57,7 @@ public class ContactTest {
 
     @Test
     public void testToString() {
-        // If you have a toString() method, you can test it here
-        // For example:
-        // String expected = "Contact{id=0, name='Jane Doe', email='jane.doe@example.com', subject='Inquiry', message='I would like more information.', status=0}";
-        // assertEquals(expected, contact.toString());
-        // If not, you can skip this test.
+        
     }
 
 }
